@@ -1,0 +1,52 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<nav class="navbar">
+    <div class="navbar-links">
+        <a href="/home" class="nav-link">{% trans "Home" %}</a>
+        <span style="position:relative;display:inline-block;">
+            <a href="/gallery" class="nav-link">{% trans "Gallery" %}</a>
+            <span class="coming-soon">{% trans "Coming Soon" %}</span>
+        </span>
+        <a href="/rsvp" class="nav-link">{% trans "RSVP" %}</a>
+        <a href="/volunteer" class="nav-link">{% trans "Volunteer" %}</a>
+        <span style="position:relative;display:inline-block;">
+            <a href="/freebies" class="nav-link">{% trans "Freebies" %}</a>
+            <span class="for-you">{% trans "for you!" %}</span>
+        </span>
+    </div>
+    <form action="{% url 'set_language' %}" method="post" class="lang-toggle">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+        <button type="submit" name="language" value="en" class="lang-btn {% if LANGUAGE_CODE == 'en' %}active{% endif %}">EN</button>
+        <button type="submit" name="language" value="zh-hans" class="lang-btn {% if LANGUAGE_CODE == 'zh-hans' %}active{% endif %}">中文</button>
+    </form>
+    <button id="speaker-btn" style="background:none; border:none; margin-left:16px; cursor:pointer; font-size:1.1em; display:flex; align-items:center;">
+        <span id="speaker-icon" style="font-size:2.5rem;">🔈</span>
+        <span id="speaker-status" class="nav-link" style="margin-left:8px;">Off</span>
+    </button>
+    <audio id="wedding-audio" src="/static/Christina%20Perri%20-%20A%20Thousand%20years%20-%20ThePianoGuys.mp3"></audio>
+</nav>
+<script>
+    const speakerBtn = document.getElementById('speaker-btn');
+    const speakerIcon = document.getElementById('speaker-icon');
+    const speakerStatus = document.getElementById('speaker-status');
+    const weddingAudio = document.getElementById('wedding-audio');
+    let speakerOn = false;
+    speakerBtn.addEventListener('click', function() {
+        speakerOn = !speakerOn;
+        if (speakerOn) {
+            speakerIcon.textContent = '🔊';
+            speakerStatus.textContent = 'On';
+            weddingAudio.play();
+        } else {
+            speakerIcon.textContent = '🔈';
+            speakerStatus.textContent = 'Off';
+            weddingAudio.pause();
+        }
+    });
+    // Pause audio if user leaves page or navigates away
+    window.addEventListener('beforeunload', function() {
+        weddingAudio.pause();
+        weddingAudio.currentTime = 0;
+    });
+</script>

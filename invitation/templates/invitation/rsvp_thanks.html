@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You - Our Wedding</title>
+    <style>
+        body {
+            background: #fff0f6;
+            color: #d6336c;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+            padding: 32px;
+            text-align: center;
+        }
+        h1 {
+            color: #d6336c;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+        p {
+            color: #f783ac;
+            font-size: 1.2em;
+        }
+        a {
+            color: #d6336c;
+            text-decoration: underline;
+        }
+        .navbar {
+            width: 100%;
+            background: #fff0f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #f783ac;
+        }
+        .nav-link {
+            color: #d6336c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .nav-link:hover {
+            background: #f783ac;
+            color: #fff;
+        }
+        .lang-toggle {
+            margin-left: 32px;
+            display: flex;
+            gap: 4px;
+        }
+        .lang-btn {
+            background: #fff;
+            color: #d6336c;
+            border: 1px solid #f783ac;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: #f783ac;
+            color: #fff;
+        }
+        .coming-soon {
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #f783ac;
+            color: #fff;
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+            pointer-events: none;
+            width: max-content;
+        }
+    </style>
+</head>
+<body>
+    {% include 'invitation/navbar.html' %}
+    <div class="container">
+        <h1>Thank You!</h1>
+        <p>Your RSVP has been received.<br>We look forward to celebrating with you!</p>
+        <a href="/home">Back to Home</a>
+    </div>
+</body>
+</html>

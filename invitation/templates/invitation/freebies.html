@@ -1,0 +1,282 @@
+{% extends 'invitation/home.html' %}
+{% load i18n %}
+{% block content %}
+<style>
+.card {
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #fff 60%, #f3e5f5 100%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 24px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin-bottom: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+  transform: scale(1.03);
+}
+.card-icon {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 8px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.25), 0 0 0 #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    opacity: 1;
+    color: #d6336c;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    pointer-events: none;
+    z-index: 2;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.card-title, .card-content {
+  font-size: 1.35rem;
+}
+.card-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 1.2rem;
+  margin-right: 0;
+  color: #d6336c;
+  font-size: 1.15rem;
+  min-height: 48px; /* Ensures consistent height for all titles, including Chinese */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.card-title.salvation-title {
+  font-size: 2rem !important;
+  color: #b8004c;
+  margin-top: 3.5rem;
+}
+.card-content {
+  padding: 0;
+  width: 100%;
+  color: #000;
+}
+.card.bg-pink,
+.card.bg-blue,
+.card.bg-green,
+.card.bg-yellow,
+.card.bg-orange,
+.card.bg-purple,
+.card.bg-cyan,
+.card.bg-blue2,
+.card.bg-green2,
+.card.bg-yellow2,
+.card.bg-orange2,
+.card.bg-purple2,
+.card.bg-cyan2 {
+  align-items: center;
+  text-align: center;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 340px;
+  position: relative;
+}
+.card.bg-pink img,
+.card.bg-blue2 img,
+.card.bg-green2 img,
+.card.bg-yellow2 img,
+.card.bg-orange2 img,
+.card.bg-purple2 img,
+.card.bg-cyan2 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card .btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  margin-top: 0;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+  justify-items: center;
+}
+.card.bg-blue2 {
+  background: linear-gradient(135deg, #fff 60%, #a0c4ff 100%);
+}
+.card.bg-green2 {
+  background: linear-gradient(135deg, #fff 60%, #b9fbc0 100%);
+}
+.card.bg-yellow2 {
+  background: linear-gradient(135deg, #fff 60%, #ffe066 100%);
+}
+.card.bg-orange2 {
+  background: linear-gradient(135deg, #fff 60%, #ffd6a5 100%);
+}
+.card.bg-purple2 {
+  background: linear-gradient(135deg, #fff 60%, #bdb2ff 100%);
+}
+.card.bg-cyan2 {
+  background: linear-gradient(135deg, #fff 60%, #9bf6ff 100%);
+}
+
+/* Salvation section card overrides */
+.salvation-section .card {
+  min-height: 320px;
+  height: auto;
+  padding-bottom: 32px;
+  align-items: flex-start;
+  text-align: left;
+  word-break: break-word;
+}
+.salvation-section .card .card-title,
+.salvation-section .card .card-content {
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+.salvation-section .card .card-content {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.salvation-section .card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.salvation-section .card-grid .card:not(:first-child) {
+  width: 100%;
+  max-width: 100%;
+  justify-self: stretch;
+}
+.salvation-section .card-grid .card:first-child {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+}
+.salvation-section .card-grid .card:first-child {
+  grid-column: 1 / -1;
+  max-width: 100%;
+  width: 100%;
+}
+.salvation-section .card.bg-blue {
+  background: linear-gradient(135deg, #fff 60%, #ffdde4 100%) !important;
+  border: 2px solid #d6336c;
+}
+.salvation-section .card.bg-green {
+  background: linear-gradient(135deg, #fff 60%, #ffdde4 100%) !important;
+  border: 2px solid #d6336c;
+}
+.salvation-section .card.bg-yellow {
+  background: linear-gradient(135deg, #fff 60%, #ffdde4 100%) !important;
+  border: 2px solid #d6336c;
+}
+.salvation-section .card {
+  color: #d6336c;
+}
+</style>
+<div class="container">
+    <h1>{% trans "Freebies" %}</h1>
+    <p style="font-size:1.25rem;">{% trans "Welcome to our Freebies page! Here you'll find special gifts and resources for our guests." %}</p>
+    <div class="card-grid" style="margin-bottom: 40px;">
+        <div class="card bg-pink">
+            <img src="/static/booksimages/A-Lamp-to-my-12-Blocks-Salvation-From-Household-to-the-Nations.png" alt="A Lamp to my 12 Blocks Salvation From Household to the Nations" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "A Lamp to my 12 Blocks Salvation: From Household to the Nations" %}</div>
+            <a href="/static/books/A-Lamp-to-my-12-Blocks-Salvation-From-Household-to-the-Nations.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-blue2">
+            <img src="/static/booksimages/Biblical-Guide-To-Heavens-Entry.jpeg" alt="Biblical Guide to Heaven Entry" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "Biblical Guide to Heaven Entry" %}</div>
+            <a href="/static/books/Biblical-Guide-to-Heaven-Entry.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-green2">
+            <img src="/static/booksimages/Building-a-God-Centered-Family-A-Guide-For-Biblical-Living.png" alt="Building a God Centered Family A Guide For Biblical Living" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "Building a God Centered Family: A Guide For Biblical Living" %}</div>
+            <a href="/static/books/Building-a-God-Centered-Family-A-Guide-For-Biblical-Living.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-yellow2">
+            <img src="/static/booksimages/The-Seasons-of-Life-Finishing-Well-Before-the-Judgment-Seat.png" alt="The Seasons of Life Finishing Well Before the Judgment Seat" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "The Seasons of Life: Finishing Well Before the Judgment Seat" %}</div>
+            <a href="/static/books/The-Seasons-of-Life-Finishing-Well-Before-the-Judgment-Seat.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-orange2">
+            <img src="/static/booksimages/人生的季節-在審判台前跑完好路.png" alt="人生的季節 在審判台前跑完好路" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "人生的季節: 在審判台前跑完好路" %}</div>
+            <a href="/static/books/人生的季節-在審判台前跑完好路.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-purple2">
+            <img src="/static/booksimages/圣经上的进入天堂指南.png" alt="圣经上的进入天堂指南" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "圣经上的进入天堂指南" %}</div>
+            <a href="/static/books/圣经上的进入天堂指南.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+        <div class="card bg-cyan2">
+            <img src="/static/booksimages/照亮我的十二区-救恩从家庭传于万国.png" alt="照亮我的十二区 救恩从家庭传于万国" style="width:60px;height:auto;margin-bottom:12px;">
+            <div class="card-title">{% trans "照亮我的十二区: 救恩从家庭传于万国" %}</div>
+            <a href="/static/books/照亮我的十二区-救恩从家庭传于万国.pdf" download class="btn">{% trans "Download" %}</a>
+        </div>
+    </div>
+
+
+    <div class="salvation-section" style="margin-top:32px;">
+        <h2 style="color:#d6336c; font-size:2.4rem; font-weight:800; letter-spacing:1px; margin-bottom:18px;">{% trans "The Greatest Free Gift" %}</h2>
+        <blockquote style="margin:16px 0; padding:12px; background:#fff; border-left:4px solid #d6336c; color:#243c5a; font-style:italic; font-size:1.6rem; line-height:1.5;">{% blocktrans %}"For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast."<br><span style="color:#d6336c; font-size:1.25rem; font-weight:bold;">Ephesians 2:8-9</span>{% endblocktrans %}</blockquote>
+        <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#243c5a;">{% trans "Last but certainly not least, the best free gift is the gift of salvation from the Lord Jesus Christ." %}</p>
+        <div class="card-grid">
+            <div class="card bg-blue" style="grid-column: 1 / span 2; background: linear-gradient(135deg, #fff 60%, #a0c4ff 100%) !important; border: 2px solid #1976d2; color: #1976d2;">
+                <span class="card-icon">✝️</span>
+                <div class="card-title salvation-title">{% trans "Who is Jesus?" %}</div>
+                <div class="card-content">{% trans "Jesus is the Son of God, sent into the world to save us from our sins. He lived a perfect, sinless life, showed God's love through His teachings and miracles, and willingly gave His life on the cross as a sacrifice for us. Three days later, He rose from the dead, proving His victory over sin and death. Through Jesus, we can know God personally and receive the gift of eternal life." %}</div>
+            </div>
+            <div class="card bg-green" style="background: linear-gradient(135deg, #fff 60%, #b9fbc0 100%) !important; border: 2px solid #43a047; color: #388e3c;">
+                <span class="card-icon">🙏</span>
+                <div class="card-title salvation-title">{% trans "What is Salvation?" %}</div>
+                <div class="card-content">{% trans "Salvation means being rescued from the consequences of sin—our separation from God and spiritual death. The Bible teaches that everyone has sinned and falls short of God's perfect standard. Sin breaks our relationship with God and leads to eternal separation from Him." %}</div>
+            </div>
+            <div class="card bg-yellow" style="background: linear-gradient(135deg, #fff 60%, #ffe066 100%) !important; border: 2px solid #fbc02d; color: #f9a825;">
+                <span class="card-icon">🌟</span>
+                <div class="card-title salvation-title">{% trans "Why Do We Need Salvation?" %}</div>
+                <div class="card-content">
+                    <p>{% trans "We need salvation because sin separates us from God. On our own, we cannot restore this relationship. But God, in His love, sent Jesus Christ to die for our sins and rise again, so that anyone who believes in Him can be forgiven and reconciled to God." %}</p>
+                    <p>{% trans "Salvation is a free gift, received by faith in Jesus Christ—not by our own efforts or good deeds. Through Him, we receive new life and the promise of eternity with God." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="text-align:center; background:#243c5a; color:#fff; position:relative;">
+      <span class="card-icon" style="font-size:2.5rem; font-weight:bold; padding:8px; text-shadow:1px 1px 6px rgba(0,0,0,0.25), 0 0 0 #fff; display:flex; align-items:center; justify-content:center; position:absolute; top:16px; right:24px; opacity:1; color:#fff; background:rgba(36,60,90,0.95); border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.10); pointer-events:none; z-index:2; width:3.5rem; height:3.5rem;">🙏</span>
+      <h2 style="font-size:2.5rem; color:#fff; font-weight:900;">{% trans "The Sinner's Prayer" %}</h2>
+      <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#fff;">{% blocktrans %}Dear God, I know I am a sinner and I ask for Your forgiveness. I believe Jesus Christ is Your Son. I believe that He died for my sin and that You raised Him to life. I want to trust Him as my Savior and follow Him as Lord, from this day forward. Guide my life and help me to do Your will. I pray this in the name of Jesus. Amen.{% endblocktrans %}</p>
+      <hr style="margin-left:auto; margin-right:auto; border-color:#fff;">
+      <h3 style="font-size:1.4rem; text-align:center; color:#fff;">{% trans "What to do next?" %}</h3>
+      <ul style="display:inline-block; text-align:left; margin:0 auto; font-size:1.15rem;">
+        <li>{% trans "Tell someone about your decision to follow Jesus." %}</li>
+        <li>{% trans "Find a Bible and start reading, beginning with the Gospel of John." %}</li>
+        <li>{% trans "Pray regularly and seek God in your daily life." %}</li>
+        <li>{% trans "Connect with a local church or Christian community for support and growth." %}</li>
+        <li>{% trans "Continue learning about Jesus and His teachings." %}</li>
+      </ul>
+      <p style="font-size:1.15rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px;">{% trans "If you have questions or need support, feel free to reach out to us!" %}</p>
+    </div>
+    <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#d6336c; font-weight:bold; font-style:italic;">{% trans "If you want to know more about salvation or have questions about faith, please reach out. We would love to share more and pray with you." %}</p>
+    <div style="display:flex; justify-content:center; margin-top:24px; margin-bottom:32px;">
+      <a href="mailto:joelngzh@gmail.com" class="btn" style="background:#d6336c; color:#fff; font-size:1.3rem; padding:14px 36px; border-radius:2rem; font-weight:700; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s;">{% trans "Reach Out to us!" %}</a>
+    </div>
+</div>
+{% endblock %}

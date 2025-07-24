@@ -1,0 +1,227 @@
+{% extends "invitation/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Volunteer - Our Wedding" %}{% endblock %}
+
+{% block content %}
+<style>
+        body {
+            background: #fff0f6;
+            color: #d6336c;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+            padding: 32px;
+            text-align: center;
+        }
+        h1 {
+            color: #d6336c;
+            font-size: 2.2em;
+            margin-bottom: 0.5em;
+        }
+        .btn {
+            background: #f783ac;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #d6336c;
+        }
+        label {
+            display: block;
+            margin: 18px 0 6px 0;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #f783ac;
+            margin-bottom: 16px;
+            font-size: 1em;
+        }
+        .navbar {
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #f783ac;
+        }
+        .nav-link {
+            color: #d6336c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .nav-link:hover {
+            background: #f783ac;
+            color: #fff;
+        }
+        .lang-toggle {
+            margin-left: 32px;
+            display: flex;
+            gap: 4px;
+        }
+        .lang-btn {
+            background: #fff;
+            color: #d6336c;
+            border: 1px solid #f783ac;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: #f783ac;
+            color: #fff;
+        }
+        .coming-soon {
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #f783ac;
+            color: #fff;
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+            pointer-events: none;
+            width: max-content;
+        }
+        .role-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .role-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            margin: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: box-shadow 0.2s;
+        }
+        .role-btn:active, .role-btn:focus {
+            box-shadow: 0 0 0 2px #d6336c;
+        }
+        .role-btn.usher { background: #f783ac; color: #fff; }
+        .role-btn.photography { background: #ffd700; color: #243c5a; }
+        .role-btn.videography { background: #7fffd4; color: #243c5a; }
+        .role-btn.worship { background: #ffb347; color: #243c5a; }
+        .role-btn.setup { background: #87ceeb; color: #243c5a; }
+        .role-btn.teardown { background: #dda0dd; color: #243c5a; }
+        .role-btn.carpark { background: #90ee90; color: #243c5a; }
+        .role-btn.screens { background: #ff6961; color: #fff; }
+        .role-btn.lights { background: #fffacd; color: #243c5a; }
+        .role-btn.sound { background: #c0c0c0; color: #243c5a; }
+        .role-btn.selected {
+            background-color: #d6336c !important;
+            color: #fff !important;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-weight: bold;
+            box-shadow: 0 0 0 2px #f783ac;
+            border: 2px solid #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .role-checkbox {
+            position: absolute;
+            left: -9999px;
+        }
+        .submit-btn {
+            background: #f783ac;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #d6336c;
+        }
+    </style>
+
+<div class="container">
+    <h1>{% trans "Volunteer for Our Wedding" %}</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div style="color: {% if message.tags == 'success' %}green{% else %}red{% endif %}; margin-bottom: 16px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if form %}
+    <form method="post">
+        {% csrf_token %}
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="margin-bottom: 24px; color: #d6336c; font-size: 1.1em; max-width: 500px;">
+                {% trans "We would love your help to make our wedding day even more special! If you’d like to volunteer, please fill out the form below and let us know how you can contribute." %}
+            </div>
+            <div style="width: 100%; max-width: 400px;">
+                <label style="display: block; margin: 18px 0 6px 0; font-weight: bold;">{{ form.name.label }}<span style="color:red">*</span></label>
+                {{ form.name }}<br>
+                <label style="display: block; margin: 18px 0 6px 0; font-weight: bold;">{{ form.email.label }}<span style="color:red">*</span></label>
+                {{ form.email }}<br>
+                <label style="display: block; margin: 18px 0 6px 0; font-weight: bold;">{{ form.contact_number.label }}<span style="color:red">*</span></label>
+                {{ form.contact_number }}<br>
+            </div>
+            <label style="margin-top: 18px;">{{ form.roles.label }}<span style="color:red">*</span></label>
+            <div class="role-group" style="justify-content: center;">
+                {% for value, name in form.fields.roles.choices %}
+                    {% with role_id="role_"|add:value|stringformat:'s' %}
+                    {% if value|stringformat:'s' in selected_roles or value in selected_roles %}
+                        <input type="checkbox" id="{{ role_id }}" name="roles" value="{{ value }}" class="role-checkbox" checked>
+                        <label for="{{ role_id }}" class="role-btn {% for r in form.fields.roles.queryset %}{% if r.id == value %}{{ r.name|lower }}{% endif %}{% endfor %} selected">{{ name }}</label>
+                    {% else %}
+                        <input type="checkbox" id="{{ role_id }}" name="roles" value="{{ value }}" class="role-checkbox">
+                        <label for="{{ role_id }}" class="role-btn {% for r in form.fields.roles.queryset %}{% if r.id == value %}{{ r.name|lower }}{% endif %}{% endfor %}">{{ name }}</label>
+                    {% endif %}
+                    {% endwith %}
+                {% empty %}
+                    <span style="color: red;">{% trans "No roles available. (Check VolunteerRole in admin)" %}</span>
+                {% endfor %}
+            </div>
+            <div style="width: 100%; max-width: 400px; margin-top: 20px;">
+                <label for="id_comments" style="display: block; margin: 18px 0 6px 0; font-weight: bold;">{{ form.comments.label }}</label>
+                {{ form.comments }}
+            </div>
+            <button type="submit" class="submit-btn" style="margin-top: 20px;">{% trans "Submit" %}</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

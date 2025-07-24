@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            background: #fff0f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .heart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .svg-heart {
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+            animation: pulse 1s infinite;
+            display: block;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .click-text {
+            margin-top: 16px;
+            color: #d6336c;
+            font-size: 1.3em;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .holy-light {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 120px;
+            height: 120px;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,220,0.85) 30%, rgba(255,215,0,0.5) 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0.2);
+            box-shadow: 0 0 120px 60px rgba(255,255,220,0.9), 0 0 240px 120px rgba(255,215,0,0.6), 0 0 360px 180px rgba(255,255,255,0.3);
+            z-index: 100;
+            transition: opacity 0.5s, transform 3.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .holy-light.active {
+            opacity: 1;
+            width: 200vw;
+            height: 200vw;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            box-shadow: 0 0 400px 200px rgba(255,255,220,0.9), 0 0 800px 400px rgba(255,215,0,0.6), 0 0 1200px 600px rgba(255,255,255,0.3);
+            transition: opacity 0.5s, width 3.5s cubic-bezier(0.4, 0, 0.2, 1), height 3.5s cubic-bezier(0.4, 0, 0.2, 1), transform 3.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 3.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (max-width: 700px) {
+            .heart-container {
+                min-width: 0;
+                min-height: 180px;
+                width: 98vw;
+                padding: 0 2vw;
+            }
+            .svg-heart {
+                width: 100px;
+                height: 100px;
+            }
+            .holy-light {
+                width: 100px;
+                height: 100px;
+            }
+            .holy-light.active {
+                width: 200vw;
+                height: 200vw;
+            }
+            .click-text {
+                font-size: 1.1em;
+            }
+            img[alt="Joel Selfie"], img[alt="Amanda Selfie"] {
+                width: 100px;
+                height: 100px;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%) scale(1.05);
+            }
+        }
+        @media (max-width: 480px) {
+            .heart-container {
+                min-width: 0;
+                min-height: 120px;
+                width: 100vw;
+                padding: 0 1vw;
+            }
+            .svg-heart {
+                width: 70px;
+                height: 70px;
+            }
+            .holy-light {
+                width: 70px;
+                height: 70px;
+            }
+            .holy-light.active {
+                width: 200vw;
+                height: 200vw;
+            }
+            .click-text {
+                font-size: 1em;
+            }
+            img[alt="Joel Selfie"], img[alt="Amanda Selfie"] {
+                width: 60px;
+                height: 60px;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container" style="position: relative; min-width: 600px; min-height: 240px;">
+        <img src="{% static 'joel_selfie.png' %}" alt="Joel Selfie" style="position:absolute; left:0; top:50%; transform:translateY(-50%) translateX(-90px) rotate(-8deg) scale(1.18); width:180px; height:180px; border-radius:50%; box-shadow:0 4px 24px rgba(214,51,108,0.18); border:6px solid #fff0f6; object-fit:cover; z-index:1;" />
+        <img src="{% static 'amanda_selfie.png' %}" alt="Amanda Selfie" style="position:absolute; right:0; top:50%; transform:translateY(-50%) translateX(90px) rotate(8deg) scale(1.18); width:180px; height:180px; border-radius:50%; box-shadow:0 4px 24px rgba(214,51,108,0.18); border:6px solid #fff0f6; object-fit:cover; z-index:1;" />
+        <svg class="svg-heart" viewBox="0 0 180 180" id="heart-svg" title="Click to enter" style="position:relative; z-index:2; width:180px; height:180px;">
+            <path d="M90 165 L15 75 A38 38 0 1 1 90 45 A38 38 0 1 1 165 75 Z" fill="#d6336c" />
+        </svg>
+        <div class="click-text">Click the heart to enter</div>
+        <div class="holy-light" id="holy-light"></div>
+    </div>
+    <script>
+    const heart = document.getElementById('heart-svg');
+    heart.addEventListener('click', function(e) {
+        const light = document.getElementById('holy-light');
+        light.classList.add('active');
+        setTimeout(() => {
+            light.classList.remove('active');
+            window.location.href = '/home';
+        }, 3500);
+    });
+    </script>
+</body>
+</html>

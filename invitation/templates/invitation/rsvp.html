@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "RSVP - Our Wedding" %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            background: #fff0f6;
+            color: #d6336c;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+            padding: 32px;
+        }
+        h1 {
+            color: #d6336c;
+            font-size: 2em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        label {
+            color: #d6336c;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #f783ac;
+            font-size: 1em;
+        }
+        .btn {
+            background: #f783ac;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        .btn:hover {
+            background: #d6336c;
+        }
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .radio-group label {
+            margin: 0;
+        }
+        .radio-group input {
+            display: none;
+        }
+        .radio-group span {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .radio-group span.groom {
+            background: #0074D9;
+            color: #fff;
+        }
+        .radio-group span.bride {
+            background: #f783ac;
+            color: #fff;
+        }
+        .radio-group span.both {
+            background: #fff0f6;
+            color: #d6336c;
+            border: 1px solid #f783ac;
+        }
+        .radio-group span:hover {
+            box-shadow: 0 0 0 2px #d6336c;
+        }
+        .selected-radio {
+            background-color: #d6336c !important;
+            color: #fff !important;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-weight: bold;
+            box-shadow: 0 0 0 2px #f783ac;
+            border: 2px solid #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .rsvp-input {
+            width: 100%;
+            margin-bottom: 16px;
+            display: block;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #d6336c;
+            color: #243c5a;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    {% include 'invitation/navbar.html' %}
+    <div class="container">
+        <h1>{% trans "RSVP" %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name.label_tag|safe|cut:"</label>" }}<span style="color:red"> *</span></label>{{ form.name }}
+            <label for="id_contact" style="color: #d6336c; font-weight: bold;">{% trans "Contact Number:" %} <span style="color:red">*</span></label>
+            <input type="tel" name="contact" id="id_contact" required class="rsvp-input" placeholder="e.g. +65 9123 4567">
+            <label for="id_email" style="color: #d6336c; font-weight: bold;">{% trans "Email:" %} <span style="color:red">*</span></label>
+            {{ form.email }}
+            <label style="color: #d6336c; font-weight: bold;">{% trans "Who are you connected to?" %} <span style="color:red">*</span></label>
+            <div class="radio-group" id="connected_to_group">
+                <label>
+                    <input type="radio" name="connected_to" value="groom" id="connected_to_groom" required {% if form.connected_to.value == 'groom' %}checked{% endif %} onclick="updateConnectedToSelection()">
+                    <span class="groom" id="connected_to_groom_span" onclick="document.getElementById('connected_to_groom').checked=true;updateConnectedToSelection();">{% trans "Joel" %}</span>
+                </label>
+                <label>
+                    <input type="radio" name="connected_to" value="bride" id="connected_to_bride" required {% if form.connected_to.value == 'bride' %}checked{% endif %} onclick="updateConnectedToSelection()">
+                    <span class="bride" id="connected_to_bride_span" onclick="document.getElementById('connected_to_bride').checked=true;updateConnectedToSelection();">{% trans "Amanda" %}</span>
+                </label>
+                <label>
+                    <input type="radio" name="connected_to" value="both" id="connected_to_both" required {% if form.connected_to.value == 'both' %}checked{% endif %} onclick="updateConnectedToSelection()">
+                    <span class="both" id="connected_to_both_span" onclick="document.getElementById('connected_to_both').checked=true;updateConnectedToSelection();">{% trans "Both" %}</span>
+                </label>
+            </div>
+            <label style="color: #d6336c; font-weight: bold;">{% trans "Will you be attending?" %} <span style="color:red">*</span></label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="attending" value="True" id="attending_yes" required {% if form.attending.value == True %}checked{% endif %} onclick="updateAttendingSelection()">
+                    <span class="bride" id="attending_yes_span" onclick="document.getElementById('attending_yes').checked=true;updateAttendingSelection();">{% trans "Yes" %}</span>
+                </label>
+                <label>
+                    <input type="radio" name="attending" value="False" id="attending_no" required {% if form.attending.value == False %}checked{% endif %} onclick="updateAttendingSelection()">
+                    <span class="groom" id="attending_no_span" onclick="document.getElementById('attending_no').checked=true;updateAttendingSelection();">{% trans "No" %}</span>
+                </label>
+            </div>
+            <label for="id_dietary_preferences" style="color: #d6336c; font-weight: bold;">{% trans "Dietary Preferences" %}</label>
+            {{ form.dietary_preferences }}
+            <label for="id_food_allergies" style="color: #d6336c; font-weight: bold;">{% trans "Food Allergies" %}</label>
+            {{ form.food_allergies }}
+            <label style="color: #d6336c; font-weight: bold;">{% trans "Write your well wishes for the couple:" %}<span style="color:red"> *</span></label>
+            {{ form.message }}
+            <label style="color: #d6336c; font-weight: bold;">{% trans "Church Carpark Slot Reservation (limited slots - allocated based on necessity)" %}<span style="color:red"> *</span></label>
+            <div class="radio-group" id="carpark-radio-group">
+                <label>
+                    <input type="radio" name="carpark_reservation" value="yes" id="carpark_yes" required onclick="updateCarparkSelection()">
+                    <span class="bride" id="carpark_yes_span" onclick="document.getElementById('carpark_yes').checked=true;updateCarparkSelection();toggleCarPlate(true);">{% trans "Yes" %}</span>
+                </label>
+                <label>
+                    <input type="radio" name="carpark_reservation" value="no" id="carpark_no" required onclick="updateCarparkSelection()">
+                    <span class="groom" id="carpark_no_span" onclick="document.getElementById('carpark_no').checked=true;updateCarparkSelection();toggleCarPlate(false);">{% trans "No" %}</span>
+                </label>
+            </div>
+            <div id="carplate-field" style="display:none; margin-bottom:16px;">
+                <label for="carplate" style="color: #d6336c; font-weight: bold;">{% trans "Car Plate Number" %}<span style="color:red"> *</span></label>
+                <input type="text" name="car_plate_number" id="carplate" required style="display:block; width:100%; padding:8px; border-radius:8px; border:1px solid #d6336c; color:#243c5a; font-size:1em;" placeholder="e.g. SXX1234A">
+            </div>
+            <div id="reservation-reason-field" style="display:none; margin-bottom:16px;">
+                {{ form.reservation_reason.label_tag }}<span style="color:red"> *</span>
+                {{ form.reservation_reason }}
+            </div>
+            <label for="id_comments" style="color: #d6336c; font-weight: bold;">{% trans "Any other comments:" %}</label>
+            <textarea name="comments" id="id_comments" rows="4" style="margin-bottom:16px; display:block; width:100%; padding:8px; border-radius:8px; border:1px solid #d6336c; color:#243c5a; font-size:1em;"></textarea>
+            <button type="submit" class="btn">{% trans "Send RSVP" %}</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('lang-en').onclick = function() {
+            document.body.classList.remove('lang-zh');
+            document.body.classList.add('lang-en');
+            this.classList.add('active');
+            document.getElementById('lang-zh').classList.remove('active');
+        };
+        document.getElementById('lang-zh').onclick = function() {
+            document.body.classList.remove('lang-en');
+            document.body.classList.add('lang-zh');
+            this.classList.add('active');
+            document.getElementById('lang-en').classList.remove('active');
+        };
+        function toggleCarPlate(show) {
+            document.getElementById('carplate-field').style.display = show ? 'block' : 'none';
+            document.getElementById('carplate').required = show;
+            document.getElementById('reservation-reason-field').style.display = show ? 'block' : 'none';
+            document.getElementById('id_reservation_reason').required = show;
+        }
+        function updateCarparkSelection() {
+            var yesRadio = document.getElementById('carpark_yes');
+            var noRadio = document.getElementById('carpark_no');
+            var yesSpan = document.getElementById('carpark_yes_span');
+            var noSpan = document.getElementById('carpark_no_span');
+            if (yesRadio.checked) {
+                yesSpan.classList.add('selected-radio');
+                noSpan.classList.remove('selected-radio');
+                toggleCarPlate(true);
+            } else if (noRadio.checked) {
+                noSpan.classList.add('selected-radio');
+                yesSpan.classList.remove('selected-radio');
+                toggleCarPlate(false);
+            } else {
+                yesSpan.classList.remove('selected-radio');
+                noSpan.classList.remove('selected-radio');
+                toggleCarPlate(false);
+            }
+        }
+        function updateAttendingSelection() {
+            var yesRadio = document.getElementById('attending_yes');
+            var noRadio = document.getElementById('attending_no');
+            var yesSpan = document.getElementById('attending_yes_span');
+            var noSpan = document.getElementById('attending_no_span');
+            if (yesRadio.checked) {
+                yesSpan.classList.add('selected-radio');
+                noSpan.classList.remove('selected-radio');
+            } else if (noRadio.checked) {
+                noSpan.classList.add('selected-radio');
+                yesSpan.classList.remove('selected-radio');
+            } else {
+                yesSpan.classList.remove('selected-radio');
+                noSpan.classList.remove('selected-radio');
+            }
+        }
+        function updateConnectedToSelection() {
+            var groomRadio = document.getElementById('connected_to_groom');
+            var brideRadio = document.getElementById('connected_to_bride');
+            var bothRadio = document.getElementById('connected_to_both');
+            var groomSpan = document.getElementById('connected_to_groom_span');
+            var brideSpan = document.getElementById('connected_to_bride_span');
+            var bothSpan = document.getElementById('connected_to_both_span');
+            // Remove highlight from all
+            groomSpan.classList.remove('selected-radio');
+            brideSpan.classList.remove('selected-radio');
+            bothSpan.classList.remove('selected-radio');
+            // Add highlight to selected
+            if (groomRadio.checked) {
+                groomSpan.classList.add('selected-radio');
+            } else if (brideRadio.checked) {
+                brideSpan.classList.add('selected-radio');
+            } else if (bothRadio.checked) {
+                bothSpan.classList.add('selected-radio');
+            }
+        }
+        document.getElementById('carpark_yes').addEventListener('change', updateCarparkSelection);
+        document.getElementById('carpark_no').addEventListener('change', updateCarparkSelection);
+        document.getElementById('attending_yes').addEventListener('change', updateAttendingSelection);
+        document.getElementById('attending_no').addEventListener('change', updateAttendingSelection);
+        window.onload = function() {
+            updateCarparkSelection();
+            updateAttendingSelection();
+            updateConnectedToSelection();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+msgid "The Greatest Free Gift"
+msgstr "最伟大的免费礼物"
+
+msgid "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast."
+msgstr "你们得救是本乎恩，也因着信；这并不是出于自己，乃是神所赐；也不是出于行为，免得有人自夸。"
+
+msgid "Last but certainly not least, the best free gift is the gift of salvation from the Lord Jesus Christ."
+msgstr "最后也是最重要的，最好的免费礼物就是主耶稣基督赐下的救恩。"
+
+msgid "Who is Jesus?"
+msgstr "耶稣是谁？"
+
+msgid "Jesus is the Son of God, sent into the world to save us from our sins. He lived a perfect, sinless life, showed God's love through His teachings and miracles, and willingly gave His life on the cross as a sacrifice for us. Three days later, He rose from the dead, proving His victory over sin and death. Through Jesus, we can know God personally and receive the gift of eternal life."
+msgstr "耶稣是神的儿子，被差遣到世上来拯救我们脱离罪恶。他过着完美无罪的生活，通过教导和神迹彰显了神的爱，并甘愿为我们牺牲在十字架上。三天后，他从死里复活，证明了他战胜了罪和死亡。借着耶稣，我们可以亲自认识神，并得着永生的礼物。"
+
+msgid "What is Salvation?"
+msgstr "什么是救恩？"
+
+msgid "Salvation means being rescued from the consequences of sin—our separation from God and spiritual death. The Bible teaches that everyone has sinned and falls short of God's perfect standard. Sin breaks our relationship with God and leads to eternal separation from Him."
+msgstr "救恩意味着从罪的后果中被拯救——即与神隔绝和属灵的死亡。圣经教导我们，世人都犯了罪，达不到神完美的标准。罪使我们与神的关系破裂，并导致与神永远分离。"
+
+msgid "Why Do We Need Salvation?"
+msgstr "我们为什么需要救恩？"
+
+msgid "We need salvation because sin separates us from God. On our own, we cannot restore this relationship. But God, in His love, sent Jesus Christ to die for our sins and rise again, so that anyone who believes in Him can be forgiven and reconciled to God."
+msgstr "我们需要救恩，因为罪使我们与神隔绝。靠我们自己无法修复这种关系。但神因着爱，差遣耶稣基督为我们的罪而死，并从死里复活，使一切信他的人都能被赦免，与神和好。"
+
+msgid "Salvation is a free gift, received by faith in Jesus Christ—not by our own efforts or good deeds. Through Him, we receive new life and the promise of eternity with God."
+msgstr "救恩是免费的礼物，凭着对耶稣基督的信心而得，不是靠我们自己的努力或善行。借着他，我们得着新生命，并有与神同在永恒的应许。"
+
+msgid "Freebies"
+msgstr "免费资源"
+
+msgid "Welcome to our Freebies page! Here you'll find special gifts and resources for our guests."
+msgstr "欢迎来到我们的免费资源页面！在这里，您会找到我们为来宾准备的特别礼物和资源。"
+
+msgid "A Lamp to my 12 Blocks Salvation: From Household to the Nations"
+msgstr "照亮我的十二区救恩：从家庭到万邦"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Biblical Guide to Heaven Entry"
+msgstr "圣经天堂入门指南"
+
+msgid "Building a God Centered Family: A Guide For Biblical Living"
+msgstr "建立以上帝为中心的家庭：圣经生活指南"
+
+msgid "The Seasons of Life: Finishing Well Before the Judgment Seat"
+msgstr "人生的季节：在审判台前善终"
+
+msgid "人生的季節: 在審判台前跑完好路"
+msgstr "人生的季節: 在審判台前跑完好路"
+
+msgid "圣经上的进入天堂指南"
+msgstr "圣经上的进入天堂指南"
+
+msgid "照亮我的十二区: 救恩从家庭传于万国"
+msgstr "照亮我的十二区: 救恩从家庭传于万国"
+
+msgid "The Sinner's Prayer"
+msgstr "罪人的祷告"
+
+msgid ""
+"Dear God, I know I am a sinner and I ask for Your forgiveness. I believe "
+"Jesus Christ is Your Son. I believe that He died for my sin and that You "
+"raised Him to life. I want to trust Him as my Savior and follow Him as "
+"Lord, from this day forward. Guide my life and help me to do Your will. I "
+"pray this in the name of Jesus. Amen."
+msgstr ""
+"亲爱的上帝，我知道我是一个罪人，请求您的饶恕。我相信耶稣基督是您的儿子。我相信他为我的罪而死，您使他复活。从今天起，我愿意信靠他作为我的救主，并跟随他为主。引导我的生命，帮助我遵行您的旨意。奉耶稣的名祷告。阿们。"
+
+msgid "What to do next?"
+msgstr "接下来该怎么做？"
+
+msgid "Tell someone about your decision to follow Jesus."
+msgstr "告诉别人你决定跟随耶稣。"
+
+msgid "Find a Bible and start reading, beginning with the Gospel of John."
+msgstr "找一本圣经开始阅读，从《约翰福音》开始。"
+
+msgid "Pray regularly and seek God in your daily life."
+msgstr "定期祷告，在日常生活中寻求上帝。"
+
+msgid "Connect with a local church or Christian community for support and growth."
+msgstr "与当地教会或基督徒社区联系，以获得支持和成长。"
+
+msgid "Continue learning about Jesus and His teachings."
+msgstr "继续学习关于耶稣和他的教导。"
+
+msgid "If you have questions or need support, feel free to reach out to us!"
+msgstr "如果您有任何问题或需要支持，请随时与我们联系！"
+
+msgid "If you want to know more about salvation or have questions about faith, please reach out. We would love to share more and pray with you."
+msgstr "如果您想更多地了解救恩或对信仰有任何疑问，请联系我们。我们很乐意与您分享更多并为您祷告。"
+
+msgid "Reach Out to us!"
+msgstr "联系我们！"
+
+msgid "Home"
+msgstr "主页"
+
+msgid "RSVP"
+msgstr "回复"
+
+msgid "Our Story"
+msgstr "我们的故事"
+
+msgid "Photos"
+msgstr "照片"
+
+msgid "Q&A"
+msgstr "问与答"
+
+msgid "Volunteer"
+msgstr "志愿者"
+
+msgid "We are getting married!"
+msgstr "我们要结婚了！"
+
+msgid "Join us for the wedding of"
+msgstr "诚挚邀请您参加我们的婚礼"
+
+msgid "Joel & Amanda"
+msgstr "Joel & Amanda"
+
+msgid "25th July 2025"
+msgstr "2025年7月25日"
+
+msgid "Save the Date"
+msgstr "敬请预留日期"
+
+msgid "Will you be attending?"
+msgstr "您会出席吗？"
+
+msgid "Full Name"
+msgstr "全名"
+
+msgid "Email"
+msgstr "电子邮件"
+
+msgid "Dietary Preferences"
+msgstr "饮食偏好"
+
+msgid "Message"
+msgstr "留言"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Sign up to help out at our wedding!"
+msgstr "报名成为我们婚礼的志愿者！"
+
+msgid "Contact Number"
+msgstr "联系电话"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "Comments"
+msgstr "备注"
+
+msgid "Gallery - Our Wedding"
+msgstr "相册 - 我们的婚礼"
+
+msgid "Gallery"
+msgstr "相册"
+
+msgid "Check back soon for more updates!"
+msgstr "请稍后回来查看更新！"
+
+msgid "Coming Soon"
+msgstr "即将推出"
+
+msgid "Our Wedding Invitation"
+msgstr "我们的婚礼请柬"
+
+msgid "A Message of Love"
+msgstr "爱的讯息"
+
+msgid "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres."
+msgstr "爱是恒久忍耐，又有恩慈；爱是不嫉妒，爱是不自夸，不张狂，不做害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。"
+
+msgid "1 Corinthians 13:4-7"
+msgstr "哥林多前书 13:4-7"
+
+msgid "You're Invited!"
+msgstr "诚挚邀请！"
+
+msgid "Joel Ng Zhi Hao & Amanda Lim Hui Wen's Wedding"
+msgstr "黄智浩与林慧文的婚礼"
+
+msgid "Venue:"
+msgstr "地点："
+
+msgid "Victory Family Centre Tampines (Level 3)"
+msgstr "胜利家庭中心（淡滨尼）三楼"
+
+msgid "Address:"
+msgstr "地址："
+
+msgid "20 Tampines Street 43, Singapore 529151"
+msgstr "20 Tampines Street 43, Singapore 529151"
+
+msgid "Date:"
+msgstr "日期："
+
+msgid "November 29 (Saturday)"
+msgstr "11月29日（星期六）"
+
+msgid "Registration Time:"
+msgstr "登记时间："
+
+msgid "10:30 AM"
+msgstr "上午10:30"
+
+msgid "Dress Code:"
+msgstr "着装要求："
+
+msgid "Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes)"
+msgstr "便装（请穿着得体——男士请穿长裤或牛仔裤，女士请穿长裙或连衣裙；请勿穿短裤或暴露的服装。需穿包鞋）"
+
+msgid "Food:"
+msgstr "食物："
+
+msgid "8-Course Buffet Lunch and Pastries (During Registration)"
+msgstr "八道菜自助午餐和糕点（登记期间）"
+
+msgid "We are delighted to invite you to our wedding celebration!"
+msgstr "我们很高兴邀请您参加我们的婚礼庆典！"
+
+msgid "Please let us know if you can join us by submitting your RSVP!"
+msgstr "请通过提交您的回复告知我们您是否能参加！"
+
+msgid "RSVP Now"
+msgstr "立即回复"
+
+msgid "Check out our free gifts for you!"
+msgstr "查看我们为您准备的免费礼物！"
+
+msgid "How to Get There?"
+msgstr "如何前往？"
+
+msgid "Victory Family Centre Tampines is easily accessible by public transport and car."
+msgstr "胜利家庭中心（淡滨尼）可通过公共交通和汽车轻松抵达。"
+
+msgid "By MRT:"
+msgstr "乘坐地铁："
+
+msgid "Take the Downtown Line to Tampines East MRT (DT33). Walk 8 minutes to the church."
+msgstr "乘坐滨海市区线到淡滨尼东地铁站（DT33）。步行8分钟即可到达教堂。"
+
+msgid "By Bus:"
+msgstr "乘坐巴士："
+
+msgid "Bus services 8, 18, 28, 29, 37, 291, 293 stop nearby."
+msgstr "巴士服务 8, 18, 28, 29, 37, 291, 293 在附近停靠。"
+
+msgid "By Car:"
+msgstr "驾车："
+
+msgid "Free parking available at the church carpark (reserve beforehand).<br/>There are HDB carparks nearby as well."
+msgstr "教堂停车场提供免费停车位（需提前预订）。<br/>附近也有建屋局停车场。"
+
+msgid "View on Google Maps"
+msgstr "在谷歌地图上查看"
+
+msgid "RSVP - Our Wedding"
+msgstr "回复 - 我们的婚礼"
+
+msgid "Contact Number:"
+msgstr "联系电话："
+
+msgid "Email:"
+msgstr "电子邮件："
+
+msgid "Who are you connected to?"
+msgstr "您与谁有关？"
+
+msgid "Joel"
+msgstr "智浩"
+
+msgid "Amanda"
+msgstr "慧文"
+
+msgid "Both"
+msgstr "双方"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Food Allergies"
+msgstr "食物过敏"
+
+msgid "Write your well wishes for the couple:"
+msgstr "为新人写下您的祝福："
+
+msgid "Church Carpark Slot Reservation (limited slots - allocated based on necessity)"
+msgstr "教堂停车位预订（车位有限 - 根据需要分配）"
+
+msgid "Car Plate Number"
+msgstr "车牌号码"
+
+msgid "Any other comments:"
+msgstr "其他备注："
+
+msgid "Send RSVP"
+msgstr "发送回复"
+
+msgid "Volunteer - Our Wedding"
+msgstr "志愿者 - 我们的婚礼"
+
+msgid "Volunteer for Our Wedding"
+msgstr "成为我们婚礼的志愿者"
+
+msgid "We would love your help to make our wedding day even more special! If you’d like to volunteer, please fill out the form below and let us know how you can contribute."
+msgstr "我们非常希望您能帮助我们，让我们的婚礼更加特别！如果您愿意成为志愿者，请填写下面的表格，让我们知道您能如何贡献。"
+
+msgid "No roles available. (Check VolunteerRole in admin)"
+msgstr "没有可用的角色。（请在后台检查VolunteerRole）"
