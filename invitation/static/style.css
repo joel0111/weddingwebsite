@@ -62,8 +62,8 @@ h1 {
 .coming-soon {
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     background: #f783ac;
     color: #fff;
     font-size: 0.8em;

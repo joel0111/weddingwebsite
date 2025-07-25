@@ -99,19 +99,19 @@ msgstr ""
 
 #: .\invitation\forms.py:32 .\invitation\models.py:34
 msgid "Milk"
-msgstr ""
+msgstr "牛奶"
 
 #: .\invitation\forms.py:33 .\invitation\models.py:35
 msgid "No allergies"
-msgstr ""
+msgstr "无过敏"
 
 #: .\invitation\forms.py:35 .\invitation\models.py:37
 msgid "Peanuts"
-msgstr ""
+msgstr "花生"
 
 #: .\invitation\forms.py:36 .\invitation\models.py:38
 msgid "Sesame"
-msgstr ""
+msgstr "贝类"
 
 #: .\invitation\forms.py:37 .\invitation\models.py:39
 msgid "Shellfish"
@@ -119,15 +119,15 @@ msgstr ""
 
 #: .\invitation\forms.py:38 .\invitation\models.py:40
 msgid "Soy"
-msgstr ""
+msgstr "大豆"
 
 #: .\invitation\forms.py:39 .\invitation\models.py:41
 msgid "Tree Nuts"
-msgstr ""
+msgstr "树坚果"
 
 #: .\invitation\forms.py:40 .\invitation\models.py:42
 msgid "Wheat"
-msgstr ""
+msgstr "小麦"
 
 #: .\invitation\forms.py:42 .\invitation\forms.py:65 .\invitation\forms.py:87
 #: .\invitation\forms.py:94 .\invitation\models.py:7 .\invitation\models.py:72
@@ -147,21 +147,21 @@ msgstr "电子邮件"
 #: .\invitation\templates\invitation\rsvp.html:144
 #: .\invitation\templates\invitation\rsvp.html:161
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: .\invitation\forms.py:44 .\invitation\forms.py:50
 #: .\invitation\templates\invitation\rsvp.html:148
 #: .\invitation\templates\invitation\rsvp.html:165
 msgid "No"
-msgstr ""
+msgstr "不"
 
 #: .\invitation\forms.py:45 .\invitation\templates\invitation\rsvp.html:155
 msgid "Write your well wishes for the couple:"
-msgstr ""
+msgstr "写下你对这对夫妇的美好祝福："
 
 #: .\invitation\forms.py:55
 msgid "Reason for Carpark Reservation"
-msgstr ""
+msgstr "停车位预订原因"
 
 #: .\invitation\forms.py:75 .\invitation\forms.py:89 .\invitation\models.py:75
 msgid "Contact Number"
@@ -169,7 +169,7 @@ msgstr "联系电话"
 
 #: .\invitation\forms.py:81
 msgid "Roles you'd like to help with"
-msgstr ""
+msgstr "您希望提供帮助的角色"
 
 #: .\invitation\forms.py:90 .\invitation\models.py:76
 msgid "Comments"
@@ -177,15 +177,15 @@ msgstr "备注"
 
 #: .\invitation\forms.py:91
 msgid "How would you like to help?"
-msgstr ""
+msgstr "您想如何提供帮助？"
 
 #: .\invitation\forms.py:96
 msgid "Any comments or questions?"
-msgstr ""
+msgstr "有任何意见或问题吗？"
 
 #: .\invitation\models.py:9
 msgid "Attending"
-msgstr ""
+msgstr "出席"
 
 #: .\invitation\models.py:10
 msgid "Message"
@@ -195,19 +195,19 @@ msgstr "留言"
 #, fuzzy
 #| msgid "Joel & Amanda"
 msgid "Amanda"
-msgstr "俊杰 & 阿曼达"
+msgstr "惠文"
 
 #: .\invitation\models.py:13 .\invitation\templates\invitation\rsvp.html:129
 msgid "Joel"
-msgstr ""
+msgstr "智浩"
 
 #: .\invitation\models.py:14 .\invitation\templates\invitation\rsvp.html:137
 msgid "Both"
-msgstr ""
+msgstr "两个都"
 
 #: .\invitation\models.py:16
 msgid "Connected to"
-msgstr ""
+msgstr "连接到"
 
 #: .\invitation\models.py:29 .\invitation\templates\invitation\rsvp.html:151
 msgid "Dietary Preferences"
@@ -215,7 +215,7 @@ msgstr "饮食偏好"
 
 #: .\invitation\models.py:44 .\invitation\templates\invitation\rsvp.html:153
 msgid "Food Allergies"
-msgstr ""
+msgstr "食物过敏"
 
 #: .\invitation\models.py:45
 #, fuzzy
@@ -225,7 +225,7 @@ msgstr "备注"
 
 #: .\invitation\models.py:46
 msgid "Carpark Slot Reservation"
-msgstr ""
+msgstr "停车位预订"
 
 #: .\invitation\models.py:47 .\invitation\templates\invitation\rsvp.html:169
 #, fuzzy
@@ -235,47 +235,47 @@ msgstr "联系电话"
 
 #: .\invitation\models.py:48
 msgid "Reservation Reason"
-msgstr ""
+msgstr "预约理由"
 
 #: .\invitation\models.py:55
 msgid "Usher"
-msgstr ""
+msgstr "引座员"
 
 #: .\invitation\models.py:56
 msgid "Photography"
-msgstr ""
+msgstr "摄影"
 
 #: .\invitation\models.py:57
 msgid "Videography"
-msgstr ""
+msgstr "摄像"
 
 #: .\invitation\models.py:58
 msgid "Worship"
-msgstr ""
+msgstr "崇拜"
 
 #: .\invitation\models.py:59
 msgid "Setup"
-msgstr ""
+msgstr "设置"
 
 #: .\invitation\models.py:60
 msgid "Teardown"
-msgstr ""
+msgstr "拆解"
 
 #: .\invitation\models.py:61
 msgid "Carpark"
-msgstr ""
+msgstr "停车场"
 
 #: .\invitation\models.py:62
 msgid "Screens"
-msgstr ""
+msgstr "屏幕"
 
 #: .\invitation\models.py:63
 msgid "Lights"
-msgstr ""
+msgstr "灯"
 
 #: .\invitation\models.py:64
 msgid "Sound"
-msgstr ""
+msgstr "声音"
 
 #: .\invitation\models.py:74
 msgid "Phone"
@@ -491,7 +491,7 @@ msgstr "敬请期待"
 
 #: .\invitation\templates\invitation\home.html:299
 msgid "Christian Cross"
-msgstr ""
+msgstr "基督教十字"
 
 #: .\invitation\templates\invitation\home.html:305
 msgid "A Message of Love"
@@ -515,7 +515,7 @@ msgstr "哥林多前书 13:4-7"
 
 #: .\invitation\templates\invitation\home.html:314
 msgid "Click the heart!"
-msgstr ""
+msgstr "点击爱心"
 
 #: .\invitation\templates\invitation\home.html:317
 msgid "You're Invited!"
@@ -742,7 +742,7 @@ msgid ""
 "We would love your help to make our wedding day even more special! If you’d "
 "like to volunteer, please fill out the form below and let us know how you "
 "can contribute."
-msgstr ""
+msgstr "我们非常希望能得到您的帮助，让我们的婚礼更加特别！如果您愿意出一份力，请填写下面的表格，告诉我们您能如何帮忙。"
 
 #: .\invitation\templates\invitation\volunteer.html:162
 msgid "No roles available. (Check VolunteerRole in admin)"
@@ -751,6 +751,8 @@ msgstr "没有可用的角色。（请在管理员中检查志愿者角色）"
 #: .\invitation\templates\invitation\volunteer.html:169
 msgid "Submit"
 msgstr "提交"
+
+
 
 #~ msgid "Our Story"
 #~ msgstr "我们的故事"
