@@ -1,0 +1,783 @@
+# Chinese (Simplified) translation for wedding website.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-25 09:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\invitation\forms.py:7
+msgid "Select a reason"
+msgstr ""
+
+#: .\invitation\forms.py:8
+msgid "Mobility issues / wheelchair access"
+msgstr ""
+
+#: .\invitation\forms.py:9
+msgid "Elderly passenger"
+msgstr ""
+
+#: .\invitation\forms.py:10
+msgid "Pregnant passenger"
+msgstr ""
+
+#: .\invitation\forms.py:11
+msgid "Young children / infants"
+msgstr ""
+
+#: .\invitation\forms.py:12
+msgid "Medical condition"
+msgstr ""
+
+#: .\invitation\forms.py:13
+msgid "Bringing heavy items"
+msgstr ""
+
+#: .\invitation\forms.py:14 .\invitation\forms.py:24 .\invitation\forms.py:34
+#: .\invitation\models.py:25 .\invitation\models.py:36
+msgid "Other (please specify in comments)"
+msgstr ""
+
+#: .\invitation\forms.py:17 .\invitation\forms.py:29 .\invitation\models.py:18
+#: .\invitation\models.py:31
+msgid "Dairy-Free"
+msgstr ""
+
+#: .\invitation\forms.py:18 .\invitation\models.py:19
+msgid "Gluten-Free"
+msgstr ""
+
+#: .\invitation\forms.py:19 .\invitation\models.py:20
+msgid "Halal"
+msgstr ""
+
+#: .\invitation\forms.py:20 .\invitation\models.py:21
+msgid "No Beef"
+msgstr ""
+
+#: .\invitation\forms.py:21 .\invitation\models.py:22
+msgid "No seafood"
+msgstr ""
+
+#: .\invitation\forms.py:22 .\invitation\models.py:23
+#, fuzzy
+#| msgid "Dietary Preferences"
+msgid "No preference"
+msgstr "饮食偏好"
+
+#: .\invitation\forms.py:23 .\invitation\models.py:24
+msgid "Nut-Free"
+msgstr ""
+
+#: .\invitation\forms.py:25 .\invitation\models.py:26
+msgid "Vegan"
+msgstr ""
+
+#: .\invitation\forms.py:26 .\invitation\models.py:27
+msgid "Vegetarian"
+msgstr ""
+
+#: .\invitation\forms.py:30 .\invitation\models.py:32
+msgid "Eggs"
+msgstr ""
+
+#: .\invitation\forms.py:31 .\invitation\models.py:33
+msgid "Fish"
+msgstr ""
+
+#: .\invitation\forms.py:32 .\invitation\models.py:34
+msgid "Milk"
+msgstr ""
+
+#: .\invitation\forms.py:33 .\invitation\models.py:35
+msgid "No allergies"
+msgstr ""
+
+#: .\invitation\forms.py:35 .\invitation\models.py:37
+msgid "Peanuts"
+msgstr ""
+
+#: .\invitation\forms.py:36 .\invitation\models.py:38
+msgid "Sesame"
+msgstr ""
+
+#: .\invitation\forms.py:37 .\invitation\models.py:39
+msgid "Shellfish"
+msgstr ""
+
+#: .\invitation\forms.py:38 .\invitation\models.py:40
+msgid "Soy"
+msgstr ""
+
+#: .\invitation\forms.py:39 .\invitation\models.py:41
+msgid "Tree Nuts"
+msgstr ""
+
+#: .\invitation\forms.py:40 .\invitation\models.py:42
+msgid "Wheat"
+msgstr ""
+
+#: .\invitation\forms.py:42 .\invitation\forms.py:65 .\invitation\forms.py:87
+#: .\invitation\forms.py:94 .\invitation\models.py:7 .\invitation\models.py:72
+#, fuzzy
+#| msgid "Full Name"
+msgid "Your Name"
+msgstr "全名"
+
+#: .\invitation\forms.py:43 .\invitation\forms.py:70 .\invitation\forms.py:88
+#: .\invitation\forms.py:95 .\invitation\models.py:8 .\invitation\models.py:73
+#, fuzzy
+#| msgid "Email"
+msgid "Your Email"
+msgstr "电子邮件"
+
+#: .\invitation\forms.py:44 .\invitation\forms.py:50
+#: .\invitation\templates\invitation\rsvp.html:144
+#: .\invitation\templates\invitation\rsvp.html:161
+msgid "Yes"
+msgstr ""
+
+#: .\invitation\forms.py:44 .\invitation\forms.py:50
+#: .\invitation\templates\invitation\rsvp.html:148
+#: .\invitation\templates\invitation\rsvp.html:165
+msgid "No"
+msgstr ""
+
+#: .\invitation\forms.py:45 .\invitation\templates\invitation\rsvp.html:155
+msgid "Write your well wishes for the couple:"
+msgstr ""
+
+#: .\invitation\forms.py:55
+msgid "Reason for Carpark Reservation"
+msgstr ""
+
+#: .\invitation\forms.py:75 .\invitation\forms.py:89 .\invitation\models.py:75
+msgid "Contact Number"
+msgstr "联系电话"
+
+#: .\invitation\forms.py:81
+msgid "Roles you'd like to help with"
+msgstr ""
+
+#: .\invitation\forms.py:90 .\invitation\models.py:76
+msgid "Comments"
+msgstr "备注"
+
+#: .\invitation\forms.py:91
+msgid "How would you like to help?"
+msgstr ""
+
+#: .\invitation\forms.py:96
+msgid "Any comments or questions?"
+msgstr ""
+
+#: .\invitation\models.py:9
+msgid "Attending"
+msgstr ""
+
+#: .\invitation\models.py:10
+msgid "Message"
+msgstr "留言"
+
+#: .\invitation\models.py:12 .\invitation\templates\invitation\rsvp.html:133
+#, fuzzy
+#| msgid "Joel & Amanda"
+msgid "Amanda"
+msgstr "俊杰 & 阿曼达"
+
+#: .\invitation\models.py:13 .\invitation\templates\invitation\rsvp.html:129
+msgid "Joel"
+msgstr ""
+
+#: .\invitation\models.py:14 .\invitation\templates\invitation\rsvp.html:137
+msgid "Both"
+msgstr ""
+
+#: .\invitation\models.py:16
+msgid "Connected to"
+msgstr ""
+
+#: .\invitation\models.py:29 .\invitation\templates\invitation\rsvp.html:151
+msgid "Dietary Preferences"
+msgstr "饮食偏好"
+
+#: .\invitation\models.py:44 .\invitation\templates\invitation\rsvp.html:153
+msgid "Food Allergies"
+msgstr ""
+
+#: .\invitation\models.py:45
+#, fuzzy
+#| msgid "Comments"
+msgid "Other Comments"
+msgstr "备注"
+
+#: .\invitation\models.py:46
+msgid "Carpark Slot Reservation"
+msgstr ""
+
+#: .\invitation\models.py:47 .\invitation\templates\invitation\rsvp.html:169
+#, fuzzy
+#| msgid "Contact Number"
+msgid "Car Plate Number"
+msgstr "联系电话"
+
+#: .\invitation\models.py:48
+msgid "Reservation Reason"
+msgstr ""
+
+#: .\invitation\models.py:55
+msgid "Usher"
+msgstr ""
+
+#: .\invitation\models.py:56
+msgid "Photography"
+msgstr ""
+
+#: .\invitation\models.py:57
+msgid "Videography"
+msgstr ""
+
+#: .\invitation\models.py:58
+msgid "Worship"
+msgstr ""
+
+#: .\invitation\models.py:59
+msgid "Setup"
+msgstr ""
+
+#: .\invitation\models.py:60
+msgid "Teardown"
+msgstr ""
+
+#: .\invitation\models.py:61
+msgid "Carpark"
+msgstr ""
+
+#: .\invitation\models.py:62
+msgid "Screens"
+msgstr ""
+
+#: .\invitation\models.py:63
+msgid "Lights"
+msgstr ""
+
+#: .\invitation\models.py:64
+msgid "Sound"
+msgstr ""
+
+#: .\invitation\models.py:74
+msgid "Phone"
+msgstr ""
+
+#: .\invitation\templates\invitation\base.html:6
+#: .\invitation\templates\invitation\home.html:4
+msgid "Our Wedding Invitation"
+msgstr "我们的婚礼请柬"
+
+#: .\invitation\templates\invitation\freebies.html:196
+#: .\invitation\templates\invitation\home.html:346
+#: .\invitation\templates\invitation\navbar.html:13
+msgid "Freebies"
+msgstr "免费礼品"
+
+#: .\invitation\templates\invitation\freebies.html:197
+msgid ""
+"Welcome to our Freebies page! Here you'll find special gifts and resources "
+"for our guests."
+msgstr ""
+"欢迎来到我们的免费资源页面！在这里，您会找到我们为来宾准备的特别礼物和资源。"
+
+#: .\invitation\templates\invitation\freebies.html:201
+msgid "A Lamp to my 12 Blocks Salvation: From Household to the Nations"
+msgstr "照亮我的十二区救恩：从家庭到万邦"
+
+#: .\invitation\templates\invitation\freebies.html:202
+#: .\invitation\templates\invitation\freebies.html:207
+#: .\invitation\templates\invitation\freebies.html:212
+#: .\invitation\templates\invitation\freebies.html:217
+#: .\invitation\templates\invitation\freebies.html:222
+#: .\invitation\templates\invitation\freebies.html:227
+#: .\invitation\templates\invitation\freebies.html:232
+msgid "Download"
+msgstr "下载"
+
+#: .\invitation\templates\invitation\freebies.html:206
+msgid "Biblical Guide to Heaven Entry"
+msgstr "圣经天堂入门指南"
+
+#: .\invitation\templates\invitation\freebies.html:211
+msgid "Building a God Centered Family: A Guide For Biblical Living"
+msgstr "建立以上帝为中心的家庭：圣经生活指南"
+
+#: .\invitation\templates\invitation\freebies.html:216
+msgid "The Seasons of Life: Finishing Well Before the Judgment Seat"
+msgstr "人生的季节：在审判台前善终"
+
+#: .\invitation\templates\invitation\freebies.html:221
+msgid "人生的季節: 在審判台前跑完好路"
+msgstr "人生的季節: 在審判台前跑完好路"
+
+#: .\invitation\templates\invitation\freebies.html:226
+msgid "圣经上的进入天堂指南"
+msgstr "圣经上的进入天堂指南"
+
+#: .\invitation\templates\invitation\freebies.html:231
+msgid "照亮我的十二区: 救恩从家庭传于万国"
+msgstr "照亮我的十二区: 救恩从家庭传于万国"
+
+#: .\invitation\templates\invitation\freebies.html:238
+msgid "The Greatest Free Gift"
+msgstr "最伟大的免费礼物"
+
+#: .\invitation\templates\invitation\freebies.html:240
+msgid ""
+"For it is by grace you have been saved, through faith—and this is not from "
+"yourselves, it is the gift of God—not by works, so that no one can boast."
+msgstr ""
+"你们得救是本乎恩，也因着信；这并不是出于自己，乃是神所赐；也不是出于行为，免"
+"得有人自夸。"
+
+#: .\invitation\templates\invitation\freebies.html:242
+msgid "Ephesians 2:8-9"
+msgstr "以弗所书 2:8-9"
+
+#: .\invitation\templates\invitation\freebies.html:244
+msgid ""
+"Last but certainly not least, the best free gift is the gift of salvation "
+"from the Lord Jesus Christ."
+msgstr "最后也是最重要的，最好的免费礼物就是主耶稣基督赐下的救恩。"
+
+#: .\invitation\templates\invitation\freebies.html:248
+msgid "Who is Jesus?"
+msgstr "耶稣是谁？"
+
+#: .\invitation\templates\invitation\freebies.html:249
+msgid ""
+"Jesus is the Son of God, sent into the world to save us from our sins. He "
+"lived a perfect, sinless life, showed God's love through His teachings and "
+"miracles, and willingly gave His life on the cross as a sacrifice for us. "
+"Three days later, He rose from the dead, proving His victory over sin and "
+"death. Through Jesus, we can know God personally and receive the gift of "
+"eternal life."
+msgstr ""
+"耶稣是神的儿子，被差遣到世上来拯救我们脱离罪恶。他过着完美无罪的生活，通过教"
+"导和神迹彰显了神的爱，并甘愿为我们牺牲在十字架上。三天后，他从死里复活，证明"
+"了他战胜了罪和死亡。借着耶稣，我们可以亲自认识神，并得着永生的礼物。"
+
+#: .\invitation\templates\invitation\freebies.html:253
+msgid "What is Salvation?"
+msgstr "什么是救恩？"
+
+#: .\invitation\templates\invitation\freebies.html:254
+msgid ""
+"Salvation means being rescued from the consequences of sin—our separation "
+"from God and spiritual death. The Bible teaches that everyone has sinned and "
+"falls short of God's perfect standard. Sin breaks our relationship with God "
+"and leads to eternal separation from Him."
+msgstr ""
+"救恩意味着从罪的后果中被拯救——即与神隔绝和属灵的死亡。圣经教导我们，世人都犯"
+"了罪，达不到神完美的标准。罪使我们与神的关系破裂，并导致与神永远分离。"
+
+#: .\invitation\templates\invitation\freebies.html:258
+msgid "Why Do We Need Salvation?"
+msgstr "我们为什么需要救恩？"
+
+#: .\invitation\templates\invitation\freebies.html:260
+msgid ""
+"We need salvation because sin separates us from God. On our own, we cannot "
+"restore this relationship. But God, in His love, sent Jesus Christ to die "
+"for our sins and rise again, so that anyone who believes in Him can be "
+"forgiven and reconciled to God."
+msgstr ""
+"我们需要救恩，因为罪使我们与神隔绝。靠我们自己无法修复这种关系。但神因着爱，"
+"差遣耶稣基督为我们的罪而死，并从死里复活，使一切信他的人都能被赦免，与神和"
+"好。"
+
+#: .\invitation\templates\invitation\freebies.html:261
+msgid ""
+"Salvation is a free gift, received by faith in Jesus Christ—not by our own "
+"efforts or good deeds. Through Him, we receive new life and the promise of "
+"eternity with God."
+msgstr ""
+"救恩是免费的礼物，凭着对耶稣基督的信心而得，不是靠我们自己的努力或善行。借着"
+"他，我们得着新生命，并有与神同在永恒的应许。"
+
+#: .\invitation\templates\invitation\freebies.html:268
+msgid "The Sinner's Prayer"
+msgstr "罪人的祷告"
+
+#: .\invitation\templates\invitation\freebies.html:269
+msgid ""
+"Dear God, I know I am a sinner and I ask for Your forgiveness. I believe "
+"Jesus Christ is Your Son. I believe that He died for my sin and that You "
+"raised Him to life. I want to trust Him as my Savior and follow Him as Lord, "
+"from this day forward. Guide my life and help me to do Your will. I pray "
+"this in the name of Jesus. Amen."
+msgstr ""
+"亲爱的上帝，我知道我是一个罪人，请求您的饶恕。我相信耶稣基督是您的儿子。我相"
+"信他为我的罪而死，您使他复活。从今天起，我愿意信靠他作为我的救主，并跟随他为"
+"主。引导我的生命，帮助我遵行您的旨意。奉耶稣的名祷告。阿们。"
+
+#: .\invitation\templates\invitation\freebies.html:271
+msgid "What to do next?"
+msgstr "接下来该怎么做？"
+
+#: .\invitation\templates\invitation\freebies.html:273
+msgid "Tell someone about your decision to follow Jesus."
+msgstr "告诉别人你决定跟随耶稣。"
+
+#: .\invitation\templates\invitation\freebies.html:274
+msgid "Find a Bible and start reading, beginning with the Gospel of John."
+msgstr "找一本圣经开始阅读，从《约翰福音》开始。"
+
+#: .\invitation\templates\invitation\freebies.html:275
+msgid "Pray regularly and seek God in your daily life."
+msgstr "定期祷告，在日常生活中寻求上帝。"
+
+#: .\invitation\templates\invitation\freebies.html:276
+msgid ""
+"Connect with a local church or Christian community for support and growth."
+msgstr "与当地教会或基督徒社区联系，以获得支持和成长。"
+
+#: .\invitation\templates\invitation\freebies.html:277
+msgid "Continue learning about Jesus and His teachings."
+msgstr "继续学习关于耶稣和他的教导。"
+
+#: .\invitation\templates\invitation\freebies.html:279
+msgid "If you have questions or need support, feel free to reach out to us!"
+msgstr "如果您有任何问题或需要支持，请随时与我们联系！"
+
+#: .\invitation\templates\invitation\freebies.html:281
+msgid ""
+"If you want to know more about salvation or have questions about faith, "
+"please reach out. We would love to share more and pray with you."
+msgstr ""
+"如果您想更多地了解救恩或对信仰有任何疑问，请联系我们。我们很乐意与您分享更多"
+"并为您祷告。"
+
+#: .\invitation\templates\invitation\freebies.html:283
+msgid "Reach Out to us!"
+msgstr "联系我们！"
+
+#: .\invitation\templates\invitation\gallery.html:4
+msgid "Gallery - Our Wedding"
+msgstr "婚礼画廊"
+
+#: .\invitation\templates\invitation\gallery.html:8
+#: .\invitation\templates\invitation\navbar.html:7
+msgid "Gallery"
+msgstr "画廊"
+
+#: .\invitation\templates\invitation\gallery.html:9
+msgid "Check back soon for more updates!"
+msgstr "请稍后回来查看更多更新！"
+
+#: .\invitation\templates\invitation\gallery.html:10
+#: .\invitation\templates\invitation\navbar.html:8
+msgid "Coming Soon"
+msgstr "敬请期待"
+
+#: .\invitation\templates\invitation\home.html:299
+msgid "Christian Cross"
+msgstr ""
+
+#: .\invitation\templates\invitation\home.html:305
+msgid "A Message of Love"
+msgstr "爱的讯息"
+
+#: .\invitation\templates\invitation\home.html:308
+msgid ""
+"Love is patient, love is kind. It does not envy, it does not boast, it is "
+"not proud. It does not dishonor others, it is not self-seeking, it is not "
+"easily angered, it keeps no record of wrongs. Love does not delight in evil "
+"but rejoices with the truth. It always protects, always trusts, always "
+"hopes, always perseveres."
+msgstr ""
+"爱是恒久忍耐，又有恩慈；爱是不嫉妒，不自夸，不张狂，不作害羞的事，不求自己的"
+"益处，不轻易发怒，不计算人的恶；不喜欢不义，只喜欢真理；凡事包容，凡事相信，"
+"凡事盼望，凡事忍耐。"
+
+#: .\invitation\templates\invitation\home.html:311
+msgid "1 Corinthians 13:4-7"
+msgstr "哥林多前书 13:4-7"
+
+#: .\invitation\templates\invitation\home.html:314
+msgid "Click the heart!"
+msgstr ""
+
+#: .\invitation\templates\invitation\home.html:317
+msgid "You're Invited!"
+msgstr "诚邀您参加！"
+
+#: .\invitation\templates\invitation\home.html:318
+#| msgid "Joel & Amanda's Wedding"
+msgid "Joel Ng Zhi Hao & Amanda Lim Hui Wen's Wedding"
+msgstr "智浩和惠文的婚礼"
+
+#: .\invitation\templates\invitation\home.html:321
+msgid "Venue:"
+msgstr "场地："
+
+#: .\invitation\templates\invitation\home.html:321
+#| msgid "Map to Victory Family Centre Tampines"
+msgid "Victory Family Centre Tampines (Level 3)"
+msgstr "胜家庭中心淡滨尼（3楼）"
+
+#: .\invitation\templates\invitation\home.html:322
+msgid "Address:"
+msgstr "地址："
+
+#: .\invitation\templates\invitation\home.html:322
+msgid "20 Tampines Street 43, Singapore 529151"
+msgstr "新加坡淡滨尼街43号，邮区529151"
+
+#: .\invitation\templates\invitation\home.html:323
+msgid "Date:"
+msgstr "日期："
+
+#: .\invitation\templates\invitation\home.html:323
+msgid "November 29 (Saturday)"
+msgstr "11月29日（星期六）"
+
+#: .\invitation\templates\invitation\home.html:324
+msgid "Registration Time:"
+msgstr "报到时间："
+
+#: .\invitation\templates\invitation\home.html:324
+msgid "10:30 AM"
+msgstr "上午10:30"
+
+#: .\invitation\templates\invitation\home.html:325
+msgid "Dress Code:"
+msgstr "着装要求："
+
+#: .\invitation\templates\invitation\home.html:325
+msgid ""
+"Smart Casual (Kindly dress modestly—long pants or jeans for men, and long "
+"skirts or dresses for women; no shorts or revealing clothing. Covered shoes)"
+msgstr ""
+"商务休闲（请着装得体——男士请穿长裤或牛仔裤，女士请穿长裙或连衣裙；请勿穿短裤"
+"或暴露的服装。请穿包鞋）"
+
+#: .\invitation\templates\invitation\home.html:326
+msgid "Food:"
+msgstr "餐饮："
+
+#: .\invitation\templates\invitation\home.html:326
+msgid "8-Course Buffet Lunch and Pastries"
+msgstr "八道菜自助午餐和糕点"
+
+#: .\invitation\templates\invitation\home.html:329
+msgid "Couple Photo"
+msgstr "情侣照片"
+
+#: .\invitation\templates\invitation\home.html:329
+msgid "Joel & Amanda"
+msgstr "智浩 & 惠文"
+
+#: .\invitation\templates\invitation\home.html:330
+msgid "Venue Photo"
+msgstr "场地照片"
+
+#: .\invitation\templates\invitation\home.html:330
+#, fuzzy
+#| msgid "Map to Victory Family Centre Tampines"
+msgid "Victory Family Centre Tampines"
+msgstr "前往得胜家庭中心淡滨尼的地图"
+
+#: .\invitation\templates\invitation\home.html:335
+msgid "We are delighted to invite you to our wedding celebration!"
+msgstr "我们很高兴邀请您参加我们的婚礼庆典！"
+
+#: .\invitation\templates\invitation\home.html:338
+msgid "Please let us know if you can join us by submitting your RSVP!"
+msgstr "请通过提交您的回复让我们知道您是否能参加！"
+
+#: .\invitation\templates\invitation\home.html:341
+msgid "RSVP Now"
+msgstr "立即回复"
+
+#: .\invitation\templates\invitation\home.html:343
+msgid "Check out our free gifts for you!"
+msgstr "查看我们为您准备的免费礼物！"
+
+#: .\invitation\templates\invitation\home.html:352
+msgid "How to Get There?"
+msgstr "如何到达？"
+
+#: .\invitation\templates\invitation\home.html:355
+msgid ""
+"Victory Family Centre Tampines is easily accessible by public transport and "
+"car."
+msgstr "得胜家庭中心淡滨尼交通便利，可乘坐公共交通或自驾前往。"
+
+#: .\invitation\templates\invitation\home.html:359
+msgid "By MRT:"
+msgstr "乘坐地铁："
+
+#: .\invitation\templates\invitation\home.html:360
+msgid ""
+"Take the Downtown Line to Tampines East MRT (DT33). Walk 8 minutes to the "
+"church."
+msgstr "乘坐市区线到淡滨尼东站（DT33）。步行8分钟到教堂。"
+
+#: .\invitation\templates\invitation\home.html:363
+msgid "By Bus:"
+msgstr "乘坐巴士："
+
+#: .\invitation\templates\invitation\home.html:364
+msgid "Bus services 8, 18, 28, 29, 37, 291, 293 stop nearby."
+msgstr "巴士服务8、18、28、29、37、291、293路在附近停靠。"
+
+#: .\invitation\templates\invitation\home.html:367
+msgid "By Car:"
+msgstr "自驾："
+
+#: .\invitation\templates\invitation\home.html:368
+msgid ""
+"Free parking available at the church carpark (reserve beforehand).<br/>There "
+"are HDB carparks nearby as well."
+msgstr "教堂停车场提供免费停车（需提前预约）。<br/>附近也有组屋停车场。"
+
+#: .\invitation\templates\invitation\home.html:373
+msgid "View on Google Maps"
+msgstr "在谷歌地图中查看"
+
+#: .\invitation\templates\invitation\home.html:378
+msgid "Map to Victory Family Centre Tampines"
+msgstr "前往得胜家庭中心淡滨尼的地图"
+
+#: .\invitation\templates\invitation\navbar.html:5
+msgid "Home"
+msgstr "主页"
+
+#: .\invitation\templates\invitation\navbar.html:10
+#: .\invitation\templates\invitation\rsvp.html:117
+msgid "RSVP"
+msgstr "回复邀请"
+
+#: .\invitation\templates\invitation\navbar.html:11
+msgid "Volunteer"
+msgstr "志愿者"
+
+#: .\invitation\templates\invitation\navbar.html:14
+msgid "for you!"
+msgstr "送给你！"
+
+#: .\invitation\templates\invitation\navbar.html:25
+#: .\invitation\templates\invitation\navbar.html:32
+msgid "Off"
+msgstr "关闭"
+
+#: .\invitation\templates\invitation\navbar.html:31
+msgid "On"
+msgstr "开启"
+
+#: .\invitation\templates\invitation\rsvp.html:5
+#, fuzzy
+#| msgid "Gallery - Our Wedding"
+msgid "RSVP - Our Wedding"
+msgstr "婚礼画廊"
+
+#: .\invitation\templates\invitation\rsvp.html:121
+#, fuzzy
+#| msgid "Contact Number"
+msgid "Contact Number:"
+msgstr "联系电话"
+
+#: .\invitation\templates\invitation\rsvp.html:123
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "电子邮件"
+
+#: .\invitation\templates\invitation\rsvp.html:125
+msgid "Who are you connected to?"
+msgstr "你和谁有联系？"
+
+#: .\invitation\templates\invitation\rsvp.html:140
+msgid "Will you be attending?"
+msgstr "您会出席吗？"
+
+#: .\invitation\templates\invitation\rsvp.html:157
+msgid "Church Carpark Slot Reservation (limited slots - allocated based on necessity)"
+msgstr "教堂停车位预订（车位有限 - 根据需求分配）"
+
+#: .\invitation\templates\invitation\rsvp.html:176
+msgid "Any other comments:"
+msgstr "任何其他评论："
+
+#: .\invitation\templates\invitation\rsvp.html:178
+#, fuzzy
+#| msgid "RSVP"
+msgid "Send RSVP"
+msgstr "回复邀请"
+
+#: .\invitation\templates\invitation\volunteer.html:4
+#, fuzzy
+#| msgid "Gallery - Our Wedding"
+msgid "Volunteer - Our Wedding"
+msgstr "婚礼画廊"
+
+#: .\invitation\templates\invitation\volunteer.html:126
+#, fuzzy
+#| msgid "Gallery - Our Wedding"
+msgid "Volunteer for Our Wedding"
+msgstr "婚礼画廊"
+
+#: .\invitation\templates\invitation\volunteer.html:139
+msgid ""
+"We would love your help to make our wedding day even more special! If you’d "
+"like to volunteer, please fill out the form below and let us know how you "
+"can contribute."
+msgstr ""
+
+#: .\invitation\templates\invitation\volunteer.html:162
+msgid "No roles available. (Check VolunteerRole in admin)"
+msgstr "没有可用的角色。（请在管理员中检查志愿者角色）"
+
+#: .\invitation\templates\invitation\volunteer.html:169
+msgid "Submit"
+msgstr "提交"
+
+#~ msgid "Our Story"
+#~ msgstr "我们的故事"
+
+#~ msgid "Photos"
+#~ msgstr "照片"
+
+#~ msgid "Q&A"
+#~ msgstr "问与答"
+
+#~ msgid "We are getting married!"
+#~ msgstr "我们要结婚了！"
+
+#~ msgid "Join us for the wedding of"
+#~ msgstr "诚挚邀请您参加我们的婚礼"
+
+#~ msgid "25th July 2025"
+#~ msgstr "2025年7月25日"
+
+#~ msgid "Save the Date"
+#~ msgstr "敬请预留日期"
+
+#~ msgid "Sign up to help out at our wedding!"
+#~ msgstr "报名成为我们婚礼的志愿者！"
+
+#~ msgid "Roles"
+#~ msgstr "角色"
+
+#~ msgid "Toggle Music"
+#~ msgstr "切换音乐"

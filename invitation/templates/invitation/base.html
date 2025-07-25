@@ -3,15 +3,18 @@
 <html lang="{{ request.LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% trans "Our Wedding" %}{% endblock %}</title>
+    <title>{% block title %}{% trans "Our Wedding Invitation" %}{% endblock %}</title>
     {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'invitation/vfc.png' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
     {% include 'invitation/navbar.html' %}
-    <div class="content">
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

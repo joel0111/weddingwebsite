@@ -110,11 +110,13 @@ USE_I18N = True
 USE_TZ = True
 
 # Add language settings
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
 LANGUAGES = [
     ('en', 'English'),
     ('zh-hans', '简体中文'),
 ]
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]

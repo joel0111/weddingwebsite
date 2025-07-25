@@ -1,18 +1,10 @@
 {% extends "invitation/base.html" %}
-{% load static %}
-{% load i18n %}
+{% load static i18n %}
 
 {% block title %}{% trans "Volunteer - Our Wedding" %}{% endblock %}
 
-{% block content %}
+{% block extra_head %}
 <style>
-        body {
-            background: #fff0f6;
-            color: #d6336c;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
         .container {
             max-width: 600px;
             margin: 40px auto;
@@ -52,51 +44,6 @@
             border: 1px solid #f783ac;
             margin-bottom: 16px;
             font-size: 1em;
-        }
-        .navbar {
-            width: 100%;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            border-bottom: 1px solid #f783ac;
-        }
-        .nav-link {
-            color: #d6336c;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-        .nav-link:hover {
-            background: #f783ac;
-            color: #fff;
-        }
-        .lang-toggle {
-            margin-left: 32px;
-            display: flex;
-            gap: 4px;
-        }
-        .lang-btn {
-            background: #fff;
-            color: #d6336c;
-            border: 1px solid #f783ac;
-            border-radius: 6px;
-            padding: 6px 12px;
-            font-size: 1em;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .lang-btn.active, .lang-btn:hover {
-            background: #f783ac;
-            color: #fff;
         }
         .coming-soon {
             position: absolute;
@@ -172,9 +119,10 @@
         .submit-btn:hover {
             background: #d6336c;
         }
-    </style>
+</style>
+{% endblock %}
 
-<div class="container">
+{% block content %}
     <h1>{% trans "Volunteer for Our Wedding" %}</h1>
     {% if messages %}
         {% for message in messages %}
@@ -222,6 +170,4 @@
         </div>
     </form>
     {% endif %}
-</div>
-
 {% endblock %}

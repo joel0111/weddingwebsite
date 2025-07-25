@@ -53,12 +53,17 @@ h1 {
     background: #f783ac;
     color: #fff;
 }
+
+.nav-item-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .coming-soon {
     position: absolute;
-    top: 28px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     background: #f783ac;
     color: #fff;
     font-size: 0.8em;

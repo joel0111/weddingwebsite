@@ -1,11 +1,10 @@
 <!DOCTYPE html>
+{% extends "invitation/base.html" %}
 {% load i18n static %}
-{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
-<head>
-    <meta charset="UTF-8">
-    <title>{% trans "RSVP - Our Wedding" %}</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block title %}{% trans "RSVP - Our Wedding" %}{% endblock %}
+
+{% block extra_head %}
     <style>
         body {
             background: #fff0f6;
@@ -111,9 +110,9 @@
             font-size: 1em;
         }
     </style>
-</head>
-<body>
-    {% include 'invitation/navbar.html' %}
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>{% trans "RSVP" %}</h1>
         <form method="post">
@@ -179,89 +178,91 @@
             <button type="submit" class="btn">{% trans "Send RSVP" %}</button>
         </form>
     </div>
-    <script>
-        document.getElementById('lang-en').onclick = function() {
-            document.body.classList.remove('lang-zh');
-            document.body.classList.add('lang-en');
-            this.classList.add('active');
-            document.getElementById('lang-zh').classList.remove('active');
-        };
-        document.getElementById('lang-zh').onclick = function() {
-            document.body.classList.remove('lang-en');
-            document.body.classList.add('lang-zh');
-            this.classList.add('active');
-            document.getElementById('lang-en').classList.remove('active');
-        };
-        function toggleCarPlate(show) {
-            document.getElementById('carplate-field').style.display = show ? 'block' : 'none';
-            document.getElementById('carplate').required = show;
-            document.getElementById('reservation-reason-field').style.display = show ? 'block' : 'none';
-            document.getElementById('id_reservation_reason').required = show;
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('lang-en').onclick = function() {
+        document.body.classList.remove('lang-zh');
+        document.body.classList.add('lang-en');
+        this.classList.add('active');
+        document.getElementById('lang-zh').classList.remove('active');
+    };
+    document.getElementById('lang-zh').onclick = function() {
+        document.body.classList.remove('lang-en');
+        document.body.classList.add('lang-zh');
+        this.classList.add('active');
+        document.getElementById('lang-en').classList.remove('active');
+    };
+    function toggleCarPlate(show) {
+        document.getElementById('carplate-field').style.display = show ? 'block' : 'none';
+        document.getElementById('carplate').required = show;
+        document.getElementById('reservation-reason-field').style.display = show ? 'block' : 'none';
+        document.getElementById('id_reservation_reason').required = show;
+    }
+    function updateCarparkSelection() {
+        var yesRadio = document.getElementById('carpark_yes');
+        var noRadio = document.getElementById('carpark_no');
+        var yesSpan = document.getElementById('carpark_yes_span');
+        var noSpan = document.getElementById('carpark_no_span');
+        if (yesRadio.checked) {
+            yesSpan.classList.add('selected-radio');
+            noSpan.classList.remove('selected-radio');
+            toggleCarPlate(true);
+        } else if (noRadio.checked) {
+            noSpan.classList.add('selected-radio');
+            yesSpan.classList.remove('selected-radio');
+            toggleCarPlate(false);
+        } else {
+            yesSpan.classList.remove('selected-radio');
+            noSpan.classList.remove('selected-radio');
+            toggleCarPlate(false);
         }
-        function updateCarparkSelection() {
-            var yesRadio = document.getElementById('carpark_yes');
-            var noRadio = document.getElementById('carpark_no');
-            var yesSpan = document.getElementById('carpark_yes_span');
-            var noSpan = document.getElementById('carpark_no_span');
-            if (yesRadio.checked) {
-                yesSpan.classList.add('selected-radio');
-                noSpan.classList.remove('selected-radio');
-                toggleCarPlate(true);
-            } else if (noRadio.checked) {
-                noSpan.classList.add('selected-radio');
-                yesSpan.classList.remove('selected-radio');
-                toggleCarPlate(false);
-            } else {
-                yesSpan.classList.remove('selected-radio');
-                noSpan.classList.remove('selected-radio');
-                toggleCarPlate(false);
-            }
+    }
+    function updateAttendingSelection() {
+        var yesRadio = document.getElementById('attending_yes');
+        var noRadio = document.getElementById('attending_no');
+        var yesSpan = document.getElementById('attending_yes_span');
+        var noSpan = document.getElementById('attending_no_span');
+        if (yesRadio.checked) {
+            yesSpan.classList.add('selected-radio');
+            noSpan.classList.remove('selected-radio');
+        } else if (noRadio.checked) {
+            noSpan.classList.add('selected-radio');
+            yesSpan.classList.remove('selected-radio');
+        } else {
+            yesSpan.classList.remove('selected-radio');
+            noSpan.classList.remove('selected-radio');
         }
-        function updateAttendingSelection() {
-            var yesRadio = document.getElementById('attending_yes');
-            var noRadio = document.getElementById('attending_no');
-            var yesSpan = document.getElementById('attending_yes_span');
-            var noSpan = document.getElementById('attending_no_span');
-            if (yesRadio.checked) {
-                yesSpan.classList.add('selected-radio');
-                noSpan.classList.remove('selected-radio');
-            } else if (noRadio.checked) {
-                noSpan.classList.add('selected-radio');
-                yesSpan.classList.remove('selected-radio');
-            } else {
-                yesSpan.classList.remove('selected-radio');
-                noSpan.classList.remove('selected-radio');
-            }
+    }
+    function updateConnectedToSelection() {
+        var groomRadio = document.getElementById('connected_to_groom');
+        var brideRadio = document.getElementById('connected_to_bride');
+        var bothRadio = document.getElementById('connected_to_both');
+        var groomSpan = document.getElementById('connected_to_groom_span');
+        var brideSpan = document.getElementById('connected_to_bride_span');
+        var bothSpan = document.getElementById('connected_to_both_span');
+        // Remove highlight from all
+        groomSpan.classList.remove('selected-radio');
+        brideSpan.classList.remove('selected-radio');
+        bothSpan.classList.remove('selected-radio');
+        // Add highlight to selected
+        if (groomRadio.checked) {
+            groomSpan.classList.add('selected-radio');
+        } else if (brideRadio.checked) {
+            brideSpan.classList.add('selected-radio');
+        } else if (bothRadio.checked) {
+            bothSpan.classList.add('selected-radio');
         }
-        function updateConnectedToSelection() {
-            var groomRadio = document.getElementById('connected_to_groom');
-            var brideRadio = document.getElementById('connected_to_bride');
-            var bothRadio = document.getElementById('connected_to_both');
-            var groomSpan = document.getElementById('connected_to_groom_span');
-            var brideSpan = document.getElementById('connected_to_bride_span');
-            var bothSpan = document.getElementById('connected_to_both_span');
-            // Remove highlight from all
-            groomSpan.classList.remove('selected-radio');
-            brideSpan.classList.remove('selected-radio');
-            bothSpan.classList.remove('selected-radio');
-            // Add highlight to selected
-            if (groomRadio.checked) {
-                groomSpan.classList.add('selected-radio');
-            } else if (brideRadio.checked) {
-                brideSpan.classList.add('selected-radio');
-            } else if (bothRadio.checked) {
-                bothSpan.classList.add('selected-radio');
-            }
-        }
-        document.getElementById('carpark_yes').addEventListener('change', updateCarparkSelection);
-        document.getElementById('carpark_no').addEventListener('change', updateCarparkSelection);
-        document.getElementById('attending_yes').addEventListener('change', updateAttendingSelection);
-        document.getElementById('attending_no').addEventListener('change', updateAttendingSelection);
-        window.onload = function() {
-            updateCarparkSelection();
-            updateAttendingSelection();
-            updateConnectedToSelection();
-        };
-    </script>
-</body>
-</html>
+    }
+    document.getElementById('carpark_yes').addEventListener('change', updateCarparkSelection);
+    document.getElementById('carpark_no').addEventListener('change', updateCarparkSelection);
+    document.getElementById('attending_yes').addEventListener('change', updateAttendingSelection);
+    document.getElementById('attending_no').addEventListener('change', updateAttendingSelection);
+    window.onload = function() {
+        updateCarparkSelection();
+        updateAttendingSelection();
+        updateConnectedToSelection();
+    };
+</script>
+{% endblock %}

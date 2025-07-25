@@ -2,15 +2,15 @@
 {% get_current_language as LANGUAGE_CODE %}
 <nav class="navbar">
     <div class="navbar-links">
-        <a href="/home" class="nav-link">{% trans "Home" %}</a>
-        <span style="position:relative;display:inline-block;">
-            <a href="/gallery" class="nav-link">{% trans "Gallery" %}</a>
+        <a href="{% url 'home' %}" class="nav-link">{% trans "Home" %}</a>
+        <span class="nav-item-wrapper">
+            <a href="{% url 'gallery' %}" class="nav-link">{% trans "Gallery" %}</a>
             <span class="coming-soon">{% trans "Coming Soon" %}</span>
         </span>
-        <a href="/rsvp" class="nav-link">{% trans "RSVP" %}</a>
-        <a href="/volunteer" class="nav-link">{% trans "Volunteer" %}</a>
+        <a href="{% url 'rsvp' %}" class="nav-link">{% trans "RSVP" %}</a>
+        <a href="{% url 'volunteer' %}" class="nav-link">{% trans "Volunteer" %}</a>
         <span style="position:relative;display:inline-block;">
-            <a href="/freebies" class="nav-link">{% trans "Freebies" %}</a>
+            <a href="{% url 'freebies' %}" class="nav-link">{% trans "Freebies" %}</a>
             <span class="for-you">{% trans "for you!" %}</span>
         </span>
     </div>
@@ -22,11 +22,14 @@
     </form>
     <button id="speaker-btn" style="background:none; border:none; margin-left:16px; cursor:pointer; font-size:1.1em; display:flex; align-items:center;">
         <span id="speaker-icon" style="font-size:2.5rem;">🔈</span>
-        <span id="speaker-status" class="nav-link" style="margin-left:8px;">Off</span>
+        <span id="speaker-status" class="nav-link" style="margin-left:8px;">{% trans "Off" %}</span>
     </button>
     <audio id="wedding-audio" src="/static/Christina%20Perri%20-%20A%20Thousand%20years%20-%20ThePianoGuys.mp3"></audio>
 </nav>
 <script>
+    // Translated labels for speaker status
+    const speakerOnText = "{% trans 'On' %}";
+    const speakerOffText = "{% trans 'Off' %}";
     const speakerBtn = document.getElementById('speaker-btn');
     const speakerIcon = document.getElementById('speaker-icon');
     const speakerStatus = document.getElementById('speaker-status');
@@ -36,11 +39,11 @@
         speakerOn = !speakerOn;
         if (speakerOn) {
             speakerIcon.textContent = '🔊';
-            speakerStatus.textContent = 'On';
+            speakerStatus.textContent = speakerOnText;
             weddingAudio.play();
         } else {
             speakerIcon.textContent = '🔈';
-            speakerStatus.textContent = 'Off';
+            speakerStatus.textContent = speakerOffText;
             weddingAudio.pause();
         }
     });

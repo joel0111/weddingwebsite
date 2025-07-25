@@ -1,12 +1,9 @@
+{% extends "invitation/base.html" %}
 {% load static i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-<!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
-<head>
-    <meta charset="UTF-8">
-    <title>{% trans "Our Wedding Invitation" %}</title>
-    <link rel="icon" type="image/png" href="{% static 'invitation/vfc.png' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block title %}{% trans "Our Wedding Invitation" %}{% endblock %}
+
+{% block extra_head %}
     <style>
         body {
             background: #fff0f6;
@@ -33,7 +30,7 @@
         }
         h2 {
             color: #f783ac;
-            font-size: 1.5em;
+            font-size: 2.2em;
             margin-bottom: 1em;
         }
         .btn {
@@ -183,7 +180,7 @@
             transform: scale(1.03);
         }
         .how-to-card .bible-verse-header {
-            font-size: 1.1em;
+            font-size: 1.8em;
             font-weight: bold;
             color: #d6336c;
             margin-bottom: 10px;
@@ -296,12 +293,10 @@
             transform: scale(1.03);
         }
     </style>
-</head>
-<body>
-    {% include 'invitation/navbar.html' %}
-    <div class="container">
-    {% block content %}
-    <svg class="christian-symbol" viewBox="0 0 48 48" title="Christian Cross">
+{% endblock %}
+
+{% block content %}
+    <svg class="christian-symbol" viewBox="0 0 48 48" title="{% trans 'Christian Cross' %}">
         <rect x="21" y="2" width="6" height="44" rx="3" fill="#d6336c"/>
         <rect x="12" y="14" width="24" height="6" rx="3" fill="#d6336c"/>
     </svg>
@@ -316,7 +311,7 @@
             {% trans "1 Corinthians 13:4-7" %}
         </div>
     </div>
-    <svg class="svg-heart" viewBox="0 0 120 120" title="Click the heart!">
+    <svg class="svg-heart" viewBox="0 0 120 120" title="{% trans 'Click the heart!' %}">
         <path d="M60 110 L10 50 A25 25 0 1 1 60 30 A25 25 0 1 1 110 50 Z" fill="#d6336c" />
     </svg>
     <h1>{% trans "You're Invited!" %}</h1>
@@ -327,12 +322,12 @@
             <div><span>🏠</span> <span><strong>{% trans "Address:" %}</strong> {% trans "20 Tampines Street 43, Singapore 529151" %}</span></div>
             <div><span>📅</span> <span><strong>{% trans "Date:" %}</strong> {% trans "November 29 (Saturday)" %}</span></div>
             <div><span>⏰</span> <span><strong>{% trans "Registration Time:" %}</strong> {% trans "10:30 AM" %}</span></div>
-            <div><span>👔</span> <span><strong>{% trans "Dress Code:" %}</strong> {% trans "Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes)" %}</span></div>
-            <div><span>🍽️</span> <span><strong>{% trans "Food:" %}</strong> {% trans "8-Course Buffet Lunch and Pastries (During Registration)" %}</span></div>
+            <div><span>👔</span> <span><strong>{% trans "Dress Code:" %}</strong> {% blocktrans %}Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes){% endblocktrans %}</span></div>
+            <div><span>🍽️</span> <span><strong>{% trans "Food:" %}</strong> {% trans "8-Course Buffet Lunch and Pastries" %}</span></div>
         </div>
         <div style="display:flex; justify-content:center; gap:32px; align-items:center;">
-            <img src="{% static 'couple_pic1.png' %}" alt="Couple Photo" class="couple-photo-art" title="Joel & Amanda" />
-            <img src="{% static 'vfc.png' %}" alt="Venue Photo" class="venue-photo-art" title="Victory Family Centre Tampines" />
+            <img src="{% static 'couple_pic1.png' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" title="{% trans 'Joel & Amanda' %}" />
+            <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" class="venue-photo-art" title="{% trans 'Victory Family Centre Tampines' %}" />
         </div>
     </div>
     <div class="info-card">
@@ -370,7 +365,7 @@
             </div>
             <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; max-width:260px; width:33%;">
                 <span style="font-size:1.2em; margin-bottom:4px;">🚗</span><strong>{% trans "By Car:" %}</strong><br/>
-                <span style="font-size:0.98em;">{% trans "Free parking available at the church carpark (reserve beforehand).<br/>There are HDB carparks nearby as well." %}</span>
+                <span style="font-size:0.98em;">{% blocktrans %}Free parking available at the church carpark (reserve beforehand).<br/>There are HDB carparks nearby as well.{% endblocktrans %}</span>
             </div>
         </div>
         <div style="display:flex; justify-content:center; width:100%; position:absolute; left:0; bottom:18px;">
@@ -380,9 +375,6 @@
         </div>
     </div>
     <div class="map-card how-to-card" style="margin-top:32px; padding:24px; background:#fff0f6; border-radius:16px; box-shadow:0 2px 12px rgba(214,51,108,0.12); text-align:center;">
-        <img src="{% static 'map.png' %}" alt="Map to Victory Family Centre Tampines" class="map-img" style="max-width:100%; border-radius:12px; box-shadow:0 2px 8px rgba(36,60,90,0.08);" />
+        <img src="{% static 'map.png' %}" alt="{% trans 'Map to Victory Family Centre Tampines' %}" class="map-img" style="max-width:100%; border-radius:12px; box-shadow:0 2px 8px rgba(36,60,90,0.08);" />
     </div>
-    {% endblock %}
-    </div>
-</body>
-</html>
+{% endblock %}
