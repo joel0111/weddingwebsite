@@ -95,20 +95,7 @@
         .role-btn.screens { background: #ff6961; color: #fff; }
         .role-btn.lights { background: #fffacd; color: #243c5a; }
         .role-btn.sound { background: #c0c0c0; color: #243c5a; }
-        .role-btn.selected {
-            background-color: #d6336c !important;
-            color: #fff !important;
-            border-radius: 8px;
-            padding: 12px 32px;
-            font-weight: bold;
-            box-shadow: 0 0 0 2px #f783ac;
-            border: 2px solid #fff;
-            transition: background 0.2s, color 0.2s;
-        }
-        .role-checkbox {
-            position: absolute;
-            left: -9999px;
-        }
+        .role-checkbox { display: none; }
         .submit-btn {
             background: #f783ac;
             color: #fff;
@@ -122,6 +109,16 @@
         }
         .submit-btn:hover {
             background: #d6336c;
+        }
+        .role-checkbox:checked + .role-btn {
+            background-color: #d6336c !important;
+            color: #fff !important;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-weight: bold;
+            box-shadow: 0 0 0 2px #f783ac;
+            border: 2px solid #fff;
+            transition: background 0.2s, color 0.2s;
         }
 </style>
 {% endblock %}
@@ -153,19 +150,14 @@
             <label style="margin-top: 18px;">{{ form.roles.label }}<span style="color:red">*</span></label>
             <div class="role-group" style="justify-content: center;">
                 {% for value, name in form.fields.roles.choices %}
-                    {% with role_id="role_"|add:value|stringformat:'s' %}
-                    {% if value|stringformat:'s' in selected_roles or value in selected_roles %}
-                        <input type="checkbox" id="{{ role_id }}" name="roles" value="{{ value }}" class="role-checkbox" checked>
-                        <label for="{{ role_id }}" class="role-btn {% for r in form.fields.roles.queryset %}{% if r.id == value %}{{ r.name|lower }}{% endif %}{% endfor %} selected">{{ name }}</label>
-                    {% else %}
-                        <input type="checkbox" id="{{ role_id }}" name="roles" value="{{ value }}" class="role-checkbox">
-                        <label for="{{ role_id }}" class="role-btn {% for r in form.fields.roles.queryset %}{% if r.id == value %}{{ r.name|lower }}{% endif %}{% endfor %}">{{ name }}</label>
-                    {% endif %}
+                    {% with role_id="role_"|add:value|stringformat:'s'|add:forloop.counter0|stringformat:'s' %}
+                        <label>
+                          <input type="checkbox" id="{{ role_id }}" name="roles" value="{{ value }}" class="role-checkbox" {% if value|stringformat:'s' in selected_roles or value in selected_roles %}checked{% endif %}>
+                          <span class="role-btn {% for r in form.fields.roles.queryset %}{% if r.id == value %}{{ r.name|lower }}{% endif %}{% endfor %}">{{ name }}</span>
+                        </label>
                     {% endwith %}
-                {% empty %}
-                    <span style="color: red;">{% trans "No roles available. (Check VolunteerRole in admin)" %}</span>
                 {% endfor %}
-            </div>
+            </div>  <!-- end of role-group -->
             <div style="width: 100%; max-width: 400px; margin-top: 20px;">
                 <label for="id_comments" style="display: block; margin: 18px 0 6px 0; font-weight: bold;">{{ form.comments.label }}</label>
                 {{ form.comments }}
@@ -175,3 +167,6 @@
     </form>
     {% endif %}
 {% endblock %}
+
+{% block extra_js %}{% endblock %}
+

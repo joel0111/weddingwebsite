@@ -19,83 +19,82 @@ msgstr ""
 
 #: .\invitation\forms.py:7
 msgid "Select a reason"
-msgstr ""
+msgstr "选择一个原因"
 
 #: .\invitation\forms.py:8
 msgid "Mobility issues / wheelchair access"
-msgstr ""
+msgstr "行动不便/轮椅通道"
 
 #: .\invitation\forms.py:9
 msgid "Elderly passenger"
-msgstr ""
+msgstr "老年乘客"
 
 #: .\invitation\forms.py:10
 msgid "Pregnant passenger"
-msgstr ""
+msgstr "怀孕乘客"
 
 #: .\invitation\forms.py:11
 msgid "Young children / infants"
-msgstr ""
+msgstr "幼儿/婴儿"
 
 #: .\invitation\forms.py:12
 msgid "Medical condition"
-msgstr ""
+msgstr "身体状况"
 
 #: .\invitation\forms.py:13
 msgid "Bringing heavy items"
-msgstr ""
+msgstr "携带重物"
 
 #: .\invitation\forms.py:14 .\invitation\forms.py:24 .\invitation\forms.py:34
 #: .\invitation\models.py:25 .\invitation\models.py:36
 msgid "Other (please specify in comments)"
-msgstr ""
+msgstr "其他（请在评论中注明）"
 
 #: .\invitation\forms.py:17 .\invitation\forms.py:29 .\invitation\models.py:18
 #: .\invitation\models.py:31
 msgid "Dairy-Free"
-msgstr ""
+msgstr "无乳制品"
 
 #: .\invitation\forms.py:18 .\invitation\models.py:19
 msgid "Gluten-Free"
-msgstr ""
+msgstr "不含麸质"
 
 #: .\invitation\forms.py:19 .\invitation\models.py:20
 msgid "Halal"
-msgstr ""
+msgstr "清真"
 
 #: .\invitation\forms.py:20 .\invitation\models.py:21
 msgid "No Beef"
-msgstr ""
+msgstr "没有牛肉"
 
 #: .\invitation\forms.py:21 .\invitation\models.py:22
 msgid "No seafood"
-msgstr ""
+msgstr "没有海鲜"
 
 #: .\invitation\forms.py:22 .\invitation\models.py:23
-#, fuzzy
 #| msgid "Dietary Preferences"
 msgid "No preference"
-msgstr "饮食偏好"
+msgstr "饮食无偏好"
 
 #: .\invitation\forms.py:23 .\invitation\models.py:24
 msgid "Nut-Free"
-msgstr ""
+msgstr "无坚果"
 
 #: .\invitation\forms.py:25 .\invitation\models.py:26
 msgid "Vegan"
-msgstr ""
+msgstr "素食主义者"
 
 #: .\invitation\forms.py:26 .\invitation\models.py:27
 msgid "Vegetarian"
-msgstr ""
+msgstr "素食"
 
 #: .\invitation\forms.py:30 .\invitation\models.py:32
 msgid "Eggs"
-msgstr ""
+msgstr "鸡蛋"
 
 #: .\invitation\forms.py:31 .\invitation\models.py:33
 msgid "Fish"
-msgstr ""
+msgstr "鱼"
 
 #: .\invitation\forms.py:32 .\invitation\models.py:34
 msgid "Milk"
@@ -115,7 +114,7 @@ msgstr "贝类"
 
 #: .\invitation\forms.py:37 .\invitation\models.py:39
 msgid "Shellfish"
-msgstr ""
+msgstr "贝类"
 
 #: .\invitation\forms.py:38 .\invitation\models.py:40
 msgid "Soy"
@@ -131,16 +130,14 @@ msgstr "小麦"
 
 #: .\invitation\forms.py:42 .\invitation\forms.py:65 .\invitation\forms.py:87
 #: .\invitation\forms.py:94 .\invitation\models.py:7 .\invitation\models.py:72
-#, fuzzy
 #| msgid "Full Name"
-msgid "Your Name"
+msgid "Name"
 msgstr "全名"
 
 #: .\invitation\forms.py:43 .\invitation\forms.py:70 .\invitation\forms.py:88
 #: .\invitation\forms.py:95 .\invitation\models.py:8 .\invitation\models.py:73
-#, fuzzy
 #| msgid "Email"
-msgid "Your Email"
+msgid "Email"
 msgstr "电子邮件"
 
 #: .\invitation\forms.py:44 .\invitation\forms.py:50
@@ -218,7 +215,6 @@ msgid "Food Allergies"
 msgstr "食物过敏"
 
 #: .\invitation\models.py:45
-#, fuzzy
 #| msgid "Comments"
 msgid "Other Comments"
 msgstr "备注"
@@ -228,10 +224,8 @@ msgid "Carpark Slot Reservation"
 msgstr "停车位预订"
 
 #: .\invitation\models.py:47 .\invitation\templates\invitation\rsvp.html:169
-#, fuzzy
-#| msgid "Contact Number"
 msgid "Car Plate Number"
-msgstr "联系电话"
+msgstr "车牌号码"
 
 #: .\invitation\models.py:48
 msgid "Reservation Reason"
@@ -691,17 +685,6 @@ msgstr "开启"
 msgid "RSVP - Our Wedding"
 msgstr "婚礼画廊"
 
-#: .\invitation\templates\invitation\rsvp.html:121
-#, fuzzy
-#| msgid "Contact Number"
-msgid "Contact Number:"
-msgstr "联系电话"
-
-#: .\invitation\templates\invitation\rsvp.html:123
-#, fuzzy
-#| msgid "Email"
-msgid "Email:"
-msgstr "电子邮件"
 
 #: .\invitation\templates\invitation\rsvp.html:125
 msgid "Who are you connected to?"
@@ -720,19 +703,12 @@ msgid "Any other comments:"
 msgstr "任何其他评论："
 
 #: .\invitation\templates\invitation\rsvp.html:178
-#, fuzzy
 #| msgid "RSVP"
 msgid "Send RSVP"
 msgstr "回复邀请"
 
-#: .\invitation\templates\invitation\volunteer.html:4
-#, fuzzy
-#| msgid "Gallery - Our Wedding"
-msgid "Volunteer - Our Wedding"
-msgstr "婚礼画廊"
 
 #: .\invitation\templates\invitation\volunteer.html:126
-#, fuzzy
 #| msgid "Gallery - Our Wedding"
 msgid "Volunteer for Our Wedding"
 msgstr "婚礼画廊"

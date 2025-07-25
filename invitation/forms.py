@@ -39,13 +39,13 @@ class RSVPForm(forms.ModelForm):
         ('tree_nuts', _('Tree Nuts')),
         ('wheat', _('Wheat')),
     ]
-    name = forms.CharField(label=_("Your Name"), widget=forms.TextInput(attrs={'class': 'rsvp-input'}))
-    email = forms.EmailField(label=_("Your Email"), widget=forms.EmailInput(attrs={'class': 'rsvp-input'}))
+    name = forms.CharField(label=_("Name"), widget=forms.TextInput(attrs={'class': 'rsvp-input'}))
+    email = forms.EmailField(required=False, label=_("Email"), widget=forms.EmailInput(attrs={'class': 'rsvp-input'}))
     attending = forms.BooleanField(required=False, widget=forms.RadioSelect(choices=[(True, _('Yes')), (False, _('No'))]))
-    message = forms.CharField(label=_("Write your well wishes for the couple:"), widget=forms.Textarea(attrs={'class': 'rsvp-input'}))
+    message = forms.CharField(required=False, label=_("Write your well wishes for the couple:"), widget=forms.Textarea(attrs={'class': 'rsvp-input'}))
     connected_to = forms.ChoiceField(choices=RSVP.CONNECTION_CHOICES, widget=forms.RadioSelect)
-    dietary_preferences = forms.ChoiceField(choices=DIETARY_CHOICES, required=False, widget=forms.Select(attrs={'class': 'rsvp-input'}))
-    food_allergies = forms.ChoiceField(choices=ALLERGY_CHOICES, required=False, widget=forms.Select(attrs={'class': 'rsvp-input'}))
+    dietary_preferences = forms.ChoiceField(choices=DIETARY_CHOICES, required=False, initial='none', widget=forms.Select(attrs={'class': 'rsvp-input'}))
+    food_allergies = forms.ChoiceField(choices=ALLERGY_CHOICES, required=False, initial='none', widget=forms.Select(attrs={'class': 'rsvp-input'}))
     other_comments = forms.CharField(required=False, widget=forms.Textarea(attrs={'class': 'rsvp-input'}))
     carpark_slot_reservation = forms.BooleanField(required=False, widget=forms.RadioSelect(choices=[(True, _('Yes')), (False, _('No'))]))
     car_plate_number = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'rsvp-input'}))
@@ -57,23 +57,23 @@ class RSVPForm(forms.ModelForm):
     )
     class Meta:
         model = RSVP
-        fields = ['name', 'email', 'attending', 'message', 'connected_to', 'dietary_preferences', 'food_allergies', 'other_comments', 'carpark_slot_reservation', 'car_plate_number', 'reservation_reason']
+        fields = ['name', 'email', 'contact_number', 'attending', 'message', 'connected_to', 'dietary_preferences', 'food_allergies', 'other_comments', 'carpark_slot_reservation', 'car_plate_number', 'reservation_reason']
 
 class VolunteerForm(forms.ModelForm):
     name = forms.CharField(
         required=True,
-        label=_("Your Name"),
-        widget=forms.TextInput(attrs={'placeholder': 'Your Name'})
+        label=_("Name"),
+        widget=forms.TextInput(attrs={'placeholder': 'E.g. John'})
     )
     email = forms.EmailField(
         required=True,
-        label=_("Your Email"),
-        widget=forms.EmailInput(attrs={'placeholder': 'Your Email'})
+        label=_("Email"),
+        widget=forms.EmailInput(attrs={'placeholder': 'E.g. john@gmail.com'})
     )
     contact_number = forms.CharField(
         required=True,
         label=_("Contact Number"),
-        widget=forms.TextInput(attrs={'placeholder': 'Your Contact Number'})
+        widget=forms.TextInput(attrs={'placeholder': 'E.g. 9123 4567'})
     )
     roles = forms.ModelMultipleChoiceField(
         queryset=VolunteerRole.objects.all(),
@@ -82,16 +82,18 @@ class VolunteerForm(forms.ModelForm):
     )
     class Meta:
         model = Volunteer
-        fields = ['name', 'email', 'contact_number', 'comments', 'roles']
+        fields = ['name', 'email', 'contact_number', 'roles', 'role_details', 'comments']
         labels = {
-            'name': _("Your Name"),
-            'email': _("Your Email"),
+            'name': _("Name"),
+            'email': _("Email"),
             'contact_number': _("Contact Number"),
+            'role_details': _("Role Details"),
             'comments': _("Comments"),
             'roles': _("How would you like to help?")
         }
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': _('Your Name')}),
-            'email': forms.EmailInput(attrs={'placeholder': _('Your Email')}),
+            'name': forms.TextInput(attrs={'placeholder': _('E.g. John')}),
+            'email': forms.EmailInput(attrs={'placeholder': _('E.g. john@gmail.com')}),
+            'role_details': forms.Textarea(attrs={'placeholder': _('Provide any details about your selected roles'), 'rows': 4, 'id': 'id_role_details'}),
             'comments': forms.Textarea(attrs={'placeholder': _('Any comments or questions?')}),
         }

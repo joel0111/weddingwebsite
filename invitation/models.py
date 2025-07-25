@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class RSVP(models.Model):
     name = models.CharField(_("Your Name"), max_length=100, blank=False, null=False)
     email = models.EmailField(_("Your Email"), blank=False, null=False)
+    contact_number = models.CharField(_("Contact Number"), max_length=20, blank=True, null=True)
     attending = models.BooleanField(_("Attending"), blank=False, null=False)
     message = models.TextField(_("Message"), blank=False, null=False)
     CONNECTION_CHOICES = [
