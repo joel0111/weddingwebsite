@@ -137,7 +137,7 @@ msgstr "全名"
 #: .\invitation\forms.py:43 .\invitation\forms.py:70 .\invitation\forms.py:88
 #: .\invitation\forms.py:95 .\invitation\models.py:8 .\invitation\models.py:73
 #| msgid "Email"
-msgid "Email"
+msgid "Email:"
 msgstr "电子邮件"
 
 #: .\invitation\forms.py:44 .\invitation\forms.py:50
@@ -161,6 +161,10 @@ msgid "Reason for Carpark Reservation"
 msgstr "停车位预订原因"
 
 #: .\invitation\forms.py:75 .\invitation\forms.py:89 .\invitation\models.py:75
+msgid "Contact Number:"
+msgstr "联系电话:"
+
+#: .\invitation\volunteer.py:147 .\invitation\volunteer.py:148 .\invitation\models.py:76 .\invitation\forms.py:75
 msgid "Contact Number"
 msgstr "联系电话"
 
@@ -189,7 +193,6 @@ msgid "Message"
 msgstr "留言"
 
 #: .\invitation\models.py:12 .\invitation\templates\invitation\rsvp.html:133
-#, fuzzy
 #| msgid "Joel & Amanda"
 msgid "Amanda"
 msgstr "惠文"
@@ -293,9 +296,6 @@ msgid ""
 msgstr ""
 "欢迎来到我们的免费资源页面！在这里，您会找到我们为来宾准备的特别礼物和资源。"
 
-#: .\invitation\templates\invitation\freebies.html:201
-msgid "A Lamp to my 12 Blocks Salvation: From Household to the Nations"
-msgstr "照亮我的十二区救恩：从家庭到万邦"
 
 #: .\invitation\templates\invitation\freebies.html:202
 #: .\invitation\templates\invitation\freebies.html:207
@@ -307,29 +307,6 @@ msgstr "照亮我的十二区救恩：从家庭到万邦"
 msgid "Download"
 msgstr "下载"
 
-#: .\invitation\templates\invitation\freebies.html:206
-msgid "Biblical Guide to Heaven Entry"
-msgstr "圣经天堂入门指南"
-
-#: .\invitation\templates\invitation\freebies.html:211
-msgid "Building a God Centered Family: A Guide For Biblical Living"
-msgstr "建立以上帝为中心的家庭：圣经生活指南"
-
-#: .\invitation\templates\invitation\freebies.html:216
-msgid "The Seasons of Life: Finishing Well Before the Judgment Seat"
-msgstr "人生的季节：在审判台前善终"
-
-#: .\invitation\templates\invitation\freebies.html:221
-msgid "人生的季節: 在審判台前跑完好路"
-msgstr "人生的季節: 在審判台前跑完好路"
-
-#: .\invitation\templates\invitation\freebies.html:226
-msgid "圣经上的进入天堂指南"
-msgstr "圣经上的进入天堂指南"
-
-#: .\invitation\templates\invitation\freebies.html:231
-msgid "照亮我的十二区: 救恩从家庭传于万国"
-msgstr "照亮我的十二区: 救恩从家庭传于万国"
 
 #: .\invitation\templates\invitation\freebies.html:238
 msgid "The Greatest Free Gift"
@@ -366,9 +343,9 @@ msgid ""
 "death. Through Jesus, we can know God personally and receive the gift of "
 "eternal life."
 msgstr ""
-"耶稣是神的儿子，被差遣到世上来拯救我们脱离罪恶。他过着完美无罪的生活，通过教"
-"导和神迹彰显了神的爱，并甘愿为我们牺牲在十字架上。三天后，他从死里复活，证明"
-"了他战胜了罪和死亡。借着耶稣，我们可以亲自认识神，并得着永生的礼物。"
+"耶稣是神的儿子，被差遣到世上来拯救我们脱离罪恶。祂过着完美无罪的生活，通过教"
+"导和神迹彰显了神的爱，并甘愿为我们牺牲在十字架上。三天后，祂从死里复活，证明"
+"了祂战胜了罪和死亡。借着耶稣，我们可以亲自认识神，并得着永生的礼物。"
 
 #: .\invitation\templates\invitation\freebies.html:253
 msgid "What is Salvation?"
@@ -396,7 +373,7 @@ msgid ""
 "forgiven and reconciled to God."
 msgstr ""
 "我们需要救恩，因为罪使我们与神隔绝。靠我们自己无法修复这种关系。但神因着爱，"
-"差遣耶稣基督为我们的罪而死，并从死里复活，使一切信他的人都能被赦免，与神和"
+"差遣耶稣基督为我们的罪而死，并从死里复活，使一切信祂的人都能被赦免，与神和"
 "好。"
 
 #: .\invitation\templates\invitation\freebies.html:261
@@ -406,7 +383,7 @@ msgid ""
 "eternity with God."
 msgstr ""
 "救恩是免费的礼物，凭着对耶稣基督的信心而得，不是靠我们自己的努力或善行。借着"
-"他，我们得着新生命，并有与神同在永恒的应许。"
+"祂，我们得着新生命，并有与神同在永恒的应许。"
 
 #: .\invitation\templates\invitation\freebies.html:268
 msgid "The Sinner's Prayer"
@@ -421,7 +398,7 @@ msgid ""
 "this in the name of Jesus. Amen."
 msgstr ""
 "亲爱的上帝，我知道我是一个罪人，请求您的饶恕。我相信耶稣基督是您的儿子。我相"
-"信他为我的罪而死，您使他复活。从今天起，我愿意信靠他作为我的救主，并跟随他为"
+"信祂为我的罪而死，您使祂复活。从今天起，我愿意信靠祂作为我的救主，并跟随祂为"
 "主。引导我的生命，帮助我遵行您的旨意。奉耶稣的名祷告。阿们。"
 
 #: .\invitation\templates\invitation\freebies.html:271
@@ -447,7 +424,7 @@ msgstr "与当地教会或基督徒社区联系，以获得支持和成长。"
 
 #: .\invitation\templates\invitation\freebies.html:277
 msgid "Continue learning about Jesus and His teachings."
-msgstr "继续学习关于耶稣和他的教导。"
+msgstr "继续学习关于耶稣和祂的教导。"
 
 #: .\invitation\templates\invitation\freebies.html:279
 msgid "If you have questions or need support, feel free to reach out to us!"
@@ -509,7 +486,7 @@ msgstr "哥林多前书 13:4-7"
 
 #: .\invitation\templates\invitation\home.html:314
 msgid "Click the heart!"
-msgstr "点击爱心"
+msgstr "点击爱心，即可进入!"
 
 #: .\invitation\templates\invitation\home.html:317
 msgid "You're Invited!"

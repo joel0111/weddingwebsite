@@ -20,36 +20,61 @@
         <button type="submit" name="language" value="en" class="lang-btn {% if LANGUAGE_CODE == 'en' %}active{% endif %}">EN</button>
         <button type="submit" name="language" value="zh-hans" class="lang-btn {% if LANGUAGE_CODE == 'zh-hans' %}active{% endif %}">中文</button>
     </form>
-    <button id="speaker-btn" style="background:none; border:none; margin-left:16px; cursor:pointer; font-size:1.1em; display:flex; align-items:center;">
-        <span id="speaker-icon" style="font-size:2.5rem;">🔈</span>
-        <span id="speaker-status" class="nav-link" style="margin-left:8px;">{% trans "Off" %}</span>
+    <button id="speaker-btn" data-on="true" style="background:none; border:none; margin-left:16px; cursor:pointer; font-size:1.1em; display:flex; align-items:center;">
+        <span id="speaker-icon" style="font-size:2.5rem;">🔊</span>
+        <span id="speaker-status" class="nav-link" style="margin-left:8px;">{% trans "On" %}</span>
     </button>
-    <audio id="wedding-audio" src="/static/Christina%20Perri%20-%20A%20Thousand%20years%20-%20ThePianoGuys.mp3"></audio>
-</nav>
-<script>
-    // Translated labels for speaker status
-    const speakerOnText = "{% trans 'On' %}";
-    const speakerOffText = "{% trans 'Off' %}";
-    const speakerBtn = document.getElementById('speaker-btn');
-    const speakerIcon = document.getElementById('speaker-icon');
-    const speakerStatus = document.getElementById('speaker-status');
-    const weddingAudio = document.getElementById('wedding-audio');
-    let speakerOn = false;
-    speakerBtn.addEventListener('click', function() {
-        speakerOn = !speakerOn;
-        if (speakerOn) {
-            speakerIcon.textContent = '🔊';
-            speakerStatus.textContent = speakerOnText;
-            weddingAudio.play();
+    <audio id="wedding-audio" preload="auto" loop src="/static/Christina%20Perri%20-%20A%20Thousand%20years%20-%20ThePianoGuys.mp3"></audio>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('wedding-audio');
+        var btn = document.getElementById('speaker-btn');
+        var icon = document.getElementById('speaker-icon');
+        var status = document.getElementById('speaker-status');
+        // determine desired play state
+        var playOn = localStorage.getItem('weddingAudioOn') !== 'false';
+        // pause first to block autoplay
+        audio.pause();
+        // restore playback position when metadata loaded and then play if needed
+        audio.addEventListener('loadedmetadata', function() {
+            var savedTime = localStorage.getItem('weddingAudioTime');
+            if (savedTime) {
+                audio.currentTime = parseFloat(savedTime);
+            }
+            if (playOn) {
+                audio.play().catch(function(){});
+            }
+        });
+        // save playback position on time update
+        audio.addEventListener('timeupdate', function() {
+            localStorage.setItem('weddingAudioTime', audio.currentTime);
+        });
+        // load saved state
+        var saved = localStorage.getItem('weddingAudioOn');
+        if (saved === 'false') {
+            btn.setAttribute('data-on', 'false');
+            icon.textContent = '🔇';
+            status.textContent = '{% trans "Off" %}';
         } else {
-            speakerIcon.textContent = '🔈';
-            speakerStatus.textContent = speakerOffText;
-            weddingAudio.pause();
+            btn.setAttribute('data-on', 'true');
+            icon.textContent = '🔊';
+            status.textContent = '{% trans "On" %}';
         }
+        btn.addEventListener('click', function() {
+            if (btn.getAttribute('data-on') === 'true') {
+                audio.pause();
+                icon.textContent = '🔇';
+                status.textContent = '{% trans "Off" %}';
+                btn.setAttribute('data-on', 'false');
+                localStorage.setItem('weddingAudioOn', 'false');
+            } else {
+                audio.play().catch(function(){});
+                icon.textContent = '🔊';
+                status.textContent = '{% trans "On" %}';
+                btn.setAttribute('data-on', 'true');
+                localStorage.setItem('weddingAudioOn', 'true');
+            }
+        });
     });
-    // Pause audio if user leaves page or navigates away
-    window.addEventListener('beforeunload', function() {
-        weddingAudio.pause();
-        weddingAudio.currentTime = 0;
-    });
-</script>
+    </script>
+</nav>
