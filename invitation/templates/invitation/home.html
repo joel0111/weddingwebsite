@@ -25,26 +25,36 @@
         }
         h1 {
             color: #d6336c;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-family: 'Lucida Handwriting', 'Brush Script MT', cursive;
+            font-weight: 400;
+            letter-spacing: 1px;
             margin-bottom: 0.2em;
         }
         h2 {
             color: #f783ac;
             font-size: 2.2em;
+            font-family: cursive;
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: 0.5px;
             margin-bottom: 1em;
         }
         .btn {
-            background: #f783ac;
+            background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%);
             color: #fff;
             border: none;
             padding: 12px 32px;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(214,51,108,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
             font-size: 1em;
             cursor: pointer;
             text-decoration: none;
         }
         .btn:hover {
-            background: #d6336c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(214,51,108,0.3);
         }
         .svg-heart {
             width: 80px;
