@@ -688,7 +688,7 @@ msgstr "回复邀请"
 #: .\invitation\templates\invitation\volunteer.html:126
 #| msgid "Gallery - Our Wedding"
 msgid "Volunteer for Our Wedding"
-msgstr "婚礼画廊"
+msgstr "为我们的婚礼做志愿者"
 
 #: .\invitation\templates\invitation\volunteer.html:139
 msgid ""
