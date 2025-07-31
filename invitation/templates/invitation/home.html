@@ -77,7 +77,7 @@
         }
         .bible-verse {
             border-radius: 1.5rem;
-            background: linear-gradient(135deg, #fff0f6 60%, #fff0f6 100%);
+            background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%); /* updated for better contrast with white text */
             box-shadow: 0 2px 12px rgba(214,51,108,0.08);
             padding: 24px;
             min-height: 180px;
@@ -88,7 +88,7 @@
             overflow: hidden;
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             margin: 32px auto;
-            color: #243c5a;
+            color: #fff; /* updated for higher contrast */
             font-size: 1.15em;
             font-style: italic;
             max-width: 440px;
@@ -101,7 +101,7 @@
         .bible-verse-header {
             font-size: 1.1em;
             font-weight: bold;
-            color: #d6336c;
+            color: #fff; /* updated for higher contrast */
             margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
@@ -109,7 +109,7 @@
             display: block;
             margin-top: 12px;
             font-size: 1em;
-            color: #d6336c;
+            color: #fff; /* updated for higher contrast */
             font-weight: 500;
             align-self: flex-end;
         }
@@ -302,6 +302,21 @@
             box-shadow: 0 8px 24px rgba(214,51,108,0.16);
             transform: scale(1.03);
         }
+        @media (max-width: 768px) {
+            .couple-photo-art,
+            .venue-photo-art {
+                position: static;
+                width: 90%;
+                max-width: 320px;
+                height: auto;
+                margin: 16px auto;
+            }
+            .side-images {
+                display: flex !important;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
     </style>
 {% endblock %}
 
@@ -321,9 +336,11 @@
             {% trans "1 Corinthians 13:4-7" %}
         </div>
     </div>
+    <div class="decorative-divider"></div>
     <img class="svg-heart" src="{% static 'heart.gif' %}" alt="{% trans 'Heart' %}" title="{% trans 'Click the heart!' %}" />
     <h1>{% trans "You're Invited!" %}</h1>
-    <h2>{% trans "Joel Ng Zhi Hao & Amanda Lim Hui Wen's Wedding" %}</h2>
+    <h2>{% trans "Joel Ng & Amanda Lim's Wedding" %}</h2>
+    <div class="decorative-divider"></div>
     <div style="display:flex; flex-direction:column; align-items:center; gap:32px; margin:32px 0;">
         <div class="event-details-card">
             <div><span>📍</span> <span><strong>{% trans "Venue:" %}</strong> {% trans "Victory Family Centre Tampines (Level 3)" %}</span></div>
@@ -331,9 +348,9 @@
             <div><span>📅</span> <span><strong>{% trans "Date:" %}</strong> {% trans "November 29 (Saturday)" %}</span></div>
             <div><span>⏰</span> <span><strong>{% trans "Registration Time:" %}</strong> {% trans "10:30 AM" %}</span></div>
             <div><span>👔</span> <span><strong>{% trans "Dress Code:" %}</strong> {% blocktrans %}Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes){% endblocktrans %}</span></div>
-            <div><span>🍽️</span> <span><strong>{% trans "Food:" %}</strong> {% trans "8-Course Buffet Lunch and Pastries" %}</span></div>
+            <div><span>🥩</span> <span><strong>{% trans "Food:" %}</strong> {% trans "8-Course Buffet Lunch and Pastries" %}</span></div>
         </div>
-        <div style="display:flex; justify-content:center; gap:32px; align-items:center;">
+        <div class="side-images" style="display:flex; justify-content:center; gap:32px; align-items:center;">
             <img src="{% static 'official_couple_pic.jpg' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" title="{% trans 'Joel & Amanda' %}" />
             <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" class="venue-photo-art" title="{% trans 'Victory Family Centre Tampines' %}" />
         </div>
