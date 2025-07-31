@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 body {
-    background: #fff0f6;
+    background: url('background_image.png') left center / cover no-repeat;
     color: #d6336c;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
 }
+
+
 .container {
     max-width: 1100px;
     margin: 40px auto;

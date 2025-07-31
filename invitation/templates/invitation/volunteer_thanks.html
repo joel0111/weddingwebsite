@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <title>Thank You for Volunteering!</title>
     <style>
         body {
-            background: #fff0f6;
+            background: url('{% static "background_image.png" %}') left center / cover no-repeat;
             color: #d6336c;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
@@ -34,4 +35,3 @@
     </div>
 </body>
 </html>
-
