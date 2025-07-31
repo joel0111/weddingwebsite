@@ -47,8 +47,8 @@
             background: #d6336c;
         }
         .svg-heart {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             cursor: pointer;
             animation: pulse 1s infinite;
             display: block;
@@ -311,9 +311,7 @@
             {% trans "1 Corinthians 13:4-7" %}
         </div>
     </div>
-    <svg class="svg-heart" viewBox="0 0 120 120" title="{% trans 'Click the heart!' %}">
-        <path d="M60 110 L10 50 A25 25 0 1 1 60 30 A25 25 0 1 1 110 50 Z" fill="#d6336c" />
-    </svg>
+    <img class="svg-heart" src="{% static 'heart.gif' %}" alt="{% trans 'Heart' %}" title="{% trans 'Click the heart!' %}" />
     <h1>{% trans "You're Invited!" %}</h1>
     <h2>{% trans "Joel Ng Zhi Hao & Amanda Lim Hui Wen's Wedding" %}</h2>
     <div style="display:flex; flex-direction:column; align-items:center; gap:32px; margin:32px 0;">
