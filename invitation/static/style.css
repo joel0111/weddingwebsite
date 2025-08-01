@@ -140,7 +140,7 @@ h1 {
 .decorative-divider {
     width: 100%;
     height: 500px;
-    margin: -180px auto;
+    margin: -220px auto;
     background-color: #f783ac;
     mask: url('ornamental_separator.png') center center / contain no-repeat;
     -webkit-mask: url('ornamental_separator.png') center center / contain no-repeat;

@@ -74,15 +74,15 @@
         .christian-symbol {
             margin: 0 auto 16px auto;
             display: block;
-            width: 96px;
-            height: 96px;
+            width: 156px;
+            height: 156px;
         }
         .bible-verse {
             border-radius: 1.5rem;
             background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%); /* updated for better contrast with white text */
             box-shadow: 0 2px 12px rgba(214,51,108,0.08);
             padding: 24px;
-            min-height: 180px;
+            min-height: 240px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -91,9 +91,9 @@
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             margin: 32px auto;
             color: #fff; /* updated for higher contrast */
-            font-size: 1.15em;
+            font-size: 1.5em;
             font-style: italic;
-            max-width: 440px;
+            max-width: 740px;
             border: 1px solid #f783ac;
         }
         .bible-verse:hover {
@@ -309,6 +309,7 @@
             box-shadow: 0 8px 24px rgba(214,51,108,0.16);
             transform: scale(1.03);
         }
+        /* Reduce decorative divider size on home page */
         @media (max-width: 768px) {
             .couple-photo-art,
             .venue-photo-art {
@@ -347,8 +348,10 @@
     <img class="svg-heart" src="{% static 'heart.gif' %}" alt="{% trans 'Heart' %}" title="{% trans 'Click the heart!' %}" />
     <h1>{% trans "You're Invited!" %}</h1>
     <h2>{% trans "Joel Ng & Amanda Lim's Wedding" %}</h2>
+    <img src="{% static 'official_couple_pic.jpg' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" style="position: static !important; width: 70% !important; max-width: 560px; height: auto !important; transform: none !important; filter: none !important; margin: 20px auto; display: block;"/>
     <div class="decorative-divider"></div>
     <div style="display:flex; flex-direction:column; align-items:center; gap:32px; margin:32px 0;">
+        <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" style="margin:20px auto; display:block; max-width:70%; height:auto;" />
         <div class="event-details-card">
             <div><span>📍</span> <span><strong>{% trans "Venue:" %}</strong> {% trans "Victory Family Centre Tampines (Level 3)" %}</span></div>
             <div><span>🏠</span> <span><strong>{% trans "Address:" %}</strong> {% trans "20 Tampines Street 43, Singapore 529151" %}</span></div>
@@ -357,10 +360,38 @@
             <div><span>👔</span> <span><strong>{% trans "Dress Code:" %}</strong> {% blocktrans %}Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes){% endblocktrans %}</span></div>
             <div><span>🥩</span> <span><strong>{% trans "Food:" %}</strong> {% trans "8-Course Buffet Lunch and Pastries" %}</span></div>
         </div>
-        <div class="side-images" style="display:flex; justify-content:center; gap:32px; align-items:center;">
-            <img src="{% static 'official_couple_pic.jpg' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" title="{% trans 'Joel & Amanda' %}" />
-            <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" class="venue-photo-art" title="{% trans 'Victory Family Centre Tampines' %}" />
+        <div class="decorative-divider"></div>
+        <div class="bible-verse how-to-card" style="position:relative; min-height:340px; background:#fff;">
+            <div class="bible-verse-header">
+                {% trans "How to Get There?" %}
+            </div>
+            <div style="margin-bottom:24px; position:relative; z-index:2;">
+                {% trans "Victory Family Centre Tampines is easily accessible by public transport and car." %}
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%; position:relative; z-index:2; gap:16px; margin-bottom:36px;">
+                <div style="display:flex; flex-direction:column; align-items:center; text-align:center; max-width:220px; width:33%;">
+                    <span style="font-size:1.2em; margin-bottom:4px;">🚇</span><strong>{% trans "By MRT:" %}</strong><br/>
+                    <span style="font-size:0.98em;">{% trans "Take the Downtown Line to Tampines East MRT (DT33). Walk 8 minutes to the church." %}</span>
+                </div>
+                <div style="display:flex; flex-direction:column; align-items:center; text-align:center; max-width:220px; width:33%;">
+                    <span style="font-size:1.2em; margin-bottom:4px;">🚌</span><strong>{% trans "By Bus:" %}</strong><br/>
+                    <span style="font-size:0.98em;">{% trans "Bus services 8, 18, 28, 29, 37, 291, 293 stop nearby." %}</span>
+                </div>
+                <div style="display:flex; flex-direction:column; align-items:center; text-align:center; max-width:260px; width:33%;">
+                    <span style="font-size:1.2em; margin-bottom:4px;">🚗</span><strong>{% trans "By Car:" %}</strong><br/>
+                    <span style="font-size:0.98em;">{% blocktrans %}Free parking available at the church carpark (reserve beforehand).<br/>There are HDB carparks nearby as well.{% endblocktrans %}</span>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:center; width:100%; position:absolute; left:0; bottom:18px;">
+                <a href="https://maps.app.goo.gl/Zsk9YoVdJHuoQFTs5" target="_blank" class="btn">
+                    {% trans "View on Google Maps" %}
+                </a>
+            </div>
         </div>
+        <div class="map-card how-to-card" style="margin-top:16px; padding:24px; background:#fff0f6; border-radius:16px; box-shadow:0 2px 12px rgba(214,51,108,0.12); text-align:center;">
+            <img src="{% static 'map.png' %}" alt="{% trans 'Map to Victory Family Centre Tampines' %}" class="map-img" style="max-width:100%; border-radius:12px; box-shadow:0 2px 8px rgba(36,60,90,0.08);" />
+        </div>
+        <div class="decorative-divider"></div>
     </div>
     <div class="info-card">
         <p>
@@ -378,35 +409,5 @@
                 {% trans "Freebies" %}
             </a>
         </div>
-    </div>
-    <div class="bible-verse how-to-card" style="position:relative; min-height:340px; background:#fff;">
-        <div class="bible-verse-header">
-            {% trans "How to Get There?" %}
-        </div>
-        <div style="margin-bottom:24px; position:relative; z-index:2;">
-            {% trans "Victory Family Centre Tampines is easily accessible by public transport and car." %}
-        </div>
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%; position:relative; z-index:2; gap:16px; margin-bottom:36px;">
-            <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; max-width:220px; width:33%;">
-                <span style="font-size:1.2em; margin-bottom:4px;">🚇</span><strong>{% trans "By MRT:" %}</strong><br/>
-                <span style="font-size:0.98em;">{% trans "Take the Downtown Line to Tampines East MRT (DT33). Walk 8 minutes to the church." %}</span>
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; max-width:220px; width:33%;">
-                <span style="font-size:1.2em; margin-bottom:4px;">🚌</span><strong>{% trans "By Bus:" %}</strong><br/>
-                <span style="font-size:0.98em;">{% trans "Bus services 8, 18, 28, 29, 37, 291, 293 stop nearby." %}</span>
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; max-width:260px; width:33%;">
-                <span style="font-size:1.2em; margin-bottom:4px;">🚗</span><strong>{% trans "By Car:" %}</strong><br/>
-                <span style="font-size:0.98em;">{% blocktrans %}Free parking available at the church carpark (reserve beforehand).<br/>There are HDB carparks nearby as well.{% endblocktrans %}</span>
-            </div>
-        </div>
-        <div style="display:flex; justify-content:center; width:100%; position:absolute; left:0; bottom:18px;">
-            <a href="https://maps.app.goo.gl/Zsk9YoVdJHuoQFTs5" target="_blank" class="btn">
-                {% trans "View on Google Maps" %}
-            </a>
-        </div>
-    </div>
-    <div class="map-card how-to-card" style="margin-top:32px; padding:24px; background:#fff0f6; border-radius:16px; box-shadow:0 2px 12px rgba(214,51,108,0.12); text-align:center;">
-        <img src="{% static 'map.png' %}" alt="{% trans 'Map to Victory Family Centre Tampines' %}" class="map-img" style="max-width:100%; border-radius:12px; box-shadow:0 2px 8px rgba(36,60,90,0.08);" />
     </div>
 {% endblock %}
