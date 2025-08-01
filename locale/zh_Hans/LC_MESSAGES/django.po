@@ -195,7 +195,7 @@ msgstr "留言"
 #: .\invitation\models.py:12 .\invitation\templates\invitation\rsvp.html:133
 #| msgid "Joel & Amanda"
 msgid "Amanda"
-msgstr "惠文"
+msgstr "慧文"
 
 #: .\invitation\models.py:13 .\invitation\templates\invitation\rsvp.html:129
 msgid "Joel"
@@ -494,8 +494,8 @@ msgstr "诚邀您参加！"
 
 #: .\invitation\templates\invitation\home.html:318
 #| msgid "Joel & Amanda's Wedding"
-msgid "Joel Ng& Amanda Lim's Wedding"
-msgstr "智浩和惠文的婚礼"
+msgid "Joel Ng & Amanda Lim's Wedding"
+msgstr "智浩和慧文的婚礼"
 
 #: .\invitation\templates\invitation\home.html:321
 msgid "Venue:"
@@ -556,7 +556,7 @@ msgstr "情侣照片"
 
 #: .\invitation\templates\invitation\home.html:329
 msgid "Joel & Amanda"
-msgstr "智浩 & 惠文"
+msgstr "智浩 & 慧文"
 
 #: .\invitation\templates\invitation\home.html:330
 msgid "Venue Photo"

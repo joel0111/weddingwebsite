@@ -141,7 +141,7 @@ h1 {
     width: 100%;
     height: 500px;
     margin: -220px auto;
-    background-color: #f783ac;
+    background-color: #FFD700;
     mask: url('ornamental_separator.png') center center / contain no-repeat;
     -webkit-mask: url('ornamental_separator.png') center center / contain no-repeat;
 }
