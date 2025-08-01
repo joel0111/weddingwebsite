@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 body {
-    background: url('background_image.png') left center / cover no-repeat;
+    background: url('background_image.png') left center repeat;
     color: #d6336c;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
