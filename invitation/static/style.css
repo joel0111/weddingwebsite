@@ -141,7 +141,16 @@ h1 {
     width: 100%;
     height: 500px;
     margin: -220px auto;
-    background-color: #FFD700;
+    background-color:  #E0BFB8;
     mask: url('ornamental_separator.png') center center / contain no-repeat;
     -webkit-mask: url('ornamental_separator.png') center center / contain no-repeat;
+}
+/* Hover effect for couple-photo-art images */
+.couple-photo-art {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+.couple-photo-art:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }

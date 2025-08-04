@@ -120,8 +120,8 @@
         <form method="post" class="rsvp-form">
             {% csrf_token %}
             {{ form.name.label_tag|safe|cut:"</label>" }}<span style="color:red"> *</span></label>{{ form.name }}
-            <label for="id_contact" style="color: #d6336c; font-weight: bold;">{% trans "Contact Number:" %} <span style="color:red">*</span></label>
-            <input type="tel" name="contact" id="id_contact" required class="rsvp-input">
+            <label for="id_contact_number" style="color: #d6336c; font-weight: bold;">{% trans "Contact Number:" %} <span style="color:red">*</span></label>
+            <input type="tel" name="contact_number" id="id_contact_number" required class="rsvp-input">
             <label for="id_email" style="color: #d6336c; font-weight: bold;">{% trans "Email:" %}</label>
             {{ form.email }}
             <label style="color: #d6336c; font-weight: bold;">{% trans "Who are you connected to?" %} <span style="color:red">*</span></label>

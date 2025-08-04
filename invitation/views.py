@@ -11,6 +11,7 @@ def rsvp(request):
         form = RSVPForm(request.POST)
         if form.is_valid():
             rsvp = form.save(commit=False)
+            rsvp.contact_number = request.POST.get('contact_number', '')
             # Manually assign custom field values from POST
             rsvp.dietary_preferences = request.POST.get('dietary', '')
             rsvp.food_allergies = request.POST.get('allergies', '')

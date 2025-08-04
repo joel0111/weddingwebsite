@@ -59,8 +59,8 @@
             box-shadow: 0 6px 16px rgba(214,51,108,0.3);
         }
         .svg-heart {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             cursor: pointer;
             animation: pulse 1s infinite;
             display: block;
@@ -79,7 +79,8 @@
         }
         .bible-verse {
             border-radius: 1.5rem;
-            background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%); /* updated for better contrast with white text */
+            background-color: #f783ac; /* fallback wood-like color */
+            background-blend-mode: multiply;
             box-shadow: 0 2px 12px rgba(214,51,108,0.08);
             padding: 24px;
             min-height: 240px;
@@ -90,20 +91,24 @@
             overflow: hidden;
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             margin: 32px auto;
-            color: #fff; /* updated for higher contrast */
+            color: #FFFFFF; /* darker text for wood background */
             font-size: 1.5em;
             font-style: italic;
             max-width: 740px;
-            border: 1px solid #f783ac;
+            border: 1px solid #f783ac; /* brown border to match wood theme */
+            background-position: center center;
+            filter: brightness(1) saturate(1);
         }
         .bible-verse:hover {
             box-shadow: 0 8px 24px rgba(214,51,108,0.16);
-            transform: scale(1.03);
+            transform: scale(1.05);
+            filter: brightness(1.15);
+            background-position: center bottom;
         }
         .bible-verse-header {
             font-size: 1.1em;
             font-weight: bold;
-            color: #fff; /* updated for higher contrast */
+            color: #FFFFFF; /* dark brown header text */
             margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
@@ -111,7 +116,7 @@
             display: block;
             margin-top: 12px;
             font-size: 1em;
-            color: #fff; /* updated for higher contrast */
+            color: #FFFFFF; /* medium brown for reference */
             font-weight: 500;
             align-self: flex-end;
         }
@@ -145,13 +150,13 @@
             box-shadow: 0 8px 32px rgba(214,51,108,0.18), 0 1px 24px #fff0f6;
             object-fit: cover;
             border: 6px solid #fff0f6;
-            transform: rotate(-8deg) scale(1.04);
+            transform: rotate(-8deg) scale(1.10);
             filter: brightness(1.08) saturate(1.15) drop-shadow(0 0 18px #f783ac88);
             z-index: 2;
             transition: transform 0.5s cubic-bezier(.7,-0.5,.3,1.5);
         }
         .couple-photo-art:hover {
-            transform: rotate(0deg) scale(1.08);
+            transform: rotate(0deg) scale(1.10);
             box-shadow: 0 16px 48px rgba(214,51,108,0.28);
             filter: brightness(1.15) saturate(1.25) drop-shadow(0 0 32px #f783acbb);
         }
@@ -164,7 +169,7 @@
         .venue-photo-art:hover,
         .couple-photo-art:hover {
             box-shadow: 0 16px 48px rgba(214,51,108,0.28);
-            transform: scale(1.08) rotate(0deg);
+            transform: scale(1.10) rotate(0deg);
             filter: brightness(1.15) saturate(1.25) drop-shadow(0 0 32px #f783acbb);
         }
         .how-to-card {
@@ -284,6 +289,7 @@
             overflow: hidden; /* clip flap inside card */
             max-width: 700px;
             width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .info-card p, .info-card a {
             color: #243c5a;  /* dark text links */
@@ -299,11 +305,20 @@
             background: #f783ac;  /* gold flap */
             clip-path: polygon(0 0, 50% 100%, 100% 0); /* downward-pointing triangle */
             z-index: 1;
+            transform-origin: top center;
+            transition: transform 0.3s ease;
         }
         /* make RSVP button stack above flap */
         .info-card .btn.rsvp-btn {
             position: relative;
             z-index: 2;
+        }
+        .info-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(36,60,90,0.28);
+        }
+        .info-card:hover::before {
+            transform: translateY(-150px) rotateX(15deg);
         }
         .event-details-card:hover {
             box-shadow: 0 8px 24px rgba(214,51,108,0.16);
@@ -324,6 +339,15 @@
                 flex-direction: column;
                 gap: 16px;
             }
+        }
+        /* Hover effect for venue image on homepage */
+        .venue-photo-hover {
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+        .venue-photo-hover:hover {
+            transform: scale(1.10);
+            filter: brightness(1.1);
         }
     </style>
 {% endblock %}
@@ -351,7 +375,7 @@
     <img src="{% static 'official_couple_pic.jpg' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" style="position: static !important; width: 70% !important; max-width: 560px; height: auto !important; transform: none !important; filter: none !important; margin: 20px auto; display: block;"/>
     <div class="decorative-divider"></div>
     <div style="display:flex; flex-direction:column; align-items:center; gap:32px; margin:32px 0;">
-        <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" style="margin:20px auto; display:block; max-width:70%; height:auto;" />
+        <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" class="venue-photo-hover" style="margin:20px auto; display:block; max-width:70%; height:auto;" />
         <div class="event-details-card">
             <div><span>📍</span> <span><strong>{% trans "Venue:" %}</strong> {% trans "Victory Family Centre Tampines (Level 3)" %}</span></div>
             <div><span>🏠</span> <span><strong>{% trans "Address:" %}</strong> {% trans "20 Tampines Street 43, Singapore 529151" %}</span></div>
@@ -394,11 +418,10 @@
         <div class="decorative-divider"></div>
     </div>
     <div class="info-card">
-        <p>
-            "/n"
+        <p style="color: #fff;">
+            You opened the Envelope of Love!
         </p>
         <p>
-             "/n"
         </p>
         <div style="margin-top:32px; display: flex; flex-direction: column; gap: 16px; align-items: center;">
             <a href="{% url 'rsvp' %}" class="btn rsvp-btn">{% trans "RSVP Now" %}</a>
