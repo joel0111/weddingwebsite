@@ -434,3 +434,15 @@
         </div>
     </div>
 {% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const envelope = document.querySelector('.info-card');
+    envelope.addEventListener('mouseenter', function() {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    });
+  });
+</script>
+{% endblock %}
