@@ -26,7 +26,7 @@
             overflow: visible;
         }
         h1 {
-            color: #d6336c;
+            color: #b8860b; /* dark gold for invitation header */
             font-size: 3em;
             font-family: 'Dancing Script', cursive !important;
             font-weight: 700 !important;
@@ -41,6 +41,13 @@
             font-weight: 500;
             letter-spacing: 0.5px;
             margin-bottom: 1em;
+        }
+        .wedding-title {
+            font-family: 'Felix Titling', serif !important;
+        }
+        .wedding-title .amp {
+            font-size: 0.8em;
+            display: inline-block;
         }
         .btn {
             background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%);
@@ -79,7 +86,7 @@
         }
         .bible-verse {
             border-radius: 1.5rem;
-            background-color: #f783ac; /* fallback wood-like color */
+            background-color: #629685; /* jade green color */
             background-blend-mode: multiply;
             box-shadow: 0 2px 12px rgba(214,51,108,0.08);
             padding: 24px;
@@ -95,12 +102,11 @@
             font-size: 1.5em;
             font-style: italic;
             max-width: 740px;
-            border: 1px solid #f783ac; /* brown border to match wood theme */
+            border: 1px solid #629685; /* brown border to match wood theme */
             background-position: center center;
             filter: brightness(1) saturate(1);
         }
         .bible-verse:hover {
-            box-shadow: 0 8px 24px rgba(214,51,108,0.16);
             transform: scale(1.05);
             filter: brightness(1.15);
             background-position: center bottom;
@@ -183,7 +189,7 @@
             color: #243c5a;
             font-size: 1.15em;
             font-style: normal;
-            border: 1px solid #f783ac;
+            border: 1px solid #629685;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -199,7 +205,7 @@
         .how-to-card .bible-verse-header {
             font-size: 1.8em;
             font-weight: bold;
-            color: #d6336c;
+            color: #629685; /* updated to jade/nav color */
             margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
@@ -218,7 +224,7 @@
             max-width: 700px;
             min-height: 220px;
             text-align: left;
-            border: 1px solid #f783ac;
+            border: 1px solid #629685;
         }
         .event-details-card span.lang-en {
             font-size: 1.00em;
@@ -321,7 +327,6 @@
             transform: translateY(-150px) rotateX(15deg);
         }
         .event-details-card:hover {
-            box-shadow: 0 8px 24px rgba(214,51,108,0.16);
             transform: scale(1.03);
         }
         /* Reduce decorative divider size on home page */
@@ -367,15 +372,18 @@
     </div>
     <div class="decorative-divider"></div>
     <img class="svg-heart" src="{% static 'heart.gif' %}" alt="{% trans 'Heart' %}" title="{% trans 'Click the heart!' %}" />
-    <h1>{% trans "You're Invited!" %}</h1>
-    <h2>{% trans "Joel Ng & Amanda Lim's Wedding" %}</h2>
+    <h1>{% trans "You're Invited to the Wedding of:" %}</h1>
+    <h2 class="wedding-title" style="text-align: center">
+        {% trans "Joel Ng" %}<br><span class="amp">&</span><br>
+        {% trans "Amanda Lim" %}
+    </h2>
     <img src="{% static 'official_couple_pic.jpg' %}" alt="{% trans 'Couple Photo' %}" class="couple-photo-art" style="position: static !important; width: 70% !important; max-width: 560px; height: auto !important; transform: none !important; filter: none !important; margin: 20px auto; display: block;"/>
     <div class="decorative-divider"></div>
     <div style="display:flex; flex-direction:column; align-items:center; gap:32px; margin:32px 0;">
         <img src="{% static 'vfc.png' %}" alt="{% trans 'Venue Photo' %}" class="venue-photo-hover" style="margin:20px auto; display:block; max-width:70%; height:auto;" />
         <div class="event-details-card">
             <div><span>📍</span> <span><strong>{% trans "Venue:" %}</strong> {% trans "Victory Family Centre Tampines (Level 3)" %}</span></div>
-            <div><span>����</span> <span><strong>{% trans "Address:" %}</strong> {% trans "20 Tampines Street 43, Singapore 529151" %}</span></div>
+            <div><span>⛪</span> <span><strong>{% trans "Address:" %}</strong> {% trans "20 Tampines Street 43, Singapore 529151" %}</span></div>
             <div><span>📅</span> <span><strong>{% trans "Date:" %}</strong> {% trans "November 29 (Saturday)" %}</span></div>
             <div><span>⏰</span> <span><strong>{% trans "Registration Time:" %}</strong> {% trans "10:30 AM" %}</span></div>
             <div><span>👔</span> <span><strong>{% trans "Dress Code:" %}</strong> {% blocktrans %}Smart Casual (Kindly dress modestly—long pants or jeans for men, and long skirts or dresses for women; no shorts or revealing clothing. Covered shoes){% endblocktrans %}</span></div>
@@ -409,7 +417,7 @@
                 </a>
             </div>
         </div>
-        <div class="map-card how-to-card" style="margin-top:16px; padding:24px; background:#fff0f6; border-radius:16px; box-shadow:0 2px 12px rgba(214,51,108,0.12); text-align:center;">
+        <div class="map-card how-to-card" style="margin-top:16px; padding:10px; background:#629685; border-radius:5px; box-shadow:0 2px 12px rgba(214,51,108,0.12); text-align:center;">
             <img src="{% static 'map.png' %}" alt="{% trans 'Map to Victory Family Centre Tampines' %}" class="map-img" style="max-width:100%; border-radius:12px; box-shadow:0 2px 8px rgba(36,60,90,0.08);" />
         </div>
         <div class="decorative-divider"></div>

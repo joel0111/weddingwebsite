@@ -48,7 +48,7 @@ h1 {
     gap: 2em;
 }
 .nav-link {
-    color: #d6336c;
+    color: #629685;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1em;
@@ -62,7 +62,7 @@ h1 {
 }
 .nav-link.active {
     text-decoration: underline;
-    color: #f783ac;
+    color: #629685;
 }
 
 .nav-item-wrapper {
@@ -107,9 +107,9 @@ h1 {
     margin-left: 24px;
 }
 .lang-btn {
-    background: #fff0f6;
-    color: #d6336c;
-    border: 1.5px solid #f783ac;
+    background: #629685;
+    color: #fff;
+    border: 1.5px solid #629685;
     border-radius: 6px;
     padding: 6px 18px;
     font-size: 1em;
@@ -118,9 +118,9 @@ h1 {
     transition: background 0.2s, color 0.2s, border 0.2s;
 }
 .lang-btn.active, .lang-btn:hover {
-    background: #f783ac;
+    background: #8AD4BC;
     color: #fff;
-    border: 1.5px solid #d6336c;
+    border: 1.5px solid #8AD4BC;
 }
 #speaker-btn {
     background: none;

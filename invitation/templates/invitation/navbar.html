@@ -2,15 +2,15 @@
 {% get_current_language as LANGUAGE_CODE %}
 <nav class="navbar">
     <div class="navbar-links">
-        <a href="{% url 'home' %}" class="nav-link">{% trans "Home" %}</a>
+        <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}">{% trans "Home" %}</a>
         <span class="nav-item-wrapper">
-            <a href="{% url 'gallery' %}" class="nav-link">{% trans "Gallery" %}</a>
+            <a href="{% url 'gallery' %}" class="nav-link{% if request.resolver_match.url_name == 'gallery' %} active{% endif %}">{% trans "Gallery" %}</a>
             <span class="coming-soon">{% trans "Coming Soon" %}</span>
         </span>
-        <a href="{% url 'rsvp' %}" class="nav-link">{% trans "RSVP" %}</a>
-        <a href="{% url 'volunteer' %}" class="nav-link">{% trans "Volunteer" %}</a>
+        <a href="{% url 'rsvp' %}" class="nav-link{% if request.resolver_match.url_name == 'rsvp' %} active{% endif %}">{% trans "RSVP" %}</a>
+        <a href="{% url 'volunteer' %}" class="nav-link{% if request.resolver_match.url_name == 'volunteer' %} active{% endif %}">{% trans "Volunteer" %}</a>
         <span style="position:relative;display:inline-block;">
-            <a href="{% url 'freebies' %}" class="nav-link">{% trans "Freebies" %}</a>
+            <a href="{% url 'freebies' %}" class="nav-link{% if request.resolver_match.url_name == 'freebies' %} active{% endif %}">{% trans "Freebies" %}</a>
             <span class="for-you">{% trans "for you!" %}</span>
         </span>
     </div>
