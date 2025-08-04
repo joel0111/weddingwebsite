@@ -489,8 +489,8 @@ msgid "Click the heart!"
 msgstr "点击爱心，即可进入!"
 
 #: .\invitation\templates\invitation\home.html:317
-msgid "You're Invited!"
-msgstr "诚邀您参加！"
+msgid "You're Invited to the Wedding of"
+msgstr "邀请您参加婚禮"
 
 #: .\invitation\templates\invitation\home.html:318
 #| msgid "Joel & Amanda's Wedding"
@@ -555,8 +555,12 @@ msgid "Couple Photo"
 msgstr "情侣照片"
 
 #: .\invitation\templates\invitation\home.html:329
-msgid "Joel & Amanda"
-msgstr "智浩 & 慧文"
+msgid "Joel Ng"
+msgstr "黄智浩"
+
+#: .\invitation\templates\invitation\home.html:329
+msgid "Amanda Lim"
+msgstr "林慧文"
 
 #: .\invitation\templates\invitation\home.html:330
 msgid "Venue Photo"
