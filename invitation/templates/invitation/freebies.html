@@ -114,11 +114,27 @@
 }
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
   gap: 24px;
   margin-bottom: 32px;
   justify-items: center;
 }
+.card-grid .card-title {
+  font-size: 1.75rem !important;
+}
+.card-grid .card-content {
+  font-size: 1.3rem !important;
+}
+.card-grid .btn {
+  font-size: 1.3rem !important;
+}
+
+/* Ensure cards fill available column width */
+.card-grid .card {
+  width: 100%;
+  max-width: none;
+}
+
 .card.bg-blue2 {
   background: linear-gradient(135deg, #fff 60%, #a0c4ff 100%);
 }
@@ -147,9 +163,12 @@
   text-align: left;
   word-break: break-word;
 }
-.salvation-section .card .card-title,
+.salvation-section .card .card-title {
+  font-size: 4.5rem;
+  line-height: 1.3;
+}
 .salvation-section .card .card-content {
-  font-size: 1.18rem;
+  font-size: 4.5rem;
   line-height: 1.6;
 }
 .salvation-section .card .card-content {
@@ -158,8 +177,12 @@
 }
 .salvation-section .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
+}
+/* Reset any inline grid-column on Salvation cards */
+.salvation-section .card-grid .card {
+  grid-column: auto !important;
 }
 .salvation-section .card-grid .card:not(:first-child) {
   width: 100%;
@@ -191,10 +214,57 @@
 .salvation-section .card {
   color: #d6336c;
 }
+
+/* Increased font size for Who is Jesus? Salvation card */
+.salvation-section .card.bg-blue .card-title {
+  font-size: 3rem !important;
+  line-height: 1.2 !important;
+}
+.salvation-section .card.bg-blue .card-content {
+  font-size: 2.5rem !important;
+  line-height: 1.5 !important;
+}
+/* Increased font size for What is Salvation? card */
+.salvation-section .card.bg-green .card-title {
+  font-size: 3rem !important;
+  line-height: 1.2 !important;
+}
+.salvation-section .card.bg-green .card-content {
+  font-size: 2.5rem !important;
+  line-height: 1.5 !important;
+}
+/* Increased font size for Why Do We Need Salvation? card */
+.salvation-section .card.bg-yellow .card-title {
+  font-size: 3rem !important;
+  line-height: 1.2 !important;
+}
+.salvation-section .card.bg-yellow .card-content {
+  font-size: 2.5rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Responsive adjustments for Salvation section on mobile */
+@media only screen and (max-width: 576px) {
+  .salvation-section .card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  .salvation-section .card .card-title {
+    font-size: 4.8rem !important;
+    line-height: 1.3 !important;
+  }
+  .salvation-section .card .card-content {
+    font-size: 4.5rem !important;
+    line-height: 1.6 !important;
+  }
+  .salvation-section .card {
+    padding: 16px !important;
+  }
+}
 </style>
 <div class="container">
-    <h1 style="color:#d6336c; font-size:3rem;"><strong>{% trans "Freebies" %}</strong></h1>
-    <p style="font-size:1.25rem;">{% trans "Welcome to our Freebies page! Here you'll find special gifts and resources for our guests." %}</p>
+    <h1 style="color:#d6336c; font-size:3.5rem;"><strong>{% trans "Freebies" %}</strong></h1>
+    <p style="font-size:2.0rem;">{% trans "Welcome to our Freebies page! Here you'll find special gifts and resources for our guests." %}</p>
     <div class="card-grid" style="margin-bottom: 40px;">
         <div class="card bg-pink">
             <img src="/static/booksimages/A-Lamp-to-my-12-Blocks-Salvation-From-Household-to-the-Nations.png" alt="A Lamp to my 12 Blocks Salvation From Household to the Nations" style="width:60px;height:auto;margin-bottom:12px;">
@@ -218,8 +288,8 @@
         </div>
         <div class="card bg-cyan2">
             <img src="/static/booksimages/照亮我的十二区-救恩从家庭传于万国.png" alt="照亮我的十二区 救恩从家庭传于万国" style="width:60px;height:auto;margin-bottom:12px;">
-            <div class="card-title">{% trans "照亮我的十二区: 救恩从家庭传于万国" %}</div>
-            <a href="/static/books/照亮我的十��区-救恩从家庭传于万国.pdf" download class="btn">{% trans "Download" %}</a>
+            <div class="card-title">{% trans "照亮我的十二���: 救恩从家庭传于万国" %}</div>
+            <a href="/static/books/照亮我的十二区-救恩从家庭传于万国.pdf" download class="btn">{% trans "Download" %}</a>
         </div>
         <div class="card bg-purple2">
             <img src="/static/booksimages/圣经上的进入天堂指南.png" alt="圣经上的进入天堂指南" style="width:60px;height:auto;margin-bottom:12px;">
@@ -229,7 +299,6 @@
         <div class="card bg-green2">
             <img src="/static/booksimages/建立上帝中心的家庭-圣经生活指南.png" alt="建立上帝中心的家庭-圣经生活指南" style="width:60px;height:auto;margin-bottom:12px;">
             <div class="card-title">{% trans "建立上帝中心的家庭: 圣经生活指南" %}</div>
-            <a href="/static/books/建立上帝中心的家庭-圣经生活指南.pdf" download class="btn">{% trans "Download" %}</a>
         </div>
         <div class="card bg-orange2">
             <img src="/static/booksimages/人生的季節-在審判台前跑完好路.png" alt="人生的季節 在審判台前跑完好路" style="width:60px;height:auto;margin-bottom:12px;">
@@ -240,15 +309,15 @@
 
 
     <div class="salvation-section" style="margin-top:32px;">
-        <h1 style="color:#d6336c; font-size:3rem; font-weight:800; letter-spacing:1px; margin-bottom:18px;">{% trans "The Greatest Free Gift" %}</h1>
-        <blockquote style="margin:16px 0; padding:12px; background:#fff; border-left:4px solid #d6336c; color:#243c5a; font-style:italic; font-size:1.6rem;">
+        <h1 style="color:#d6336c; font-size:4.5rem; font-weight:800; letter-spacing:1px; margin-bottom:18px;">{% trans "The Greatest Free Gift" %}</h1>
+        <blockquote style="margin:16px 0; padding:12px; background:#fff; border-left:4px solid #d6336c; color:#243c5a; font-style:italic; font-size:2.0rem;">
             {% trans "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast." %}
             <br>
-            <span style="color:#d6336c; font-size:1.25rem; font-weight:bold;">{% trans "Ephesians 2:8-9" %}</span>
+            <span style="color:#d6336c; font-size:2.0rem; font-weight:bold;">{% trans "Ephesians 2:8-9" %}</span>
         </blockquote>
-        <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#243c5a;">{% trans "Last but certainly not least, the best free gift is the gift of salvation from the Lord Jesus Christ." %}</p>
+        <p style="font-size:2.0rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#243c5a;">{% trans "Last but certainly not least, the best free gift is the gift of salvation from the Lord Jesus Christ." %}</p>
         <div class="card-grid">
-            <div class="card bg-blue" style="grid-column: 1 / span 2; background: linear-gradient(135deg, #fff 60%, #a0c4ff 100%) !important; border: 2px solid #1976d2; color: #1976d2;">
+            <div class="card bg-blue" style="background: linear-gradient(135deg, #fff 60%, #a0c4ff 100%) !important; border: 2px solid #1976d2; color: #1976d2;">
                 <span class="card-icon">✝️</span>
                 <div class="card-title salvation-title">{% trans "Who is Jesus?" %}</div>
                 <div class="card-content">{% trans "Jesus is the Son of God, sent into the world to save us from our sins. He lived a perfect, sinless life, showed God's love through His teachings and miracles, and willingly gave His life on the cross as a sacrifice for us. Three days later, He rose from the dead, proving His victory over sin and death. Through Jesus, we can know God personally and receive the gift of eternal life." %}</div>
@@ -269,23 +338,23 @@
         </div>
     </div>
     <div class="card" style="text-align:center; background:#243c5a; color:#fff; position:relative;">
-      <span class="card-icon" style="font-size:2.5rem; font-weight:bold; padding:8px; text-shadow:1px 1px 6px rgba(0,0,0,0.25), 0 0 0 #fff; display:flex; align-items:center; justify-content:center; position:absolute; top:16px; right:24px; opacity:1; color:#fff; background:rgba(36,60,90,0.95); border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.10); pointer-events:none; z-index:2; width:3.5rem; height:3.5rem;">🙏</span>
-      <h2 style="width:100%; font-size:2.5rem; color:#fff; font-weight:900; font-family:'Segoe UI',sans-serif; text-align:center;">{% trans "The Sinner's Prayer" %}</h2>
-      <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#fff;">{% blocktrans %}Dear God, I know I am a sinner and I ask for Your forgiveness. I believe Jesus Christ is Your Son. I believe that He died for my sin and that You raised Him to life. I want to trust Him as my Savior and follow Him as Lord, from this day forward. Guide my life and help me to do Your will. I pray this in the name of Jesus. Amen.{% endblocktrans %}</p>
+      <span class="card-icon" style="font-size:3.5rem; font-weight:bold; padding:8px; text-shadow:1px 1px 6px rgba(0,0,0,0.25), 0 0 0 #fff; display:flex; align-items:center; justify-content:center; position:absolute; top:16px; right:24px; opacity:1; color:#fff; background:rgba(36,60,90,0.95); border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.10); pointer-events:none; z-index:2; width:3.5rem; height:3.5rem;">🙏</span>
+      <h2 style="width:100%; font-size:4.0rem; color:#fff; font-weight:900; font-family:'Segoe UI',sans-serif; text-align:center;">{% trans "The Sinner's Prayer" %}</h2>
+      <p style="font-size:3.0rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#fff;">{% blocktrans %}Dear God, I know I am a sinner and I ask for Your forgiveness. I believe Jesus Christ is Your Son. I believe that He died for my sin and that You raised Him to life. I want to trust Him as my Savior and follow Him as Lord, from this day forward. Guide my life and help me to do Your will. I pray this in the name of Jesus. Amen.{% endblocktrans %}</p>
       <hr style="margin-left:auto; margin-right:auto; border-color:#fff;">
-      <h3 style="width:100%; font-size:1.4rem; color:#fff; text-align:center;">{% trans "What to do next?" %}</h3>
-      <ul style="display:inline-block; text-align:center; margin:0 auto; font-size:1.15rem; list-style-position: inside;">
+      <h3 style="width:100%; font-size:3.0rem; color:#fff; text-align:center;">{% trans "What to do next?" %}</h3>
+      <ul style="display:inline-block; text-align:center; margin:0 auto; font-size:3.0rem; list-style-position: inside;">
         <li>{% trans "Tell someone about your decision to follow Jesus." %}</li>
         <li>{% trans "Find a Bible and start reading, beginning with the Gospel of John." %}</li>
         <li>{% trans "Pray regularly and seek God in your daily life." %}</li>
         <li>{% trans "Connect with a local church or Christian community for support and growth." %}</li>
         <li>{% trans "Continue learning about Jesus and His teachings." %}</li>
       </ul>
-      <p style="font-size:1.15rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px;">{% trans "If you have questions or need support, feel free to reach out to us!" %}</p>
+      <p style="font-size:2.85rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px;">{% trans "If you have questions or need support, feel free to reach out to us!" %}</p>
     </div>
-    <p style="font-size:1.35rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#d6336c; font-weight:bold; font-style:italic;">{% trans "If you want to know more about salvation or have questions about faith, please reach out. We would love to share more and pray with you." %}</p>
+    <p style="font-size:2.85rem; margin-left:auto; margin-right:auto; display:inline-block; text-align:center; max-width:700px; color:#d6336c; font-weight:bold; font-style:italic;">{% trans "If you want to know more about salvation or have questions about faith, please reach out. We would love to share more and pray with you." %}</p>
     <div style="display:flex; justify-content:center; margin-top:24px; margin-bottom:32px;">
-      <a href="mailto:joelngzh@gmail.com" class="btn" style="background:#d6336c; color:#fff; font-size:1.3rem; padding:14px 36px; border-radius:2rem; font-weight:700; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s;">{% trans "Reach Out to us!" %}</a>
+      <a href="mailto:joelngzh@gmail.com" class="btn" style="background:#d6336c; color:#fff; font-size:2.8rem; padding:14px 36px; border-radius:2rem; font-weight:700; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s;">{% trans "Reach Out to us!" %}</a>
     </div>
 </div>
 {% endblock %}
