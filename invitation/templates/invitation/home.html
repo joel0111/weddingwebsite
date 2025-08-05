@@ -355,6 +355,26 @@
             filter: brightness(1.1);
         }
     </style>
+    <style>
+        .petal {
+            position: fixed;
+            top: -50px;
+            z-index: 3;
+            pointer-events: none;
+            width: 30px;
+            height: 30px;
+            background-image: url('{% static "sakura_petal.png" %}');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0%   { transform: translateX(0) translateY(-50px) rotateZ(0deg); }
+            50%  { transform: translateX(50px) translateY(50vh) rotateZ(180deg); }
+            100% { transform: translateX(0) translateY(110vh) rotateZ(360deg); }
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
@@ -443,11 +463,30 @@
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  (function() {
     const envelope = document.querySelector('.info-card');
-    envelope.addEventListener('mouseenter', function() {
-      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-    });
-  });
+    if (envelope) {
+      envelope.addEventListener('mouseenter', function() {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      });
+    }
+    function createPetals() {
+      for (let i = 0; i < 30; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        const delay = Math.random() * 5;
+        const duration = 7 + Math.random() * 5;
+        petal.style.animationDelay = delay + 's';
+        petal.style.animationDuration = duration + 's';
+        document.body.appendChild(petal);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', createPetals);
+    } else {
+      createPetals();
+    }
+  })();
 </script>
 {% endblock %}

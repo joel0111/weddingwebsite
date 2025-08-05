@@ -128,6 +128,7 @@ LOCALE_PATHS = [
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'invitation' / 'static',
+    BASE_DIR / 'static',  # include root-level static files
 ]
 
 
