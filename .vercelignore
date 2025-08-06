@@ -14,7 +14,6 @@
 /media/**
 
 # Exclude audio files and other large binaries
-*.mp3
 *.pdf
 *.mp4
 
