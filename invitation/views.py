@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import RSVP, VolunteerRole
 from .forms import RSVPForm, VolunteerForm
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 def home(request):
     return render(request, 'invitation/home.html')
@@ -21,6 +23,22 @@ def rsvp(request):
             rsvp.car_plate_number = request.POST.get('carplate', '')
             rsvp.reservation_reason = request.POST.get('reservation_reason', '')
             rsvp.save()
+            # Send notification email for RSVP
+            subject = f"New RSVP from {rsvp.name}"
+            message = (
+                f"Name: {rsvp.name}\n"
+                f"Email: {rsvp.email}\n"
+                f"Contact Number: {rsvp.contact_number}\n"
+                f"Attending: {rsvp.attending}\n"
+                f"Connected To: {rsvp.connected_to}\n"
+                f"Dietary Preferences: {rsvp.dietary_preferences}\n"
+                f"Food Allergies: {rsvp.food_allergies}\n"
+                f"Other Comments: {rsvp.other_comments}\n"
+                f"Carpark Reservation: {rsvp.carpark_slot_reservation}\n"
+                f"Car Plate Number: {rsvp.car_plate_number}\n"
+                f"Reservation Reason: {rsvp.reservation_reason}\n"
+            )
+            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
             return redirect('rsvp_thanks')
     else:
         form = RSVPForm()
@@ -44,6 +62,18 @@ def volunteer(request):
             volunteer = form.save(commit=False)
             volunteer.save()
             form.save_m2m()
+            # Send notification email for volunteer
+            subject = f"New Volunteer Signup: {volunteer.name}"
+            roles = ', '.join([r.name for r in volunteer.roles.all()])
+            message = (
+                f"Name: {volunteer.name}\n"
+                f"Email: {volunteer.email}\n"
+                f"Contact Number: {volunteer.contact_number}\n"
+                f"Roles: {roles}\n"
+                f"Role Details: {volunteer.role_details}\n"
+                f"Comments: {volunteer.comments}\n"
+            )
+            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
             return redirect('volunteer_thanks')
         else:
             messages.error(request, 'Please correct the errors below.')
