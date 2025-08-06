@@ -1,0 +1,25 @@
+# .vercelignore
+
+# Ignore local database and environment files
+/db.sqlite3
+.env
+
+# Ignore heavy static assets (will be served from CDN or external storage)
+/static/**
+
+# If you built your static into a `staticfiles` folder, allow only that
+!/staticfiles/**
+
+# Ignore media uploads
+/media/**
+
+# Exclude audio files and other large binaries
+*.mp3
+*.pdf
+*.mp4
+
+# Node and Python artifacts
+/node_modules
+/__pycache__
+*.pyc
+
