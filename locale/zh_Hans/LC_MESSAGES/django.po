@@ -519,16 +519,22 @@ msgid "Date:"
 msgstr "日期："
 
 #: .\invitation\templates\invitation\home.html:323
-msgid "November 29 (Saturday)"
-msgstr "11月29日（星期六）"
+msgid "November 29 (Saturday), 2025"
+msgstr "11月29日（星期六） 2025"
 
 #: .\invitation\templates\invitation\home.html:324
 msgid "Registration Time:"
 msgstr "报到时间："
 
+msgid "You opened the Envelope of Love!"
+msgstr "你打开了爱的信封！"
+
 #: .\invitation\templates\invitation\home.html:324
-msgid "10:30 AM"
-msgstr "上午10:30"
+msgid "10:30 AM (Register By 10.50am)"
+msgstr "上午 10:30（上午 10:50 前注册）"
+
+msgid "11 AM"
+msgstr "上午 11点"
 
 #: .\invitation\templates\invitation\home.html:325
 msgid "Dress Code:"
@@ -547,8 +553,8 @@ msgid "Food:"
 msgstr "餐饮："
 
 #: .\invitation\templates\invitation\home.html:326
-msgid "8-Course Buffet Lunch and Pastries"
-msgstr "八道菜自助午餐和糕点"
+msgid "8-Course Buffet Lunch"
+msgstr "八道菜自助午餐"
 
 #: .\invitation\templates\invitation\home.html:329
 msgid "Couple Photo"
@@ -557,6 +563,9 @@ msgstr "情侣照片"
 #: .\invitation\templates\invitation\home.html:329
 msgid "Joel Ng"
 msgstr "黄智浩"
+
+msgid "Start Time:"
+msgstr "开始时间"
 
 #: .\invitation\templates\invitation\home.html:329
 msgid "Amanda Lim"
