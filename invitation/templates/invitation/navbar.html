@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}
 <nav class="navbar">
     <div class="navbar-links">
@@ -24,55 +24,73 @@
         <span id="speaker-icon" style="font-size:2.5rem;">🔊</span>
         <span id="speaker-status" class="nav-link" style="margin-left:8px;">{% trans "On" %}</span>
     </button>
-    <audio id="wedding-audio" preload="auto" loop src="/static/Christina%20Perri%20-%20A%20Thousand%20years%20-%20ThePianoGuys.mp3"></audio>
+    <audio id="wedding-audio" preload="auto" autoplay playsinline loop src="{% static 'Christina Perri - A Thousand years - ThePianoGuys.mp3' %}"></audio>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var audio = document.getElementById('wedding-audio');
         var btn = document.getElementById('speaker-btn');
         var icon = document.getElementById('speaker-icon');
         var status = document.getElementById('speaker-status');
-        // determine desired play state
-        var playOn = localStorage.getItem('weddingAudioOn') !== 'false';
-        // pause first to block autoplay
-        audio.pause();
-        // restore playback position when metadata loaded and then play if needed
-        audio.addEventListener('loadedmetadata', function() {
-            var savedTime = localStorage.getItem('weddingAudioTime');
-            if (savedTime) {
-                audio.currentTime = parseFloat(savedTime);
+        // read saved audio on/off state (default on)
+        var playOn = (localStorage.getItem('weddingAudioOn') !== 'false');
+        // set mute based on preference and play
+        audio.muted = !playOn;
+        audio.play().catch(function(){});
+        // set initial button UI based on playOn
+        if (playOn) {
+            btn.setAttribute('data-on', 'true');
+            icon.textContent = '🔊';
+            status.textContent = '{% trans "On" %}';
+        } else {
+            btn.setAttribute('data-on', 'false');
+            icon.textContent = '🔇';
+            status.textContent = '{% trans "Off" %}';
+        }
+        // function to restore playback position and play/pause
+        function restorePlayback() {
+            var savedTime = parseFloat(localStorage.getItem('weddingAudioTime') || 0);
+            if (!isNaN(savedTime)) {
+                audio.currentTime = savedTime;
             }
             if (playOn) {
+                // unmute if previously unmuted by user
+                audio.muted = false;
                 audio.play().catch(function(){});
+            } else {
+                audio.pause();
             }
-        });
+        }
+        // restore after metadata loads or immediately if ready
+        if (audio.readyState > 0) {
+            restorePlayback();
+        } else {
+            audio.addEventListener('loadedmetadata', restorePlayback);
+        }
         // save playback position on time update
         audio.addEventListener('timeupdate', function() {
             localStorage.setItem('weddingAudioTime', audio.currentTime);
         });
-        // load saved state
-        var saved = localStorage.getItem('weddingAudioOn');
-        if (saved === 'false') {
-            btn.setAttribute('data-on', 'false');
-            icon.textContent = '🔇';
-            status.textContent = '{% trans "Off" %}';
-        } else {
-            btn.setAttribute('data-on', 'true');
-            icon.textContent = '🔊';
-            status.textContent = '{% trans "On" %}';
-        }
-        btn.addEventListener('click', function() {
-            if (btn.getAttribute('data-on') === 'true') {
+        btn.addEventListener('click', function(event) {
+            // Prevent body click handler from interfering
+            event.stopPropagation();
+            var isOn = btn.getAttribute('data-on') === 'true';
+            if (isOn) {
+                // Turn off
                 audio.pause();
+                audio.muted = true;
                 icon.textContent = '🔇';
                 status.textContent = '{% trans "Off" %}';
                 btn.setAttribute('data-on', 'false');
                 localStorage.setItem('weddingAudioOn', 'false');
             } else {
+                // Turn on
+                audio.muted = false;
                 audio.play().catch(function(){});
                 icon.textContent = '🔊';
                 status.textContent = '{% trans "On" %}';
                 btn.setAttribute('data-on', 'true');
                 localStorage.setItem('weddingAudioOn', 'true');
+                localStorage.setItem('weddingAudioUnmuted', 'true');
             }
         });
     });

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-csan(adwbl9y!**1t#bk4ykc8c190yij9l-8hfx+igl9oubc32
 SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -130,12 +130,16 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'invitation' / 'static',
     BASE_DIR / 'static',  # include root-level static files
 ]
+# Use default staticfiles storage when DEBUG, otherwise use whitenoise manifest storage
+if DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
