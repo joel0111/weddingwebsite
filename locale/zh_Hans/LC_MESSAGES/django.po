@@ -530,23 +530,19 @@ msgid "You opened the Envelope of Love!"
 msgstr "你打开了爱的信封！"
 
 #: .\invitation\templates\invitation\home.html:324
-msgid "10:30 AM (Register By 10.50am)"
-msgstr "上午 10:30（上午 10:50 前注册）"
+msgid "9:30 AM (Register By 9.50am)"
+msgstr "早上9:30（早上 9:50 前注册）"
 
-msgid "11 AM"
-msgstr "上午 11点"
+msgid "10.00 AM"
+msgstr "早上 10点"
 
 #: .\invitation\templates\invitation\home.html:325
 msgid "Dress Code:"
 msgstr "着装要求："
 
 #: .\invitation\templates\invitation\home.html:325
-msgid ""
-"Smart Casual (Kindly dress modestly—long pants or jeans for men, and long "
-"skirts or dresses for women; no shorts or revealing clothing. Covered shoes)"
-msgstr ""
-"商务休闲（请着装得体——男士请穿长裤或牛仔裤，女士请穿长裙或连衣裙；请勿穿短裤"
-"或暴露的服装。请穿包鞋）"
+msgid "Smart Casual (Kindly dress modestly - no shorts/bermudas, no miniskirts/short dresses, no slippers, no sandals)"
+msgstr "时尚休闲（请穿着朴素 - 不穿短裤/百慕大短裤、迷你裙/短裙、拖鞋、凉鞋）"
 
 #: .\invitation\templates\invitation\home.html:326
 msgid "Food:"
@@ -565,7 +561,7 @@ msgid "Joel Ng"
 msgstr "黄智浩"
 
 msgid "Start Time:"
-msgstr "开始时间"
+msgstr "开始时间："
 
 #: .\invitation\templates\invitation\home.html:329
 msgid "Amanda Lim"
@@ -613,27 +609,30 @@ msgstr "乘坐地铁："
 
 #: .\invitation\templates\invitation\home.html:360
 msgid ""
-"Take the Downtown Line to Tampines East MRT (DT33). Walk 8 minutes to the "
-"church."
-msgstr "乘坐市区线到淡滨尼东站（DT33）。步行8分钟到教堂。"
+"Take the North–South Line to Toa Payoh MRT Station (Exit C). Head southeast on Lorong 4 Toa Payoh for about 8 minutes to 623 Lor 4 Toa Payoh."
+msgstr "乘坐南北线至大巴窑地铁站（C出口）。沿大巴窑4巷向东南方向行驶约8分钟，到达大巴窑4巷623号。"
 
 #: .\invitation\templates\invitation\home.html:363
 msgid "By Bus:"
 msgstr "乘坐巴士："
 
 #: .\invitation\templates\invitation\home.html:364
-msgid "Bus services 8, 18, 28, 29, 37, 291, 293 stop nearby."
-msgstr "巴士服务8、18、28、29、37、291、293路在附近停靠。"
+msgid "Bus services 125, 131, 141, 166, 167, 851 and 852 alight at Toa Payoh Lorong 4. Walk 2 minutes to the church."
+msgstr "125、131、141、166、167、851 和 852 路公交车在大巴窑 4 巷下车。步行 2 分钟即可到达教堂。"
 
 #: .\invitation\templates\invitation\home.html:367
 msgid "By Car:"
 msgstr "自驾："
 
 #: .\invitation\templates\invitation\home.html:368
-msgid ""
-"Free parking available at the church carpark (reserve beforehand).<br/>There "
-"are HDB carparks nearby as well."
-msgstr "教堂停车场提供免费停车（需提前预约）。<br/>附近也有组屋停车场。"
+msgid "Public HDB parking available along Lorong 4 Toa Payoh."
+msgstr "大巴窑 4 巷沿线设有公共 HDB 停车场。"
+
+msgid "623 Lor 4 Toa Payoh, Singapore 319518"
+msgstr "623 Lor 4 大巴窑, 新加坡 319518"
+
+msgid "Victory Family Centre Toa Payoh (Level 2)"
+msgstr "大巴窑胜利家庭中心（2楼）"
 
 #: .\invitation\templates\invitation\home.html:373
 msgid "View on Google Maps"
@@ -685,8 +684,8 @@ msgid "Will you be attending?"
 msgstr "您会出席吗？"
 
 #: .\invitation\templates\invitation\rsvp.html:157
-msgid "Church Carpark Slot Reservation (limited slots - allocated based on necessity)"
-msgstr "教堂停车位预订（车位有限 - 根据需求分配）"
+msgid "Church Carpark Slot Reservation (only 2 slots available - allocated based on necessity)"
+msgstr "教堂停车场预留（仅 2 个车位 - 根据需要分配）"
 
 #: .\invitation\templates\invitation\rsvp.html:176
 msgid "Any other comments:"
