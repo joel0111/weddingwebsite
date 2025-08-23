@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+body {
+    background: url('background_image.png') left center repeat;
+    color: #d6336c;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(214,51,108,0.12);
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+h1 {
+    color: #d6336c;
+    font-size: 2.5em;
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 700 !important;
+}
+/* Navigation Bar Styles */
+.navbar {
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* Removed bottom border for cleaner look */
+}
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+.nav-link {
+    color: #629685;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover {
+    text-decoration: underline;
+    color: #f783ac;
+}
+.nav-link.active {
+    text-decoration: underline;
+    color: #629685;
+}
+
+.nav-item-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.coming-soon {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f783ac;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+    pointer-events: none;
+    width: max-content;
+}
+.for-you {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: gold;
+    color: #243c5a;
+    font-size: 0.8em;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(214,51,108,0.08);
+    pointer-events: none;
+    width: max-content;
+}
+.lang-toggle {
+    display: flex;
+    gap: 8px;
+    margin-left: 24px;
+}
+.lang-btn {
+    background: #629685;
+    color: #fff;
+    border: 1.5px solid #629685;
+    border-radius: 6px;
+    padding: 6px 18px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.lang-btn.active, .lang-btn:hover {
+    background: #8AD4BC;
+    color: #fff;
+    border: 1.5px solid #8AD4BC;
+}
+#speaker-btn {
+    background: none;
+    border: none;
+    margin-left: 16px;
+    cursor: pointer;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+#speaker-icon {
+    font-size: 2.5rem;
+}
+#speaker-status {
+    margin-left: 8px;
+}
+.decorative-divider {
+    width: 100%;
+    height: 500px;
+    margin: -220px auto;
+    background-color:  #E0BFB8;
+    mask: url('ornamental_separator.png') center center / contain no-repeat;
+    -webkit-mask: url('ornamental_separator.png') center center / contain no-repeat;
+}
+/* Hover effect for couple-photo-art images */
+.couple-photo-art {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+.couple-photo-art:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
