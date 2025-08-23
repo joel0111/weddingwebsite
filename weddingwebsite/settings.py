@@ -141,9 +141,11 @@ LOCALE_PATHS = [
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    p for p in [BASE_DIR / 'invitation' / 'static', BASE_DIR / 'static'] if p.exists()
-]
+# Important: don't include app static folders in STATICFILES_DIRS; AppDirectoriesFinder
+# already discovers 'static' folders inside installed apps. Including them here causes
+# duplicate paths during collectstatic.
+_project_static = BASE_DIR / 'static'
+STATICFILES_DIRS = [_project_static] if _project_static.exists() else []
 # Use default staticfiles storage when DEBUG, otherwise use whitenoise manifest storage
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
