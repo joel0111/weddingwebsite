@@ -38,7 +38,10 @@ def rsvp(request):
                 f"Car Plate Number: {rsvp.car_plate_number}\n"
                 f"Reservation Reason: {rsvp.reservation_reason}\n"
             )
-            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
+            try:
+                send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
+            except Exception as e:
+                messages.warning(request, 'Your response was saved, but we could not send the notification email.')
             return redirect('rsvp_thanks')
     else:
         form = RSVPForm()
@@ -73,7 +76,10 @@ def volunteer(request):
                 f"Role Details: {volunteer.role_details}\n"
                 f"Comments: {volunteer.comments}\n"
             )
-            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
+            try:
+                send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
+            except Exception as e:
+                messages.warning(request, 'Your signup was saved, but we could not send the notification email.')
             return redirect('volunteer_thanks')
         else:
             messages.error(request, 'Please correct the errors below.')
