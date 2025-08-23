@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-csan(adwbl9y!**1t#bk4ykc8c190yij9l-8hfx+igl9oubc32
 SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Allow hosts from env (comma-separated), default to '*'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
@@ -151,6 +151,8 @@ if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # Reduce slug size by removing un-hashed originals from STATIC_ROOT
+    WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 # Security hardening in production
 if not DEBUG:
