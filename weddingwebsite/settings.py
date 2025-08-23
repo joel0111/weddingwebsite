@@ -28,9 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# Allow hosts from env (comma-separated), default to '*'
+# Allow hosts from env (comma-separated), default to Heroku and localhost
 # Normalize entries to support values like 'https://example.com' or 'example.com:443'
-_def_allowed = os.environ.get('ALLOWED_HOSTS', '*')
+_def_allowed = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com,localhost,127.0.0.1')
 
 def _parse_allowed_hosts(value: str):
     hosts = []
@@ -49,8 +49,8 @@ def _parse_allowed_hosts(value: str):
         # Strip port if present
         h = h.split(':', 1)[0]
         hosts.append(h.lower())
-    # Deduplicate preserving order; fall back to wildcard if empty
-    return list(dict.fromkeys(hosts)) or ['*']
+    # Deduplicate preserving order; fall back to safe defaults
+    return list(dict.fromkeys(hosts)) or ['.herokuapp.com', 'localhost', '127.0.0.1']
 
 ALLOWED_HOSTS = _parse_allowed_hosts(_def_allowed)
 

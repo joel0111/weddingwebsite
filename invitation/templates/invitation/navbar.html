@@ -7,8 +7,8 @@
             <a href="{% url 'gallery' %}" class="nav-link{% if request.resolver_match.url_name == 'gallery' %} active{% endif %}">{% trans "Gallery" %}</a>
             <span class="coming-soon">{% trans "Coming Soon" %}</span>
         </span>
-        <a href="{% url 'rsvp' %}" class="nav-link{% if request.resolver_match.url_name == 'rsvp' %} active{% endif %}">{% trans "RSVP" %}</a>
-        <a href="{% url 'volunteer' %}" class="nav-link{% if request.resolver_match.url_name == 'volunteer' %} active{% endif %}">{% trans "Volunteer" %}</a>
+        <a href="{% url 'rsvp' %}" class="nav-link{% if request.resolver_match.url_name == 'rsvp' or request.resolver_match.url_name == 'rsvp_thanks' %} active{% endif %}">{% trans "RSVP" %}</a>
+        <a href="{% url 'volunteer' %}" class="nav-link{% if request.resolver_match.url_name == 'volunteer' or request.resolver_match.url_name == 'volunteer_thanks' %} active{% endif %}">{% trans "Volunteer" %}</a>
         <span style="position:relative;display:inline-block;">
             <a href="{% url 'freebies' %}" class="nav-link{% if request.resolver_match.url_name == 'freebies' %} active{% endif %}">{% trans "Freebies" %}</a>
             <span class="for-you">{% trans "for you!" %}</span>
