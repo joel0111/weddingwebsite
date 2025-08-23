@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.i18n import set_language
+from django.views.generic.base import RedirectView
+from django.templatetags.static import static
 
 urlpatterns = [
+    # Serve a favicon from static files to avoid browser 404s
+    path('favicon.ico', RedirectView.as_view(url=static('heart.png'), permanent=True)),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('set_language/', set_language, name='set_language'),

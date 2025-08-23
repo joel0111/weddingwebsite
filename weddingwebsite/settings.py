@@ -29,7 +29,30 @@ SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Allow hosts from env (comma-separated), default to '*'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+# Normalize entries to support values like 'https://example.com' or 'example.com:443'
+_def_allowed = os.environ.get('ALLOWED_HOSTS', '*')
+
+def _parse_allowed_hosts(value: str):
+    hosts = []
+    for h in [x.strip() for x in value.split(',')]:
+        if not h:
+            continue
+        if h == '*':
+            return ['*']
+        # Strip scheme if present
+        if '://' in h:
+            h = h.split('://', 1)[1]
+        # Remove path, query, fragment
+        h = h.split('/', 1)[0]
+        h = h.split('?', 1)[0]
+        h = h.split('#', 1)[0]
+        # Strip port if present
+        h = h.split(':', 1)[0]
+        hosts.append(h.lower())
+    # Deduplicate preserving order; fall back to wildcard if empty
+    return list(dict.fromkeys(hosts)) or ['*']
+
+ALLOWED_HOSTS = _parse_allowed_hosts(_def_allowed)
 
 
 # Application definition
