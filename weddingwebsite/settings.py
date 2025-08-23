@@ -89,12 +89,28 @@ WSGI_APPLICATION = 'weddingwebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-     'default': dj_database_url.config(
-         default=os.environ.get('DATABASE_URL', f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
-         conn_max_age=600,
-     )
-}
+_db_url = os.environ.get('DATABASE_URL')
+_ssl_required = False
+if _db_url and _db_url.startswith(('postgres://', 'postgresql://')):
+    # Require SSL on hosted Postgres unless explicitly disabled
+    _ssl_required = (os.environ.get('DISABLE_DB_SSL', 'False') != 'True')
+
+if _db_url:
+    DATABASES = {
+        'default': dj_database_url.parse(
+            _db_url,
+            conn_max_age=600,
+            ssl_require=_ssl_required,
+        )
+    }
+else:
+    # Local default: SQLite without SSL options
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation

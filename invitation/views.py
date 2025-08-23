@@ -13,16 +13,22 @@ def rsvp(request):
         form = RSVPForm(request.POST)
         if form.is_valid():
             rsvp = form.save(commit=False)
-            rsvp.contact_number = request.POST.get('contact_number', '')
-            # Manually assign custom field values from POST
-            rsvp.dietary_preferences = request.POST.get('dietary', '')
-            rsvp.food_allergies = request.POST.get('allergies', '')
-            rsvp.other_comments = request.POST.get('comments', '')
-            carpark_reservation = request.POST.get('carpark_reservation', 'no')
+            # Prefer cleaned_data; fall back to POST where custom fields are used in template
+            rsvp.contact_number = form.cleaned_data.get('contact_number', '')
+            rsvp.dietary_preferences = form.cleaned_data.get('dietary_preferences')
+            rsvp.food_allergies = form.cleaned_data.get('food_allergies')
+            # Comments field is custom-named in template
+            rsvp.other_comments = request.POST.get('comments', form.cleaned_data.get('other_comments'))
+            # Carpark reservation custom radios
+            carpark_reservation = request.POST.get('carpark_reservation', '')
             rsvp.carpark_slot_reservation = (carpark_reservation == 'yes')
-            rsvp.car_plate_number = request.POST.get('carplate', '')
-            rsvp.reservation_reason = request.POST.get('reservation_reason', '')
-            rsvp.save()
+            rsvp.car_plate_number = request.POST.get('car_plate_number', form.cleaned_data.get('car_plate_number'))
+            rsvp.reservation_reason = form.cleaned_data.get('reservation_reason')
+            try:
+                rsvp.save()
+            except Exception as e:
+                messages.error(request, 'We could not save your RSVP. Please try again later.')
+                return render(request, 'invitation/rsvp.html', {'form': form})
             # Send notification email for RSVP
             subject = f"New RSVP from {rsvp.name}"
             message = (
