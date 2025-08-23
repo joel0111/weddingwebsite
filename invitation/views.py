@@ -57,37 +57,59 @@ def gallery(request):
     return render(request, 'invitation/gallery.html')
 
 def volunteer(request):
-    selected_roles = []
-    if request.method == 'POST':
-        form = VolunteerForm(request.POST)
-        selected_roles = request.POST.getlist('roles')
-        if form.is_valid():
-            volunteer = form.save(commit=False)
-            volunteer.save()
-            form.save_m2m()
-            # Send notification email for volunteer
-            subject = f"New Volunteer Signup: {volunteer.name}"
-            roles = ', '.join([r.name for r in volunteer.roles.all()])
-            message = (
-                f"Name: {volunteer.name}\n"
-                f"Email: {volunteer.email}\n"
-                f"Contact Number: {volunteer.contact_number}\n"
-                f"Roles: {roles}\n"
-                f"Role Details: {volunteer.role_details}\n"
-                f"Comments: {volunteer.comments}\n"
-            )
-            try:
-                send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
-            except Exception as e:
-                messages.warning(request, 'Your signup was saved, but we could not send the notification email.')
-            return redirect('volunteer_thanks')
+    try:
+        selected_roles = []
+        # Build a safe roles list for the template
+        roles_list = []
+        try:
+            roles_qs = VolunteerRole.objects.all().order_by('name')
+            roles_list = [{
+                'id': str(r.id),
+                'label': r.get_name_display(),
+                'slug': r.name.lower(),
+            } for r in roles_qs]
+        except Exception:
+            roles_list = []
+
+        if request.method == 'POST':
+            form = VolunteerForm(request.POST)
+            selected_roles = request.POST.getlist('roles')
+            if form.is_valid():
+                try:
+                    volunteer = form.save(commit=False)
+                    volunteer.save()
+                    form.save_m2m()
+                except Exception as e:
+                    messages.error(request, 'We had a problem saving your signup. Please try again later.')
+                    return render(request, 'invitation/volunteer.html', {'form': form, 'selected_roles': selected_roles, 'roles_list': roles_list})
+                # Send notification email for volunteer
+                subject = f"New Volunteer Signup: {volunteer.name}"
+                roles = ', '.join([r.name for r in volunteer.roles.all()])
+                message = (
+                    f"Name: {volunteer.name}\n"
+                    f"Email: {volunteer.email}\n"
+                    f"Contact Number: {volunteer.contact_number}\n"
+                    f"Roles: {roles}\n"
+                    f"Role Details: {volunteer.role_details}\n"
+                    f"Comments: {volunteer.comments}\n"
+                )
+                try:
+                    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.NOTIFICATION_EMAIL])
+                except Exception as e:
+                    messages.warning(request, 'Your signup was saved, but we could not send the notification email.')
+                return redirect('volunteer_thanks')
+            else:
+                messages.error(request, 'Please correct the errors below.')
         else:
-            messages.error(request, 'Please correct the errors below.')
-    else:
+            form = VolunteerForm()
+            if hasattr(form, 'initial') and 'roles' in form.initial:
+                selected_roles = [str(r) for r in form.initial['roles']]
+        return render(request, 'invitation/volunteer.html', {'form': form, 'selected_roles': selected_roles, 'roles_list': roles_list})
+    except Exception as e:
+        # Last-resort safety: never 500 this page
+        messages.error(request, 'Something went wrong. Please try again later.')
         form = VolunteerForm()
-        if hasattr(form, 'initial') and 'roles' in form.initial:
-            selected_roles = [str(r) for r in form.initial['roles']]
-    return render(request, 'invitation/volunteer.html', {'form': form, 'selected_roles': selected_roles})
+        return render(request, 'invitation/volunteer.html', {'form': form, 'selected_roles': [], 'roles_list': []})
 
 def volunteer_thanks(request):
     return render(request, 'invitation/volunteer_thanks.html')

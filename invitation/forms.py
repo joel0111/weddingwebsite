@@ -75,11 +75,13 @@ class VolunteerForm(forms.ModelForm):
         label=_("Contact Number"),
         widget=forms.TextInput(attrs={'placeholder': 'E.g. 9123 4567'})
     )
+    # Safe default queryset; real queryset set in __init__
     roles = forms.ModelMultipleChoiceField(
-        queryset=VolunteerRole.objects.all(),
+        queryset=VolunteerRole.objects.none(),
         required=True,
         label=_("Roles you'd like to help with")
     )
+
     class Meta:
         model = Volunteer
         fields = ['name', 'email', 'contact_number', 'roles', 'role_details', 'comments']
@@ -92,8 +94,16 @@ class VolunteerForm(forms.ModelForm):
             'roles': _("How would you like to help?")
         }
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': _('E.g. John')}),
-            'email': forms.EmailInput(attrs={'placeholder': _('E.g. john@gmail.com')}),
-            'role_details': forms.Textarea(attrs={'placeholder': _('Provide any details about your selected roles'), 'rows': 4, 'id': 'id_role_details'}),
-            'comments': forms.Textarea(attrs={'placeholder': _('Any comments or questions?')}),
+            'name': forms.TextInput(attrs={'placeholder': _("E.g. John")}),
+            'email': forms.EmailInput(attrs={'placeholder': _("E.g. john@gmail.com")}),
+            'role_details': forms.Textarea(attrs={'placeholder': _("Provide any details about your selected roles"), 'rows': 4, 'id': 'id_role_details'}),
+            'comments': forms.Textarea(attrs={'placeholder': _("Any comments or questions?")}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Lazily populate roles queryset; avoid 500 if table is missing
+        try:
+            self.fields['roles'].queryset = VolunteerRole.objects.all().order_by('name')
+        except Exception:
+            self.fields['roles'].queryset = VolunteerRole.objects.none()
