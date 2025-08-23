@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Allow hosts from env (comma-separated), default to Heroku and localhost
 # Normalize entries to support values like 'https://example.com' or 'example.com:443'
-_def_allowed = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com,localhost,127.0.0.1')
+_def_allowed = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com,localhost,127.0.0.1,joelamanda.com,.joelamanda.com')
 
 def _parse_allowed_hosts(value: str):
     hosts = []
@@ -86,7 +86,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
 
 # CSRF trusted origins for Heroku; comma-separated list in env
-_raw_csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://*.herokuapp.com')
+_raw_csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://*.herokuapp.com,https://joelamanda.com,https://*.joelamanda.com')
 CSRF_TRUSTED_ORIGINS = []
 for _origin in [h.strip() for h in _raw_csrf_origins.split(',') if h.strip()]:
     # If origin lacks a scheme, default to https://
