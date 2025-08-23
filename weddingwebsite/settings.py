@@ -63,7 +63,15 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
 
 # CSRF trusted origins for Heroku; comma-separated list in env
-CSRF_TRUSTED_ORIGINS = [h.strip() for h in os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://*.herokuapp.com').split(',') if h.strip()]
+_raw_csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://*.herokuapp.com')
+CSRF_TRUSTED_ORIGINS = []
+for _origin in [h.strip() for h in _raw_csrf_origins.split(',') if h.strip()]:
+    # If origin lacks a scheme, default to https://
+    if '://' not in _origin:
+        _origin = f'https://{_origin}'
+    CSRF_TRUSTED_ORIGINS.append(_origin)
+# Deduplicate while preserving order
+CSRF_TRUSTED_ORIGINS = list(dict.fromkeys(CSRF_TRUSTED_ORIGINS))
 
 ROOT_URLCONF = 'weddingwebsite.urls'
 
