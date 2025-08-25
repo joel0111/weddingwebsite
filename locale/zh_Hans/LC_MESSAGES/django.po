@@ -684,7 +684,7 @@ msgstr "您会出席吗？"
 
 #: .\invitation\templates\invitation\rsvp.html:157
 msgid "Church Carpark Slot Reservation (only 2 slots available - allocated based on necessity)"
-msgstr "教堂停车场预留（仅 2 个车位 - 根据需要要分配）"
+msgstr "教堂停车场预留（仅 2 个车位 - 根据需要分配）"
 
 #: .\invitation\templates\invitation\rsvp.html:176
 msgid "Any other comments:"
