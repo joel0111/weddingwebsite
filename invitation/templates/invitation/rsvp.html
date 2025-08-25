@@ -139,6 +139,7 @@
             <label for="id_contact_number" style="color: #d6336c; font-weight: bold;">{% trans "Contact Number:" %} <span style="color:red">*</span></label>
             <input type="tel" name="contact_number" id="id_contact_number" required class="rsvp-input">
             <label for="id_email" style="color: #d6336c; font-weight: bold;">{% trans "Email:" %}</label>
+            {{ form.email }}
             <label style="color: #d6336c; font-weight: bold;">{% trans "Who are you related to?" %} <span style="color:red">*</span></label>
             <div class="radio-group" id="connected_to_group">
                 <label>

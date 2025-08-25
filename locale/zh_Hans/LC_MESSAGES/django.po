@@ -626,7 +626,7 @@ msgstr "自驾："
 
 #: .\invitation\templates\invitation\home.html:368
 msgid "Public HDB parking available along Lorong 4 Toa Payoh."
-msgstr "��巴窑 4 巷沿线设有公共 HDB 停车场。"
+msgstr "大巴窑 4 巷沿线设有公共 HDB 停车场。"
 
 msgid "623 Lor 4 Toa Payoh, Singapore 319518"
 msgstr "623 Lor 4 大巴窑, 新加坡 319518"
@@ -684,7 +684,7 @@ msgstr "您会出席吗？"
 
 #: .\invitation\templates\invitation\rsvp.html:157
 msgid "Church Carpark Slot Reservation (only 2 slots available - allocated based on necessity)"
-msgstr "教堂停车场预留（仅 2 个车位 - 根据��要分配）"
+msgstr "教堂停车场预留（仅 2 个车位 - 根据需要要分配）"
 
 #: .\invitation\templates\invitation\rsvp.html:176
 msgid "Any other comments:"
@@ -717,33 +717,3 @@ msgid "Submit"
 msgstr "提交"
 
 
-
-#~ msgid "Our Story"
-#~ msgstr "我们的故事"
-
-#~ msgid "Photos"
-#~ msgstr "照片"
-
-#~ msgid "Q&A"
-#~ msgstr "问与答"
-
-#~ msgid "We are getting married!"
-#~ msgstr "我们要结婚了！"
-
-#~ msgid "Join us for the wedding of"
-#~ msgstr "诚挚邀请您参加我们的婚礼"
-
-#~ msgid "25th July 2025"
-#~ msgstr "2025年7月25日"
-
-#~ msgid "Save the Date"
-#~ msgstr "敬请预留日期"
-
-#~ msgid "Sign up to help out at our wedding!"
-#~ msgstr "报名成为我们婚礼的志愿者！"
-
-#~ msgid "Roles"
-#~ msgstr "角色"
-
-#~ msgid "Toggle Music"
-#~ msgstr "切换音乐"
