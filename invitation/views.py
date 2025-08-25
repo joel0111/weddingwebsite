@@ -36,7 +36,7 @@ def rsvp(request):
                 f"Email: {rsvp.email}\n"
                 f"Contact Number: {rsvp.contact_number}\n"
                 f"Attending: {rsvp.attending}\n"
-                f"Connected To: {rsvp.connected_to}\n"
+                f"Related To: {rsvp.connected_to}\n"
                 f"Dietary Preferences: {rsvp.dietary_preferences}\n"
                 f"Food Allergies: {rsvp.food_allergies}\n"
                 f"Other Comments: {rsvp.other_comments}\n"
