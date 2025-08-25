@@ -59,9 +59,6 @@ def rsvp_thanks(request):
 def heart_gate(request):
     return render(request, 'invitation/heart_gate.html')
 
-def gallery(request):
-    return render(request, 'invitation/gallery.html')
-
 def volunteer(request):
     try:
         selected_roles = []
